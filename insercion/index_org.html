@@ -1,0 +1,387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Periódico Oficial del Gobierno del Estado de Zacatecas</title>
+    <meta name="description" content="Here goes description" />
+    <meta name="author" content="author name" />
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
+
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/owl-carousel.css" />
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <link rel="stylesheet" href="../css/animate.css" />
+    <link rel="stylesheet" href="../css/icomoon.css" />
+    <link rel="stylesheet" href="../css/screen.css" />
+    
+	<script type="text/javascript" language="javascript">
+
+		function createCORSRequest(method, url) {
+			var xhr = new XMLHttpRequest();
+			if ("withCredentials" in xhr) {
+				// Check if the XMLHttpRequest object has a "withCredentials" property.
+				// "withCredentials" only exists on XMLHTTPRequest2 objects.
+				xhr.open(method, url, true);
+			} else if ( typeof XDomainRequest != "undefined") {
+				// Otherwise, check if XDomainRequest.
+				// XDomainRequest only exists in IE, and is IE's way of making CORS requests.
+				xhr = new XDomainRequest();
+				xhr.open(method, url);
+			} else {
+				// Otherwise, CORS is not supported by the browser.
+				xhr = null;
+			}
+			return xhr;
+		}
+
+		function makeCorsRequest(url, form) {
+			
+			document.getElementById("resultado").innerHTML = 'enviando...'
+			var xhr = createCORSRequest('POST', url);
+			if (!xhr) {
+				alert('CORS not supported');
+				return;
+			}
+			var formElement = document.getElementById(form);
+			var formData = new FormData(formElement);
+			// Response handlers.
+			xhr.onload = function() {
+				var response = JSON.parse(xhr.responseText);
+				displayList(response);
+				//alert('Response from CORS request to ' + url );
+			};
+			xhr.onerror = function() {
+				alert('Woops, there was an error making the request.');
+			};
+			xhr.send(formData);
+		}
+	
+		function displayList(arr) {
+			var str = JSON.stringify(arr, null, 4);
+			document.getElementById("resultado").innerHTML = 'JSON : ' + str;
+		}
+		
+    </script>
+	
+    <style>
+    
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}	
+    </style>
+</head>
+<body data-smooth-scroll="on">
+	<!-- Page Wrapper -->
+	<div class="page">
+		<!-- Header -->
+		<header>
+			<div class="container">
+				<div class="row">
+					<!-- Brand -->
+					<div class="col-xs-12 col-md-6">
+						<div class="brand">
+							<a href="../index.html"><img src="../img/brand.png" alt="brand" /></a>
+						</div>
+					</div>
+
+					<!-- Nav -->
+					<div class="col-xs-12 col-md-18">
+						<nav>
+							<ul>
+								<li><a href="../index.html">Inicio</a></li>
+								<li class="has-children">
+									<a href="">Ejemplares</a>
+									<ul class="children">
+										<li><a href="../busqueda">Búsqueda</a></li>
+										<li><a href="">Consulta Cronología</a></li>
+									</ul>
+								</li>
+								<li class="has-children current-menu-item">
+									<a href="">Trámites</a>
+									<ul class="children">
+										<li><a href="../insercion">Insercion</a></li>
+										<li><a href="">Carga Imagenes Inserción</a></li>
+										<li><a href="">Carga Transcripciones</a></li>
+										<li><a href="">Carga Leyes</a></li>
+										<li><a href="">Carga Períodicos Publicados</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Servicios</a></li>
+								<li><a href="#">Leyes y Reglamentos</a></li>
+								<li class="has-children">
+									<a href="">Parametros</a>
+									<ul class="children">
+										<li><a href="insercion">Tipos de Inserciones</a></li>
+										<li><a href="insercion">Categoría de Tipos</a></li>
+										<li><a href="insercion">Municipios</a></li>
+										<li><a href="insercion">Juzgados</a></li>
+										<li><a href="insercion">Calendario Publicaciones</a></li>
+										<li><a href="insercion">Contador Folio</a></li>
+										<li><a href="insercion">Tipos de Leyes</a></li>
+									</ul>
+								</li>
+							</ul>
+
+							<i class="responsive-menu-trigger icon-menu"></i>
+							
+						</nav>
+					</div>
+				</div>
+
+			</div>
+		</header>
+
+		<!-- Blog Section -->
+		<section class="blog-section">
+			<!-- Section Header -->
+			<div class="section-header inverted inverted-all">
+				<div class="container">
+					<h1>Inserción de Información</h1>
+					<p>	Ingrese los datos para iniciar el proceso de inserción de una publicación.</p>
+				</div>
+			</div>
+
+			<!-- Body -->
+			<div class="blog-section-wrapper">
+				<div class="container">
+					<div class="blog-content">
+                        <div class="row">
+							<div class="col-xs-22 col-xs-offset-1">
+								<div class="simple-template-form">
+									<h4 class="caption">Capture la información  a publicar:</h4>
+
+									<form class="respond-form" id="form_insert" name="form_insert">
+                                    	<input type="hidden"  name="usuario" value="Prointernet">
+                                    	<input type="hidden"  name="password" value="prointernet">
+                                    	<input type="hidden"  name="urlAlfresco" value="telcelr4.dinnova.com.mx:8081">
+                                        <input type="hidden"  name="path" value="/Sites/periodico-zacatecas/documentLibrary/Solicitudes de Insercion">
+										<div class="row">
+											<div class="col-sm-12">
+												<input class="input-line js-input" type="text" name="siFolio"  placeholder="Folio:" />
+											</div>
+											<div class="col-sm-12">
+												<input class="input-line js-input" type="text" name="siNombreSolicitante"  placeholder="Nombre de Solicitante" />
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-sm-12">
+												<input class="input-line js-input" type="text" name="siActor"  placeholder="Actor:" />
+											</div>
+											<div class="col-sm-12">
+												<input class="input-line js-input" type="text" name="siContraparte"  placeholder="Contraparte:" />
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-sm-12">
+                                                <select class="input-line js-input" name="siTipoInsercion" >
+                                                    <option disabled>Tipo de Insercion:</option>
+                                                    <option value="EDICTOS">Edicto</option>
+                                                    <option value="FRACCIONAMIENTOS">Fraccionamientos</option>
+                                                    <option value="GOBIERNO">Gobierno</option>
+                                                    <option value="PARTICULAR">Particular</option>
+                                                    <option value="JUDICIAL">Judicial</option>
+                                                    <option value="LEGISLATIVO">Legislativo</option>
+                                                    <option value="OTROS">Otros</option>
+                                                </select>
+											</div>
+											<div class="col-sm-12">
+                                                <select class="input-line js-input" name="siCategoria" >
+                                                    <option disabled>Categoría:</option>
+                                                    <option value="RESOLUCIONES">Resoluciones</option>
+                                                    <option value="NOTIFICACIONES">Notificaciones</option>
+                                                    <option value="AVISOS">Avisos</option>
+                                                    <option value="SENTENCIAS">Sentencias</option>
+                                                </select>
+											</div>
+										</div>
+
+
+										<div class="row">
+											<div class="col-sm-12">
+                                                <select class="input-line js-input" name="siMunicipio" >
+                                                    <option disabled>Municipio:</option>
+                                                    <option value="Zacatecas">Zacatecas</option>
+                                                    <option value="Apozol">Apozol</option>
+                                                    <option value="Apulco">Apulco</option>
+                                                    <option value="Atolinga">Atolinga</option>
+                                                    <option value="Benito Juárez">Benito Juárez</option>
+                                                    <option value="Cañitas de Felipe Pescador">Cañitas de Felipe Pescador</option>
+                                                    <option value="Concepción del Oro">Concepción del Oro</option>
+                                                    <option value="Cuauhtémoc">Cuauhtémoc</option>
+                                                    <option value="Chalchihuites">Chalchihuites</option>
+                                                </select>
+											</div>
+											<div class="col-sm-12">
+												<input class="input-line js-input" type="text" name="siJuzgado"  placeholder="Juzgado:" value="Juzgado 1 Civil" />
+											</div>
+										</div>
+
+										<textarea class="input-line js-input" name="siNotaSumario"  placeholder="Nota sumario:"></textarea>
+										
+										<div class="row">
+											<div class="col-sm-12">
+                                            
+                                        <span class="btn btn-default btn-file">
+                                            Archivo <input type="file" name="archivo" >
+                                        </span>
+
+											</div>
+										</div>
+                                        
+                                        
+                                        <br>
+                                        <hr>
+                                        
+										<div class="row">
+                                        	<div class="col-sm-12">
+                                        		<h4>Total de Publicaciones</h4>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="services-list-header">
+                                            <div class="row row-fit">
+                                                <div class="col-sm-12">
+                                                    <h4>Número de publicación</h4>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <h4>Fecha de publicación</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+										<br>
+										<div class="row">
+											<div class="col-sm-12">
+												<input class="input-line js-input" type="number" name="siVolumenesPublicacion"  placeholder="Numero de Inserciones:" value="58" />
+											</div>
+											<div class="col-sm-12">
+												<input class="input-line js-input" type="text" name="siFechasPublicacion"  placeholder="Fecha de Publicación" value="2015/07/25" />
+											</div>
+										</div>
+
+                                        <br>
+                                        <hr>
+  
+  
+  										<div class="row">
+                                        	<div class="col-sm-12">
+                                        		<h4>Información de pago</h4>
+                                            </div>
+                                        </div>
+                                      
+										<div class="row">
+											<div class="col-sm-4">
+												<input class="input-line js-input" type="number" name="siCantidadAPagar"  placeholder="Cantidad a pagar:" />
+											</div>
+											<div class="col-sm-4">
+												<input class="input-line js-input" type="text" name="siPartidaPagoNum" placeholder="Partida pago No." />
+											</div>
+											<div class="col-sm-4">
+												<input class="input-line js-input" type="text" name="siFecha"  placeholder="Fecha de Publicación" value="2015/03/15" />
+											</div>
+										</div>
+
+										
+										<div class="submit-button">
+                                        	<input type="button" value="Guardar" onclick="makeCorsRequest('http://telcelr4.dinnova.com.mx:9000/upload/solicitudinsercion','form_insert')"/>
+                                            <i class="icon icon-pencil"></i>
+										</div>
+
+									</form>
+                                    <ul id="resultado"></ul>
+								</div>
+							</div>
+						</div>
+                        
+
+
+                        
+                	</div>                            
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer>
+			<!-- Upper Block -->
+			<div class="upper-block">
+				<div class="container">
+					<div class="menu">
+						<ul>
+							<li><a href="../busqueda/index.html">Inicio</a></li>
+							<li><a href="#">Ejemplares</a></li>
+							<li><a href="#">Trámites</a></li>
+							<li><a href="#">Servicios</a></li>
+							<li><a href="#">Leyes y Reglamentos</a></li>
+							<li><a href="#">Parametros</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- Main Block -->
+			<div class="footer-widgets">
+				<div class="container">
+					<div class="row">
+						<!-- Info Section -->
+						<div class="col-md-12">
+							<div class="footer-widget info no-border">
+								<img src="../img/brand.png" alt="worker brand" />
+								<p>Gobierno del Estado de Zacatecas
+                                Circuito Cerro del Gato, Cd. Administrativa
+                                C.P. 98160 Zacatecas, Zacatecas.<br><br>
+                                Tel. (492) 4915000
+                                Habla con tu Gobernador</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Copyrights -->
+			<div class="copyrights">
+				<div class="container">
+					<p><a href="#">GOBIERNO DE ZACATECAS</a></p>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<!-- Scripts -->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/modernizr.js"></script>
+	<script src="../js/smooth-scroll.js"></script>
+	<script src="../js/jquery-ui.js"></script>
+	<script src="../js/isotope.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/owl-carousel.js"></script>
+	<script src="../js/visible.js"></script>
+	<script src="../js/knob.js"></script>
+	<script src="../js/options.js"></script>
+    
+
+</body>
+</html>

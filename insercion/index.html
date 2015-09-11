@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Periódico Oficial del Gobierno del Estado de Zacatecas</title>
+    <meta name="description" content="Here goes description" />
+    <meta name="author" content="author name" />
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
+
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/owl-carousel.css" />
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <link rel="stylesheet" href="../css/animate.css" />
+    <link rel="stylesheet" href="../css/icomoon.css" />
+    <link rel="stylesheet" href="../css/screen.css" />
+</head>
+<body data-smooth-scroll="on">
+	<!-- Page Wrapper -->
+	<div class="page">
+		<!-- Header -->
+		<header>
+			<div class="container">
+				<div class="row">
+					<!-- Brand -->
+					<div class="col-xs-12 col-md-6">
+						<div class="brand">
+							<a href="../index.html"><img src="../img/brand.png" alt="brand" /></a>
+						</div>
+					</div>
+
+					<!-- Nav -->
+					<div class="col-xs-12 col-md-18">
+						<nav>
+							<ul>
+								<li><a href="../index.html">Inicio</a></li>
+								<li class="has-children">
+									<a href="">Ejemplares</a>
+									<ul class="children">
+										<li><a href="../busqueda">Búsqueda</a></li>
+										<li><a href="">Consulta Cronología</a></li>
+									</ul>
+								</li>
+								<li class="has-children current-menu-item">
+									<a href="">Trámites</a>
+									<ul class="children">
+										<li><a href="../insercion/">Insercion</a></li>
+										<li><a href="../carga-imagen/">Carga Imagenes Inserción</a></li>
+										<li><a href="../carga-transcrito/">Carga Transcripciones</a></li>
+										<li><a href="">Carga Leyes</a></li>
+										<li><a href="">Carga Períodicos Publicados</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Servicios</a></li>
+								<li><a href="#">Leyes y Reglamentos</a></li>
+								<li class="has-children">
+									<a href="">Parametros</a>
+									<ul class="children">
+										<li><a href="">Tipos de Inserciones</a></li>
+										<li><a href="">Categoría de Tipos</a></li>
+										<li><a href="">Municipios</a></li>
+										<li><a href="">Juzgados</a></li>
+										<li><a href="">Calendario Publicaciones</a></li>
+										<li><a href="">Contador Folio</a></li>
+										<li><a href="">Tipos de Leyes</a></li>
+									</ul>
+								</li>
+							</ul>
+
+							<i class="responsive-menu-trigger icon-menu"></i>
+							
+						</nav>
+					</div>
+				</div>
+
+			</div>
+		</header>
+
+		<!-- Blog Section -->
+		<section class="blog-section">
+			<!-- Section Header -->
+			<div class="section-header inverted inverted-all">
+				<div class="container">
+					<h1>Inserción de Información</h1>
+					<p>	Ingrese los datos para iniciar el proceso de inserción de una publicación.</p>
+				</div>
+			</div>
+
+			<!-- Body -->
+			<div class="blog-section-wrapper">
+				<div class="container">
+					<div class="blog-content">
+                        <div class="row">
+							<div class="col-xs-22 col-xs-offset-1">
+								<div class="simple-template-form">
+									<h4 class="caption">Capture la información  a publicar:</h4>
+
+									<form class="respond-form" id="dataForm" name="dataForm">
+                                    	<input type="hidden"  name="usuario" value="admin">
+                                    	<input type="hidden"  name="password" value="pofzacatecas123">
+                                    	<input type="hidden"  name="urlAlfresco" value="189.254.255.72:8080">
+                                        <input type="hidden"  name="path" value="/Sitios/periodico-zacatecas/documentLibrary/Solicitudes de Insercion">
+                                        
+                                        <div class="row">
+											<div class="col-sm-12">
+												<input class="input-line js-input" type="text" name="siNombreSolicitante"  placeholder="Nombre de Solicitante" value=""/>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-sm-12">
+												<input class="input-line js-input" type="text" name="siActor"  placeholder="Actor:" value=""/>
+											</div>
+											<div class="col-sm-12">
+												<input class="input-line js-input" type="text" name="siContraparte"  placeholder="Contraparte:" value=""/>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-sm-12">
+                                                <select class="input-line js-input" name="siTipoInsercion" onChange="TipoInser(this,this.form.siCategoria);">
+                                                    <option disabled selected>Tipo de Insercion:</option>
+                                                    <option value="Particular">Particular</option>
+                                                    <option value="Gobierno">Gobierno</option>
+                                                    <option value="Legislativo">Legislativo</option>
+                                                    <option value="Judicial">Judicial</option>
+                                                    <option value="Fraccionamiento">Fraccionamiento</option>
+                                                    <option value="Edictos">Edictos</option>
+                                                    <option value="Otros">Otros</option>
+                                                </select>
+											</div>
+											<div class="col-sm-12">
+                                                <select class="input-line js-input" name="siCategoria" >
+                                                    <option disabled>Categoría:</option>
+                                                </select>
+											</div>
+										</div>
+
+
+										<div class="row">
+											<div class="col-sm-12">
+                                                <select class="input-line js-input" name="siMunicipio" onChange="Juzgados(this,this.form.siJuzgado);">
+                                                    <option disabled selected>Municipio:</option>
+                                                    <option value="Zacatecas">Zacatecas</option>
+                                                    <option value="Fresnillo">Fresnillo</option>
+                                                    <option value="RioGrande">Rio Grande</option>
+                                                    <option value="Sombrerete">Sombrerete</option>
+                                                    <option value="Tlaltenango">Tlaltenango</option>
+                                                    <option value="Calera">Calera</option>
+                                                    <option value="ConcepcióndelOro">Concepción del Oro</option>
+                                                    <option value="Jalpa">Jalpa</option>
+                                                    <option value="Juchipila">Juchipila</option>
+                                                    <option value="Loreto">Loreto</option>
+                                                    <option value="MiguelAuza">Miguel Auza</option>
+                                                    <option value="Nochistlan">Nochistlan</option>
+                                                    <option value="OjoCaliente">Ojo Caliente</option>
+                                                    <option value="Pinos">Pinos</option>
+                                                    <option value="TeuldeGonzalezOrtega">Teul De Gonzalez Ortega</option>
+                                                    <option value="Valparaiso">Valparaiso</option>
+                                                    <option value="Villanueva">Villanueva</option>
+                                                </select>
+											</div>
+											<div class="col-sm-12">
+                                                <select class="input-line js-input" name="siJuzgado" >
+                                                    <option disabled>Juzgado:</option>
+                                                </select>
+                                            </div>
+										</div>
+
+										<textarea class="input-line js-input" name="siNotaSumario"  placeholder="Nota sumario:"></textarea>
+										
+                                        <br>
+                                        <hr>
+                                        
+										<div class="row">
+                                        	<div class="col-sm-12">
+                                        		<h4>Total de Publicaciones:</h4>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <input type="number" class="input-line js-input" name="siNumInserciones" value="1" onChange="publicaciones(this)" max="99" min="1">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="services-list-header">
+                                            <div class="row row-fit">
+                                                <div class="col-sm-12">
+                                                    <h4>Número de publicación</h4>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <h4>Fecha de publicación</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+										<br>
+										
+                                        <div class="row">
+											<div class="col-sm-12">
+												<input class="input-line js-input" type="number" name="siVolumenesPublicacion[]" id="siVolumenesPublicacion1"  placeholder="Numero de Inserciones:" value="" onChange="Fechas(this,siFechasPublicacion1);"/>
+											</div>
+											<div class="col-sm-12">
+												<input class="input-line js-input" type="text" name="siFechasPublicacion[]"  id="siFechasPublicacion1" placeholder="Fecha de Publicación" value="" />
+											</div>
+										</div>
+                                        <div class="row" id="PUBLICACIONES">
+										</div>
+                                        
+                                        <br>
+                                        <hr>
+  
+  
+  										<div class="row">
+                                        	<div class="col-sm-12">
+                                        		<h4>Información de pago</h4>
+                                            </div>
+                                        </div>
+                                      
+										<div class="row">
+											<div class="col-sm-4">
+												<input class="input-line js-input" type="number" name="siCantidadAPagar"  placeholder="Cantidad a pagar:" value=""/>
+											</div>
+											<div class="col-sm-4">
+												<input class="input-line js-input" type="text" name="siPartidaPagoNum" placeholder="Partida pago No." value=""/>
+											</div>
+											<div class="col-sm-4">
+												<input class="input-line js-input" type="text" name="siFecha"  placeholder="Fecha de Publicación" value="" />
+											</div>
+										</div>
+
+										
+										<div class="submit-button">
+                                        	<input type="button" value="Guardar" onclick="insertarSolicitud('http://189.254.255.72:9000')"/>
+                                            <i class="icon icon-pencil"></i>
+										</div>
+
+									</form>
+                                    <ul id="resultado"></ul>
+								</div>
+							</div>
+						</div>
+                        
+
+
+                        
+                	</div>                            
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer>
+			<!-- Upper Block -->
+			<div class="upper-block">
+				<div class="container">
+					<div class="menu">
+						<ul>
+							<li><a href="../index.html">Inicio</a></li>
+							<li><a href="#">Ejemplares</a></li>
+							<li><a href="#">Trámites</a></li>
+							<li><a href="#">Servicios</a></li>
+							<li><a href="#">Leyes y Reglamentos</a></li>
+							<li><a href="#">Parametros</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- Main Block -->
+			<div class="footer-widgets">
+				<div class="container">
+					<div class="row">
+						<!-- Info Section -->
+						<div class="col-md-12">
+							<div class="footer-widget info no-border">
+								<img src="../img/brand.png" alt="worker brand" />
+								<p>Gobierno del Estado de Zacatecas
+                                Circuito Cerro del Gato, Cd. Administrativa
+                                C.P. 98160 Zacatecas, Zacatecas.<br><br>
+                                Tel. (492) 4915000
+                                Habla con tu Gobernador</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Copyrights -->
+			<div class="copyrights">
+				<div class="container">
+					<p><a href="#">GOBIERNO DE ZACATECAS</a></p>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+
+	<!-- Scripts -->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/modernizr.js"></script>
+	<script src="../js/smooth-scroll.js"></script>
+	<script src="../js/jquery-ui.js"></script>
+	<script src="../js/isotope.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/owl-carousel.js"></script>
+	<script src="../js/visible.js"></script>
+	<script src="../js/knob.js"></script>
+	<script src="../js/options.js"></script>
+	<script src="../js/jspdf.debug.js"></script>
+	<script src="../js/insert/jsInsert.js"></script>
+	<script src="../js/tipos/tipos_inserciones.js"></script>   
+	<script src="../js/juzgados/juzgados.js"></script>   
+	<script src="../js/calendario/CalendarioPublicaciones.js"></script>   
+     
+</body>
+</html>

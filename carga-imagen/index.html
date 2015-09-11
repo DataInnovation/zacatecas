@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    <title>Periódico Oficial del Gobierno del Estado de Zacatecas</title>
+    <meta name="description" content="Here goes description" />
+    <meta name="author" content="author name" />
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
+
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/owl-carousel.css" />
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <link rel="stylesheet" href="../css/animate.css" />
+    <link rel="stylesheet" href="../css/icomoon.css" />
+    <link rel="stylesheet" href="../css/screen.css" />
+</head>
+<body data-smooth-scroll="on">
+	<!-- Page Wrapper -->
+	<div class="page">
+		<!-- Header -->
+		<header>
+			<div class="container">
+				<div class="row">
+					<!-- Brand -->
+					<div class="col-xs-12 col-md-6">
+						<div class="brand">
+							<a href="../index.html"><img src="../img/brand.png" alt="brand" /></a>
+						</div>
+					</div>
+
+					<!-- Nav -->
+					<div class="col-xs-12 col-md-18">
+						<nav>
+							<ul>
+								<li><a href="../index.html">Inicio</a></li>
+								<li class="has-children">
+									<a href="">Ejemplares</a>
+									<ul class="children">
+										<li><a href="../busqueda">Búsqueda</a></li>
+										<li><a href="">Consulta Cronología</a></li>
+									</ul>
+								</li>
+								<li class="has-children current-menu-item">
+									<a href="">Trámites</a>
+									<ul class="children">
+										<li><a href="../insercion/">Insercion</a></li>
+										<li><a href="../carga-imagen/">Carga Imagenes Inserción</a></li>
+										<li><a href="../carga-transcrito/">Carga Transcripciones</a></li>
+										<li><a href="">Carga Leyes</a></li>
+										<li><a href="">Carga Períodicos Publicados</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Servicios</a></li>
+								<li><a href="#">Leyes y Reglamentos</a></li>
+								<li class="has-children">
+									<a href="">Parametros</a>
+									<ul class="children">
+										<li><a href="">Tipos de Inserciones</a></li>
+										<li><a href="">Categoría de Tipos</a></li>
+										<li><a href="">Municipios</a></li>
+										<li><a href="">Juzgados</a></li>
+										<li><a href="">Calendario Publicaciones</a></li>
+										<li><a href="">Contador Folio</a></li>
+										<li><a href="">Tipos de Leyes</a></li>
+									</ul>
+								</li>
+							</ul>
+
+							<i class="responsive-menu-trigger icon-menu"></i>
+							
+						</nav>
+					</div>
+				</div>
+
+			</div>
+		</header>
+
+		<!-- Blog Section -->
+		<section class="blog-section">
+			<!-- Section Header -->
+			<div class="section-header inverted inverted-all">
+				<div class="container">
+					<h1>Carga de Información</h1>
+					<p>	Ingrese los datos para la Carga de Imagenes.</p>
+				</div>
+			</div>
+
+			<!-- Body -->
+			<div class="blog-section-wrapper">
+				<div class="container">
+					<div class="blog-content">
+                        <div class="row">
+							<div class="col-xs-22 col-xs-offset-1">
+								<div class="simple-template-form">
+									<h4 class="caption">Carga imagen:</h4>
+
+									<form id="form-carga-doc" name="formcargadoc" class="respond-form" method="post" action="">
+                                    	<input type="hidden"  name="usuario" value="admin">
+                                    	<input type="hidden"  name="password" value="pofzacatecas123">
+                                        <input type="hidden"  name="urlAlfresco" value="189.254.255.72:8080">
+                                        <input type="hidden"  name="path" value="/Sitios/periodico-zacatecas/documentLibrary/Imagenes de Insercion">
+										<div class="row">
+											<div class="col-sm-12">
+												<input class="input-line js-input" type="text" name="tFolio" placeholder="Folio:" value="" />
+											</div>
+                                        </div>
+
+										<div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-btn">
+                                                        <span class="btn btn-default btn-file">
+                                                            <i class="icon icon-search"> </i>  Seleccionar Archivo <input type="file" name="archivo">
+                                                        </span>
+                                                    </span>
+                                                    <input type="text" class="form-control" name="labelFile" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+
+										<br>
+                                        
+										<div class="submit-button">
+											<input type="button" value="Guardar" onClick="makeCorsRequest('http://189.254.255.72:9000/upload/imagenInsercion', 'form-carga-doc')" />
+											<i class="icon icon-pencil"></i>
+										</div>
+
+									</form>
+                                    <ul id="resultado"></ul>
+
+								</div>
+                                
+							</div>
+						</div>
+                        
+
+
+                        
+                	</div>                            
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer>
+			<!-- Upper Block -->
+			<div class="upper-block">
+				<div class="container">
+					<div class="menu">
+						<ul>
+							<li><a href="../index.html">Inicio</a></li>
+							<li><a href="#">Ejemplares</a></li>
+							<li><a href="#">Trámites</a></li>
+							<li><a href="#">Servicios</a></li>
+							<li><a href="#">Leyes y Reglamentos</a></li>
+							<li><a href="#">Parametros</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- Main Block -->
+			<div class="footer-widgets">
+				<div class="container">
+					<div class="row">
+						<!-- Info Section -->
+						<div class="col-md-12">
+							<div class="footer-widget info no-border">
+								<img src="../img/brand.png" alt="worker brand" />
+								<p>Gobierno del Estado de Zacatecas
+                                Circuito Cerro del Gato, Cd. Administrativa
+                                C.P. 98160 Zacatecas, Zacatecas.<br><br>
+                                Tel. (492) 4915000
+                                Habla con tu Gobernador</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Copyrights -->
+			<div class="copyrights">
+				<div class="container">
+					<p><a href="#">GOBIERNO DE ZACATECAS</a></p>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<!-- Scripts -->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/modernizr.js"></script>
+	<script src="../js/smooth-scroll.js"></script>
+	<script src="../js/jquery-ui.js"></script>
+	<script src="../js/images.js"></script>
+	<script src="../js/isotope.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/owl-carousel.js"></script>
+	<script src="../js/visible.js"></script>
+	<script src="../js/knob.js"></script>
+	<script src="../js/options.js"></script>
+    
+    <script language="javascript">
+
+
+		$(document).on('change', '.btn-file :file', function() {
+		  var input = $(this),
+			  numFiles = input.get(0).files ? input.get(0).files.length : 1,
+			  label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		  input.trigger('fileselect', [numFiles, label]);
+		});
+		
+		$(document).ready( function() {
+			$('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+				
+				var input = $(this).parents('.input-group').find(':text'),
+					log = numFiles > 1 ? numFiles + ' files selected' : label;
+				
+				if( input.length ) {
+					input.val(log);
+				} else {
+					if( log ) alert(log);
+				}
+				
+			});
+		});
+		
+
+		function createCORSRequest(method, url) {
+		  var xhr = new XMLHttpRequest();
+		  if ("withCredentials" in xhr) {
+		    xhr.open(method, url, true);
+		  } else if (typeof XDomainRequest != "undefined") {
+		    xhr = new XDomainRequest();
+		    xhr.open(method, url);
+		  } else {
+		    xhr = null;
+		  }
+		  return xhr;
+		}
+	
+		function makeCorsRequest(url,form) {
+
+		  	var xhr = createCORSRequest('POST', url);
+		  	if (!xhr) {
+		    	alert('CORS not supported');
+		    	return;
+		  	}
+		  	var formElement = document.getElementById(form);
+		  	var formData = new FormData(formElement);
+
+			xhr.onload = function() {
+				var response = JSON.parse( xhr.responseText);
+				document.getElementById("resultado").innerHTML = response.Causa;	
+				
+				if (response.Resultado==1){
+					document.formcargadoc.tFolio.value = "";	
+					document.formcargadoc.labelFile.value = "";	
+				}							
+		  	};
+		  	xhr.onerror = function() {
+		    alert('Woops, there was an error making the request.');
+		  	};
+		  	xhr.send(formData);
+		}
+
+	
+		
+	</script>
+    
+</body>
+</html>

@@ -44,19 +44,19 @@
 										<li><a href="">Consulta Cronología</a></li>
 									</ul>
 								</li>
-								<li class="has-children current-menu-item">
+								<li class="has-children">
 									<a href="">Trámites</a>
 									<ul class="children">
-										<li><a href="../insercion/">Insercion</a></li>
-										<li><a href="../carga-imagen/">Carga Imagenes Inserción</a></li>
-										<li><a href="../carga-transcrito/">Carga Transcripciones</a></li>
+										<li><a href="../insercion">Insercion</a></li>
+										<li><a href="../carga-imagen">Carga Imagenes Inserción</a></li>
+										<li><a href="../carga-transcrito">Carga Transcripciones</a></li>
 										<li><a href="">Carga Leyes</a></li>
 										<li><a href="">Carga Períodicos Publicados</a></li>
 									</ul>
 								</li>
 								<li><a href="#">Servicios</a></li>
 								<li><a href="#">Leyes y Reglamentos</a></li>
-								<li class="has-children">
+								<li class="has-children current-menu-item">
 									<a href="">Parametros</a>
 									<ul class="children">
 										<li><a href="">Tipos de Inserciones</a></li>
@@ -84,8 +84,8 @@
 			<!-- Section Header -->
 			<div class="section-header inverted inverted-all">
 				<div class="container">
-					<h1>Carga de Información</h1>
-					<p>	Ingrese los datos para la Carga de Transcritos.</p>
+					<h1>Lista de Juzgados </h1>
+					<p>Juzgados considerados para uso de inserciones y consultas.</p>
 				</div>
 			</div>
 
@@ -95,54 +95,14 @@
 					<div class="blog-content">
                         <div class="row">
 							<div class="col-xs-22 col-xs-offset-1">
-								<div class="simple-template-form">
-									<h4 class="caption">Carga Transcrito:</h4>
-
-									<form id="form-carga-doc" name="formcargadoc" class="respond-form" method="post" action="">
-                                    	<input type="hidden"  name="usuario" value="admin">
-                                    	<input type="hidden"  name="password" value="pofzacatecas123">
-                                        <input type="hidden"  name="urlAlfresco" value="189.254.255.72:8080">
-                                        <input type="hidden"  name="path" value="/Sitios/periodico-zacatecas/documentLibrary/Transcritos">
-										<div class="row">
-											<div class="col-sm-12">
-												<input class="input-line js-input" type="text" name="tFolio" placeholder="Folio:" value="" />
-											</div>
-                                        </div>
-
-										<div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-btn">
-                                                        <span class="btn btn-default btn-file">
-                                                            <i class="icon icon-search"> </i>  Seleccionar Archivo <input type="file" name="archivo">
-                                                        </span>
-                                                    </span>
-                                                    <input type="text" class="form-control" name="labelFile" disabled>
-                                                </div>
-                                            </div>
-                                        </div>
-
-										<br>
-                                        
-										<div class="submit-button">
-											<input type="button" value="Guardar" onClick="makeCorsRequest('http://189.254.255.72:9000/upload/transcrito', 'form-carga-doc')" />
-											<i class="icon icon-pencil"></i>
-										</div>
-
-									</form>
-                                    <ul id="resultado"></ul>
-
+								<div class="simple-template-form" id="JUZGADOS">
 								</div>
-                                
 							</div>
 						</div>
-                        
-
-
-                        
                 	</div>                            
 				</div>
 			</div>
+            
 		</section>
 
 		<!-- Footer -->
@@ -203,72 +163,41 @@
 	<script src="../js/visible.js"></script>
 	<script src="../js/knob.js"></script>
 	<script src="../js/options.js"></script>
-    
+	
     <script language="javascript">
-
-
-		$(document).on('change', '.btn-file :file', function() {
-		  var input = $(this),
-			  numFiles = input.get(0).files ? input.get(0).files.length : 1,
-			  label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-		  input.trigger('fileselect', [numFiles, label]);
-		});
 		
-		$(document).ready( function() {
-			$('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+		function slctr(texto,valor){
+			this.texto = texto
+			this.valor = valor
+		}
+	
+	</script>
+    
+	<script src="../js/municipios/municipios.js"></script>
+	<script src="../js/juzgados/juzgados.js"></script>
+
+    <script language="javascript">
+		
+		var txt_lista="";
+		for (x=0;x<Municipios.length;x++){
+			
+			if (x==0){
+				txt_lista="<h4 class='caption'>Juzgados por Municipio</h4><br>"
+			}else{
 				
-				var input = $(this).parents('.input-group').find(':text'),
-					log = numFiles > 1 ? numFiles + ' files selected' : label;
-				
-				if( input.length ) {
-					input.val(log);
-				} else {
-					if( log ) alert(log);
+				txt_lista+=	"<br><strong> "+ Municipios[x].texto + "</strong><br>"
+				cual = eval(Municipios[x].valor);
+
+				for(m=1;m<cual.length;m++){
+					var nuevaOpcion = cual[m].texto;
+					txt_lista+= "&nbsp; &nbsp;  "+nuevaOpcion + "<br>";
 				}
-				
-			});
-		});
+					
+			}
+			
+		}	
 		
-
-		function createCORSRequest(method, url) {
-		  var xhr = new XMLHttpRequest();
-		  if ("withCredentials" in xhr) {
-		    xhr.open(method, url, true);
-		  } else if (typeof XDomainRequest != "undefined") {
-		    xhr = new XDomainRequest();
-		    xhr.open(method, url);
-		  } else {
-		    xhr = null;
-		  }
-		  return xhr;
-		}
-	
-		function makeCorsRequest(url,form) {
-
-		  	var xhr = createCORSRequest('POST', url);
-		  	if (!xhr) {
-		    	alert('CORS not supported');
-		    	return;
-		  	}
-		  	var formElement = document.getElementById(form);
-		  	var formData = new FormData(formElement);
-
-			xhr.onload = function() {
-				var response = JSON.parse( xhr.responseText);
-				document.getElementById("resultado").innerHTML = response.Causa;	
-				
-				if (response.Resultado==1){
-					document.formcargadoc.tFolio.value = "";	
-					document.formcargadoc.labelFile.value = "";	
-				}							
-		  	};
-		  	xhr.onerror = function() {
-		    alert('Woops, there was an error making the request.');
-		  	};
-		  	xhr.send(formData);
-		}
-
-	
+		$("#JUZGADOS").html(txt_lista);
 		
 	</script>
     

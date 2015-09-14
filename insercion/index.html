@@ -148,24 +148,6 @@
 										<div class="row">
 											<div class="col-sm-12">
                                                 <select class="input-line js-input" name="siMunicipio" onChange="Juzgados(this,this.form.siJuzgado);">
-                                                    <option disabled selected>Municipio:</option>
-                                                    <option value="Zacatecas">Zacatecas</option>
-                                                    <option value="Fresnillo">Fresnillo</option>
-                                                    <option value="RioGrande">Rio Grande</option>
-                                                    <option value="Sombrerete">Sombrerete</option>
-                                                    <option value="Tlaltenango">Tlaltenango</option>
-                                                    <option value="Calera">Calera</option>
-                                                    <option value="ConcepcióndelOro">Concepción del Oro</option>
-                                                    <option value="Jalpa">Jalpa</option>
-                                                    <option value="Juchipila">Juchipila</option>
-                                                    <option value="Loreto">Loreto</option>
-                                                    <option value="MiguelAuza">Miguel Auza</option>
-                                                    <option value="Nochistlan">Nochistlan</option>
-                                                    <option value="OjoCaliente">Ojo Caliente</option>
-                                                    <option value="Pinos">Pinos</option>
-                                                    <option value="TeuldeGonzalezOrtega">Teul De Gonzalez Ortega</option>
-                                                    <option value="Valparaiso">Valparaiso</option>
-                                                    <option value="Villanueva">Villanueva</option>
                                                 </select>
 											</div>
 											<div class="col-sm-12">
@@ -320,7 +302,8 @@
 	<script src="../js/juzgados/juzgados.js"></script>   
 	<script src="../js/calendario/CalendarioPublicaciones.js"></script>   
 	<script src="../js/bootstrap-datepicker.js"></script>
-    
+	<script src="../js/municipios/municipios.js"></script>
+
     <script language="javascript">
 
 		$(document).ready(function() {	
@@ -336,6 +319,16 @@
 	  
 		}); 
 
+		for (m=0;m<Municipios.length;m++){
+			var nuevaOpcion = new Option(Municipios[m].texto);
+			document.dataForm.siMunicipio.options[m] = nuevaOpcion;
+			if (m==0){
+				document.dataForm.siMunicipio.options[m].value = "";
+			}
+			else{
+				document.dataForm.siMunicipio.options[m].value = Municipios[m].valor;
+			}
+		}	
 
 	</script>
     

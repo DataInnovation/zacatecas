@@ -8,8 +8,17 @@
 		this.fecha = fecha
 	}
 
-	function TipoInser(cual,donde){
+	function TipoInser(cual,donde, juzgados){
+		
 		if(cual.selectedIndex != 0){
+			if(cual.selectedIndex == 4 || cual.selectedIndex == 6  ){
+				document.getElementById(juzgados).disabled = false;
+				
+			}
+			else{
+				document.getElementById(juzgados).disabled = true;
+				
+			}
 			donde.length=0
 			cual = eval(cual.value)
 			for(m=0;m<cual.length;m++){

@@ -371,7 +371,7 @@
 				//alert("key is " + [key] + ", value is " + data[key]);
 			}
 			document.getElementById("resultado").innerHTML = "Solicitud registrada con éxito!, FOLIO : " + data.folio;
-			//doc.output('dataurlnewwindow');
+			doc.output('dataurlnewwindow');
 		});
 		resultadoWS.fail(function(data) {
 			alert("Error: " + data.responseText);

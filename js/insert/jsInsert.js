@@ -131,218 +131,171 @@
 		
 				
 		//Creación del PDF y su contenido
-		var doc = new jsPDF();
-		doc.setFont("sans-serif");
-		doc.setFontType("normal");
-		
-		//marco1
-		doc.setLineWidth(.5);
-		doc.setDrawColor(0); 
-		doc.setFillColor(255, 255, 255); 
-		doc.roundedRect(10, 10, 190,175, 1, 1, 'FD');		
-		
-		//logo
-		doc.addImage(logo, 'JPEG', 15, 15, 65, 40);
-		
-		var text = 'Folio: '+folio;
-		var textWidth = doc.getStringUnitWidth(text) * doc.internal.getFontSize() / doc.internal.scaleFactor;
-		var textOffset = ((doc.internal.pageSize.width - textWidth) / 8) * 7;
-		doc.text(textOffset, 20, text);
+				var doc = new jsPDF();
+				doc.setFont("sans-serif");
+				doc.setFontType("normal");
+				
+				//marco1
+				doc.setLineWidth(.5);
+				doc.setDrawColor(0); 
+				doc.setFillColor(255, 255, 255); 
+				doc.roundedRect(10, 10, 190,175, 1, 1, 'FD');		
+				
+				//logo
+				doc.addImage(logo, 'JPEG', 15, 15, 65, 40);
+				
+				var text = 'Folio: '+folio;
+   				var textWidth = doc.getStringUnitWidth(text) * doc.internal.getFontSize() / doc.internal.scaleFactor;
+   				var textOffset = ((doc.internal.pageSize.width - textWidth) / 8) * 7;
+  				doc.text(textOffset, 20, text);
 
-		//4 lineas primera parte marco1
-		doc.setLineWidth(0);
-		doc.setDrawColor(0,0,0);
-		doc.line(20, 60, 190, 60);
-		doc.line(20, 70, 190, 70);
-		doc.line(20, 80, 190, 80);
-		doc.line(20, 90, 190, 90);
-		//valores bajo las lineas
-		doc.setFontSize(7);
-		doc.setTextColor(150);
-		doc.text(80, 63, 'NOMBRE DE LA PERSONA QUE SOLICITA');
-		doc.text(93, 73, 'NOMBRE DEL ACTOR');
-		doc.text(90, 83, 'A BIENES O ENCONTRA DE');
-		doc.text(100, 93, 'JUZGADO');
-		//valores sobre las lineas
-		doc.setFontSize(9);
-		doc.setTextColor(0,0,0);
-		var text = ''+siNombreSolicitante;
-		var textWidth = doc.getStringUnitWidth(text) * doc.internal.getFontSize() / doc.internal.scaleFactor;
-		var textOffset = ((doc.internal.pageSize.width - textWidth) / 4) * 2;
-		doc.text(textOffset, 59, text);
-		var text = ''+siActor;
-		var textWidth = doc.getStringUnitWidth(text) * doc.internal.getFontSize() / doc.internal.scaleFactor;
-		var textOffset = ((doc.internal.pageSize.width - textWidth) / 4) * 2;
-		doc.text(textOffset, 69, text);
-		var text = ''+siContraparte;
-		var textWidth = doc.getStringUnitWidth(text) * doc.internal.getFontSize() / doc.internal.scaleFactor;
-		var textOffset = ((doc.internal.pageSize.width - textWidth) / 4) * 2;
-		doc.text(textOffset, 79, text);
-		var text = ''+siJuzgado;
-		var textWidth = doc.getStringUnitWidth(text) * doc.internal.getFontSize() / doc.internal.scaleFactor;
-		var textOffset = ((doc.internal.pageSize.width - textWidth) / 4) * 2;
-		doc.text(textOffset, 89, text);
-		
-		//segunda parte del marco1
-		doc.setTextColor(0,0,0);
-		doc.setFont("sans-serif");
-		doc.setFontType("bold");
-		doc.setFontSize(13);
-		doc.text(80, 100, 'TIPO DE DOCUMENTO');
-		
-		//condiciones para marcar el cuadro
-		doc.setFontSize(7);
-		switch (siTipoInsercion) {
-			case 'PARTICULAR':{
-			doc.text(131, 109, 'X');
-			break;
-			}
-			case 'GOBIERNO':{
-			doc.text(131, 115, 'X');
-			break;
-			}
-			case 'LEGISLATIVO':{
-			doc.text(131, 120, 'X');
-			break;
-			}
-			case 'JUDICIAL':{
-			doc.text(131, 125, 'X');
-			break;
-			}
-			case 'EDICTO':{
-			doc.text(131, 130, 'X');
-			break;
-			}
-			case 'FRACCIONAMIENTOS':{
-			doc.text(131, 135, 'X');
-			break;
-			}
-			case 'OTROS':{
-			doc.text(131, 140, 'X');
-			break;
-			}
-		
-		}
-		
-		doc.setFontType("normal");
-		doc.setFontSize(9);
-		doc.text(65, 110, 'PARTICULAR');
-		doc.rect(130,107, 3, 3);
-		
-		doc.setFontSize(9);
-		doc.text(65, 115, 'GOBIERNO');
-		doc.rect(130,113, 3, 3);
-		
-		doc.setFontSize(9);
-		doc.text(65, 120, 'LEGISLATIVO');
-		doc.rect(130,118, 3, 3);
-		
-		doc.setFontSize(9);
-		doc.text(65, 125, 'JUDICIAL');
-		doc.rect(130,123, 3, 3);
-		
-		doc.setFontSize(9);
-		doc.text(65, 130, 'EDICTO');
-		doc.rect(130,128, 3, 3);
-		
-		doc.setFontSize(9);
-		doc.text(65, 135, 'FRACCIONAMIENTOS');
-		doc.rect(130,133, 3, 3);
-		
-
-		doc.setFontSize(9);
-		doc.setFontType("bold");
-		doc.text(65, 152, 'OTRO:');
-		
-		
-		doc.setFontSize(9);
-		doc.setFontType("normal");
-		doc.text(70, 159, 'FECHA:');
-		
-		//arreglo de la fecha 
-		var nombres = siFecha.split("/");
-		doc.text(84, 166, ''+nombres[0]);//año
-		doc.text(74, 166, ''+nombres[1]);//mes
-		doc.text(64, 166, ''+nombres[2]);//dia
-		
-		//lineas segunda parte marco1
-		doc.setDrawColor(0,0,0);
-		doc.line(83, 152, 133, 152);//otro
-		doc.line(63, 167, 71, 167);//fecha dia
-		doc.line(73, 167, 81, 167);//fecha mes
-		doc.line(83, 167, 91, 167);//fecha anio
-		doc.line(94, 167, 133, 167);//firma solicitante
-		
-		//formatofecha
-		doc.setFontSize(10);
-		doc.setFontType("normal");
-		doc.text(72, 166, '/');
-		doc.setFontSize(10);
-		doc.setFontType("normal");
-		doc.text(82, 166, '/');
-		doc.setFontSize(6);
-		doc.setFontType("normal");
-		doc.text(65, 170, 'DIA');
-		doc.setFontSize(6);
-		doc.setFontType("normal");
-		doc.text(75, 170, 'MES');
-		doc.setFontSize(6);
-		doc.setFontType("normal");
-		doc.text(85, 170, 'AÑO');
-		doc.setFontSize(6);
-		doc.setFontType("normal");
-		doc.text(99, 170, 'FIRMA DEL SOLICITANTE');
-		
-		
-		//marco2
-		doc.setLineWidth(.5);
-		doc.setFillColor(255, 255, 255); 
-		doc.roundedRect(10, 191, 190,26, 1, 1, 'FD');
-		//lineas
-		doc.setLineWidth(0);
-		doc.setDrawColor(0,0,0); 
-		doc.line(89, 200, 190, 200);
-		doc.line(89, 210, 190, 210);
-		
-		
-		//valores
-		doc.setFontSize(9);
-		doc.setFontType("normal");
-		doc.text(120, 199, ''+siCantidadAPagar);
-		doc.text(120, 209, ''+siPartidaPagoNum);
-		
-		
-		//valor a poner
-		doc.setFontSize(9);
-		doc.setFontType("bold");
-		doc.text(15, 200, 'CANTIDAD A PAGAR:');
-		doc.text(15, 210, 'PARTIDA DE PAGO No.:');
-			
-		
-		//marco3
-		doc.setLineWidth(.5);
-		doc.setDrawColor(0); 
-		doc.setFillColor(255, 255, 255); 
-		doc.roundedRect(10, 220, 190,26, 1, 1, 'FD');
-		
-		//valores
-		doc.setFontSize(9);
-		doc.setFontType("normal");
-		doc.text(120, 228, ''+siVolumenesPublicacion );
-		doc.text(93, 238, ''+siFechasPublicacion);
-		
-		//lineas
-		doc.setLineWidth(0);
-		doc.setDrawColor(0,0,0); 
-		doc.line(89, 229, 190, 229);
-		doc.line(89, 239, 190, 239)
-		
-		//valores a poner
-		doc.setLineWidth(0);
-		doc.setFontSize(9);
-		doc.setFontType("bold");
-		doc.text(15, 229, 'No. DE PERIÓDICOS:');
-		doc.text(15, 239, 'FECHA DE PUBLICACIÓN:');
+				//4 lineas primera parte marco1
+				doc.setLineWidth(0);
+				doc.setDrawColor(0,0,0);
+				doc.line(20, 60, 190, 60);
+				doc.line(20, 70, 190, 70);
+				doc.line(20, 80, 190, 80);
+				doc.line(20, 90, 190, 90);
+				//valores bajo las lineas
+				doc.setFontSize(7);
+				doc.setTextColor(150);
+				doc.text(80, 63, 'NOMBRE DE LA PERSONA QUE SOLICITA');
+				doc.text(93, 73, 'NOMBRE DEL ACTOR');
+				doc.text(90, 83, 'A BIENES O ENCONTRA DE');
+				doc.text(100, 93, 'JUZGADO');
+				//valores sobre las lineas
+				doc.setFontSize(9);
+				doc.setTextColor(0,0,0);
+				var text = ''+siNombreSolicitante;
+   				var textWidth = doc.getStringUnitWidth(text) * doc.internal.getFontSize() / doc.internal.scaleFactor;
+   				var textOffset = ((doc.internal.pageSize.width - textWidth) / 4) * 2;
+  				doc.text(textOffset, 59, text);
+				var text = ''+siActor;
+   				var textWidth = doc.getStringUnitWidth(text) * doc.internal.getFontSize() / doc.internal.scaleFactor;
+   				var textOffset = ((doc.internal.pageSize.width - textWidth) / 4) * 2;
+  				doc.text(textOffset, 69, text);
+				var text = ''+siContraparte;
+   				var textWidth = doc.getStringUnitWidth(text) * doc.internal.getFontSize() / doc.internal.scaleFactor;
+   				var textOffset = ((doc.internal.pageSize.width - textWidth) / 4) * 2;
+  				doc.text(textOffset, 79, text);
+				var text = ''+siJuzgado;
+   				var textWidth = doc.getStringUnitWidth(text) * doc.internal.getFontSize() / doc.internal.scaleFactor;
+   				var textOffset = ((doc.internal.pageSize.width - textWidth) / 4) * 2;
+  				doc.text(textOffset, 89, text);
+  				
+  				//segunda parte del marco1
+  				doc.setTextColor(0,0,0);
+				doc.setFont("sans-serif");
+				//doc.setFontType("bold");
+				//doc.setFontSize(13);
+				//doc.text(80, 100, 'TIPO DE DOCUMENTO');
+				
+				
+				//tipo de insercion
+				doc.text(125, 110, ''+siTipoInsercion);
+				//tipo de categoria
+				doc.text(125, 120, ''+siCategoria);
+				
+				
+				
+				doc.setFontType("bold");
+				doc.setFontSize(9);
+				doc.text(65, 110, 'TIPO INSERCION');
+				
+				doc.setFontSize(9);
+				doc.text(65, 120, 'CATEGORIA');
+				
+				
+				
+				doc.setFontSize(9);
+				doc.setFontType("normal");
+				doc.text(70, 159, 'FECHA:');
+				
+				//arreglo de la fecha 
+				var nombres = siFecha.split("/");
+				doc.text(84, 166, ''+nombres[0]);//año
+				doc.text(74, 166, ''+nombres[1]);//mes
+				doc.text(64, 166, ''+nombres[2]);//dia
+				
+				//lineas segunda parte marco1
+				doc.setDrawColor(0,0,0);
+				doc.line(115,111,180,111);
+				doc.line(115,121,180,121);
+				doc.line(63, 167, 71, 167);//fecha dia
+				doc.line(73, 167, 81, 167);//fecha mes
+				doc.line(83, 167, 91, 167);//fecha anio
+				doc.line(94, 167, 133, 167);//firma solicitante
+				
+				//formatofecha
+				doc.setFontSize(10);
+				doc.setFontType("normal");
+				doc.text(72, 166, '/');
+				doc.setFontSize(10);
+				doc.setFontType("normal");
+				doc.text(82, 166, '/');
+				doc.setFontSize(6);
+				doc.setFontType("normal");
+				doc.text(65, 170, 'DIA');
+				doc.setFontSize(6);
+				doc.setFontType("normal");
+				doc.text(75, 170, 'MES');
+				doc.setFontSize(6);
+				doc.setFontType("normal");
+				doc.text(85, 170, 'AÑO');
+				doc.setFontSize(6);
+				doc.setFontType("normal");
+				doc.text(99, 170, 'FIRMA DEL SOLICITANTE');
+				
+				
+				//marco2
+				doc.setLineWidth(.5);
+				doc.setFillColor(255, 255, 255); 
+				doc.roundedRect(10, 191, 190,26, 1, 1, 'FD');
+				//lineas
+				doc.setLineWidth(0);
+				doc.setDrawColor(0,0,0); 
+				doc.line(89, 200, 190, 200);
+				doc.line(89, 210, 190, 210);
+				
+				
+				//valores
+				doc.setFontSize(9);
+				doc.setFontType("normal");
+				doc.text(120, 199, ''+siCantidadAPagar);
+				doc.text(120, 209, ''+siPartidaPagoNum);
+				
+				
+				//valor a poner
+				doc.setFontSize(9);
+				doc.setFontType("bold");
+				doc.text(15, 200, 'CANTIDAD A PAGAR:');
+				doc.text(15, 210, 'PARTIDA DE PAGO No.:');
+					
+				
+				//marco3
+				doc.setLineWidth(.5);
+				doc.setDrawColor(0); 
+				doc.setFillColor(255, 255, 255); 
+				doc.roundedRect(10, 220, 190,26, 1, 1, 'FD');
+				
+				//valores
+				doc.setFontSize(9);
+				doc.setFontType("normal");
+				doc.text(120, 228, ''+siVolumenesPublicacion );
+				doc.text(93, 238, ''+siFechasPublicacion);
+				
+				//lineas
+				doc.setLineWidth(0);
+				doc.setDrawColor(0,0,0); 
+				doc.line(89, 229, 190, 229);
+				doc.line(89, 239, 190, 239)
+				
+				//valores a poner
+				doc.setLineWidth(0);
+				doc.setFontSize(9);
+				doc.setFontType("bold");
+				doc.text(15, 229, 'No. DE PERIÓDICOS:');
+				doc.text(15, 239, 'FECHA DE PUBLICACIÓN:');
 			
 		
 		

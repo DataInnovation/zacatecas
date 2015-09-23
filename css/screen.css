@@ -3501,3 +3501,14 @@ h2 {
   cursor: inherit;
   display: block;
 }
+
+.dia_documento a {
+    background-color: #42B373 !important;
+    background-image :none !important;
+    color: #ffffff !important;
+}
+
+.dia_nodocumento {
+	text-align:center;	
+	padding: 13px 0;
+}

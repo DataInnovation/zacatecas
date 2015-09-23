@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+
+
+    <link rel="stylesheet" href="css/datepicker.css" />
+    <link rel="stylesheet" href="css/add-date.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/owl-carousel.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/lightbox.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/icomoon.css" />
+    <link rel="stylesheet" href="css/screen.css" />
+
+	
+
+
+</head>
+
+<body>
+
+
+    <div class="form-group">
+      <div class="col-md-6">
+        <div class="input-group input-medium date date-picker" data-date-format="yyyy-mm-dd">
+          <input type="text" class="form-control" name="h_data" id="h_data" value="">
+          <span class="input-group-btn">
+            <button class="btn default" type="button"><i class="fa fa-calendar"></i>
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-append date">
+        <input class="input-line js-input" type="text" name="fechaFinal" value=""/><span class="add-on"><i class="icon icon-calendar"></i></span>
+    </div>
+
+	<script src="js/jquery.js"></script>
+	<script src="js/modernizr.js"></script>
+	<script src="js/smooth-scroll.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/images.js"></script>
+	<script src="js/isotope.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/owl-carousel.js"></script>
+	<script src="js/visible.js"></script>
+	<script src="js/knob.js"></script>
+
+<script language="javascript">
+
+/*  var dates = "";			
+	var txt_dates = "";
+	var resultadoWS = $.post("http://189.254.255.72:9000/busqueda/periodicoMesAnio", {fechaInicial:"2015-01-01",fechaFinal:"2015-12-31"}, function(data, status) {
+	}, "json");
+	resultadoWS.done(function(data) {
+		
+		for(i = 0; i < data.Documentos.length; i++) {
+			
+			var fechaP = data.Documentos[i].fechaPublicacion;
+			var dia = fechaP.split("/")[2];
+			var mes = fechaP.split("/")[1];
+
+			txt_dates = fechaP.split("/")[2]
+		}
+		
+		console.log(txt_dates);
+	}); */
+
+
+
+var handleDatePickers = function () {
+
+        if (jQuery().datepicker) {
+            $('.date-picker').datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+                language: 'pt'
+            });
+   }
+}
+
+
+
+$.ajax({
+   url: 'http://189.254.255.72:9000/busqueda/periodicoMesAnio',
+	  type: 'post',
+	  dataType: 'json',
+	  data: {fechaInicial:"2015-01-01",fechaFinal:"2015-12-31"},
+	  success: function (data) {
+		  if (data.sucesso) {
+
+			$.each(data, function (index, record) {
+			  if ($.isNumeric(index)) { 
+
+				$('#h_data').val(record.h_data);
+				$('#h_data').datepicker("update", record.h_data);
+				$('#h_data').datepicker('refresh');
+			  }
+			})
+		  } 
+	  }
+});
+
+
+</script>
+
+
+
+</body>
+
+</html>

@@ -230,7 +230,7 @@
 	<script src="js/jquery.js"></script>
 	<script src="js/modernizr.js"></script>
 	<script src="js/smooth-scroll.js"></script>
-	<script src="js/jquery-ui.js"></script>
+	<script src="js/jquery-cal-ui.js"></script>
 	
 	<script src="js/lightbox.js"></script>
 	<script src="js/isotope.js"></script>
@@ -315,6 +315,54 @@
 				document.getElementById("SUPLEMENTOS").innerHTML = out;
 			}
 
+
+				
+            var months = [], days = [], hrefs = [];
+            $.ajax({
+                url: 'http://189.254.255.72:9000/busqueda/periodicoMesAnio',
+                type: 'post',
+                dataType: 'json',
+                data: {fechaInicial:"2015-01-01",fechaFinal:"2015-12-31"},
+                success: function (data) {
+                    for (x = 0; x < data.Documentos.length; x++) {
+                        var fechaP = data.Documentos[x].fechaPublicacion;
+                        months.push(fechaP.split("/")[1].replace("0",""));
+                        days.push(fechaP.split("/")[2].replace("0",""));
+						hrefs.push(data.Documentos[x].url);
+                    }
+                    					
+                    $(".datepicker").datepicker({
+						beforeShowDay: addDates,
+						onSelect: addLinks
+    				});
+					
+                }
+            });
+    
+    
+            function addLinks(dateText){
+				
+				var fechaS = dateText;
+				var anoS = fechaS.split("/")[0];
+				var mesS = fechaS.split("/")[1];
+				var diaS = fechaS.split("/")[2];
+                for (x = 0; x < days.length; x++) {
+                    if (mesS == months[x] && diaS == days[x]) {
+                        window.open(hrefs[x],'_blank');
+                    }
+                }
+            }
+
+            function addDates(date){
+                for (x = 0; x < days.length; x++) {
+                    if (date.getMonth() == months[x] - 1 && date.getDate() == days[x]) {
+                        return [true, "dia_documento", ''];
+                    }
+                }
+                return [false, "dia_nodocumento", ''];
+            }
+			
+		
     </script>
       
 </body>

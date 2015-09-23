@@ -8,7 +8,7 @@
 		},
 
 		module: function () {
-			this.datePickerInit();
+			//this.datePickerInit();
 			this.tabsInit();
 			this.isotopeInit();
 			this.owlCarouselInit();
@@ -22,24 +22,24 @@
 		},
 
 		// Template Custom Functions
-		datePickerInit: function () {
-			jQuery('.datepicker').datepicker({
-				onSelect: function () {
-					jQuery('body').addClass('calendar-popup-visible');
-				}
-			});
+		//datePickerInit: function () {
+		//	jQuery('.datepicker').datepicker({
+				//onSelect: function () {
+					//jQuery('body').addClass('calendar-popup-visible');
+				//}
+		//	});
 
 			// Close Calendar Popup
-			jQuery('.calendar-popup').on('click', function (e) {
-				var target = e.target;
+		//	jQuery('.calendar-popup').on('click', function (e) {
+		//		var target = e.target;
 
-				if (jQuery('body').hasClass('calendar-popup-visible')) {
-					if (!jQuery(target).is('.popup-wrapper') && !jQuery(target).is('.popup-wrapper *')) {
-						jQuery('body').removeClass('calendar-popup-visible');	
-					}
-				}
-			});
-		},
+		//		if (jQuery('body').hasClass('calendar-popup-visible')) {
+		//			if (!jQuery(target).is('.popup-wrapper') && !jQuery(target).is('.popup-wrapper *')) {
+		//				jQuery('body').removeClass('calendar-popup-visible');	
+		//			}
+		//		}
+		//	});
+		//},
 
 		tabsInit: function () {
 			// Active Tab Indicator 
@@ -52,7 +52,7 @@
 			});
 
 			// Tabs Init Function
-			jQuery('.tabs').tabs({
+			/*jQuery('.tabs').tabs({
 				show: {
 		            opacity:'toggle',
 		            duration: 300
@@ -63,7 +63,7 @@
 
 		    		tabIndicator.css('left', activeTabPosition.left + 10);
 		    	}
-		    });
+		    });*/
 		},
 
 		isotopeInit: function () {

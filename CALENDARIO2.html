@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    <title>Periódico Oficial del Gobierno del Estado de Zacatecas</title>
+    <meta name="description" content="Here goes description" />
+    <meta name="author" content="author name" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/owl-carousel.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/lightbox.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/icomoon.css" />
+    <link rel="stylesheet" href="css/screen.css" />
+</head>
+<body>
+
+
+<section class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-20 col-xs-offset-2 col-md-10 col-md-offset-12 col-lg-10 col-lg-offset-14">
+                <div class="calendar">
+                    <div class="datepicker" id="datepicker"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+	<script src="js/jquery.js"></script>
+	<script src="jsui/jquery-ui.js"></script>
+
+
+	<script type="text/javascript">
+        
+        
+        //$(document).ready(function() {				
+                
+            var months = [], days = [], hrefs = [];
+            $.ajax({
+                url: 'http://189.254.255.72:9000/busqueda/periodicoMesAnio',
+                type: 'post',
+                dataType: 'json',
+                data: {fechaInicial:"2015-01-01",fechaFinal:"2015-12-31"},
+                success: function (data) {
+                    for (x = 0; x < data.Documentos.length; x++) {
+                        var fechaP = data.Documentos[x].fechaPublicacion;
+                        months.push(fechaP.split("/")[1].replace("0",""));
+                        days.push(fechaP.split("/")[2].replace("0",""));
+						hrefs.push(data.Documentos[x].url);
+                    }
+                    					
+                    $("#datepicker").datepicker({
+						beforeShowDay: addDates,
+						onSelect: addLinks
+    				});
+					
+                }
+            });
+    
+    
+            function addLinks(dateText){
+				
+				var fechaS = dateText;
+				var anoS = fechaS.split("/")[0];
+				var mesS = fechaS.split("/")[1];
+				var diaS = fechaS.split("/")[2];
+                for (x = 0; x < days.length; x++) {
+                    if (mesS == months[x] && diaS == days[x]) {
+                        window.location = hrefs[x];
+                    }
+                }
+            }
+
+            function addDates(date){
+                for (x = 0; x < days.length; x++) {
+                    if (date.getMonth() == months[x] - 1 && date.getDate() == days[x]) {
+                        return [true, "dia_documento", ''];
+                    }
+                }
+                return [false, "dia_nodocumento", ''];
+            }
+        
+        //});
+        
+    
+    </script>
+
+</body>
+</html>

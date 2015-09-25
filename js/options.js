@@ -52,7 +52,7 @@
 			});
 
 			// Tabs Init Function
-			/*jQuery('.tabs').tabs({
+			jQuery('.tabs').tabs({
 				show: {
 		            opacity:'toggle',
 		            duration: 300
@@ -63,7 +63,7 @@
 
 		    		tabIndicator.css('left', activeTabPosition.left + 10);
 		    	}
-		    });*/
+		    });
 		},
 
 		isotopeInit: function () {
@@ -71,13 +71,13 @@
 			var isotopeContainer = jQuery('.works-wrapper .row'),
 				defaultSelection = jQuery('.works-wrapper').attr('data-default-selection');
 			
-			/*Isotope Init
+			//Isotope Init
 			isotopeContainer.imagesLoaded(function () {
 				isotopeContainer.isotope({
 					filter: defaultSelection,
 					itemSelector: '.item'
 				});
-			});*/
+			});
 
 			// Isotope Filters
 			jQuery('.filters a').on('click', function () {
@@ -99,12 +99,12 @@
 			// Isotope On Sidebar
 			var isotopeSidebarContainer = jQuery('.sidebar .sidebar-widgets');
 			
-			/*
+			
 			isotopeSidebarContainer.imagesLoaded(function () {
 				isotopeSidebarContainer.isotope({
 					itemSelector: '.widget-wrapper'
 				});
-			});*/
+			});
 		},
 	 
 		owlCarouselInit: function () {

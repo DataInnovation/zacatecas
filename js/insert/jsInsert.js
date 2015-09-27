@@ -1,11 +1,11 @@
 
 	function slctr(texto,valor){
-		this.texto = texto
-		this.valor = valor
+		this.texto = texto;
+		this.valor = valor;
 	}
 
 	function fecpub(fecha,numero,ano,tomo){
-		this.fecha = fecha
+		this.fecha = fecha;
 	}
 
 	function TipoInser(cual,donde, juzgados){
@@ -17,18 +17,19 @@
 			}
 			else{
 				document.getElementById(juzgados).disabled = true;
+				document.getElementById(juzgados).options.length = 0;
 				
 			}
-			donde.length=0
-			cual = eval(cual.value)
+			donde.length=0;
+			cual = eval(cual.value);
 			for(m=0;m<cual.length;m++){
 				var nuevaOpcion = new Option(cual[m].texto);
 				donde.options[m] = nuevaOpcion;
 				if(cual[m].valor != null){
-					donde.options[m].value = cual[m].valor
+					donde.options[m].value = cual[m].valor;
 				}
 				else{
-					donde.options[m].value = cual[m].texto
+					donde.options[m].value = cual[m].texto;
 				}
 			}
 		}

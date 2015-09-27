@@ -40,9 +40,10 @@
 							<ul>
 								<li class="current-menu-item"><a href="index.html">Inicio</a></li>
 								<li class="has-children">
-									<a href="">Ejemplares</a>
+									<a href="">Búsqueda</a>
 									<ul class="children">
-										<li><a href="busqueda">Búsqueda</a></li>
+										<li><a href="busqueda/">Búsqueda de Solicitud</a></li>
+										<li><a href="busqueda-leyes/">Búsqueda de Leyes</a></li>
 										<li><a href="">Consulta Cronología</a></li>
 									</ul>
 								</li>
@@ -55,6 +56,8 @@
 										<li><a href="carga-leyes/">Carga Leyes</a></li>
 										<li><a href="carga-periodico/">Carga Períodicos Publicados</a></li>
 										<li><a href="carga-suplementos/">Carga de Suplementos</a></li>
+										<li><a href="nota-sumario/">Nota del Sumario</a></li>
+										<li><a href="busqueda-sumario/">Reporte Sumarios</a></li>
 									</ul>
 								</li>
 								<li><a href="#">Servicios</a></li>
@@ -64,8 +67,8 @@
 									<ul class="children">
 										<li><a href="">Tipos de Inserciones</a></li>
 										<li><a href="">Categoría de Tipos</a></li>
-										<li><a href="municipios">Municipios</a></li>
-										<li><a href="juzgados">Juzgados</a></li>
+										<li><a href="municipios/">Municipios</a></li>
+										<li><a href="juzgados/">Juzgados</a></li>
 										<li><a href="">Calendario Publicaciones</a></li>
 										<li><a href="">Contador Folio</a></li>
 										<li><a href="">Tipos de Leyes</a></li>
@@ -337,6 +340,22 @@
                 }
             });
     
+    		function descargar(arr){
+    			var documents = arr.Descarga;
+    			var blob = b64toBlob(documents, 'application/vnd.ms-excel');
+				var blobUrl = URL.createObjectURL(blob);
+				//window.location = blobUrl;
+				var a = window.document.createElement('a');
+				a.href = window.URL.createObjectURL(blob);
+				a.download = 'periodico.pdf';
+
+				// Append anchor to body.
+				document.body.appendChild(a)
+				a.click();
+
+				// Remove anchor from body
+				document.body.removeChild(a)
+    		}
             function addLinks(dateText){
 				
 				var fechaS = dateText;
@@ -345,7 +364,21 @@
 				var diaS = fechaS.split("/")[2];
                 for (x = 0; x < days.length; x++) {
                     if (mesS == months[x] && diaS == days[x]) {
-                        window.open(hrefs[x],'_blank');
+                        //window.open(hrefs[x],'_blank');
+                        var xmlhttpPeriodico = new XMLHttpRequest();
+						var urlPeriodico = hrefs[x];
+			
+			xmlhttpPeriodico.onreadystatechange = function() {
+				if (xmlhttpPeriodico.readyState==4 && xmlhttpPeriodico.status==200){
+					var myArr = JSON.parse(xmlhttpPeriodico.responseText);
+					descargar(myArr);
+				}
+			}
+			xmlhttpPeriodico.open("GET",urlPeriodico,true);
+			xmlhttpPeriodico.send();
+
+
+                       
                     }
                 }
             }
@@ -358,6 +391,32 @@
                 }
                 return [false, "dia_nodocumento", ''];
             }
+
+            function b64toBlob(b64Data, contentType, sliceSize) {
+				contentType = contentType || '';
+				sliceSize = sliceSize || 512;
+
+				var byteCharacters = atob(b64Data);
+				var byteArrays = [];
+
+				for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+					var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+					var byteNumbers = new Array(slice.length);
+					for (var i = 0; i < slice.length; i++) {
+						byteNumbers[i] = slice.charCodeAt(i);
+					}
+
+					var byteArray = new Uint8Array(byteNumbers);
+
+					byteArrays.push(byteArray);
+				}
+
+				var blob = new Blob(byteArrays, {
+					type : contentType
+				});
+				return blob;
+			}
 			
 		
     </script>

@@ -1,346 +1,400 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8" />
-    <title>Periódico Oficial del Gobierno del Estado de Zacatecas</title>
-    <meta name="description" content="Here goes description" />
-    <meta name="author" content="author name" />
-    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
+	<head>
+		<meta charset="utf-8" />
+		<title>Periódico Oficial del Gobierno del Estado de Zacatecas</title>
+		<meta name="description" content="Here goes description" />
+		<meta name="author" content="author name" />
+		<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
 
-    <!-- Mobile Specific Meta -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="../css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../css/owl-carousel.css" />
-    <link rel="stylesheet" href="../css/bootstrap.css" />
-    <link rel="stylesheet" href="../css/datepicker.css" />
-    <link rel="stylesheet" href="../css/add-date.css" />
-    <link rel="stylesheet" href="../css/animate.css" />
-    <link rel="stylesheet" href="../css/icomoon.css" />
-    <link rel="stylesheet" href="../css/screen.css" />
-</head>
-<body data-smooth-scroll="on">
-	<!-- Page Wrapper -->
-	<div class="page">
-		<!-- Header -->
-		<header>
-			<div class="container">
-				<div class="row">
-					<!-- Brand -->
-					<div class="col-xs-12 col-md-6">
-						<div class="brand">
-							<a href="../index.html"><img src="../img/brand.png" alt="brand" /></a>
+		<!-- Style CSS -->
+		<link rel="stylesheet" href="../css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../css/owl-carousel.css" />
+		<link rel="stylesheet" href="../css/bootstrap.css" />
+		<link rel="stylesheet" href="../css/datepicker.css" />
+		<link rel="stylesheet" href="../css/add-date.css" />
+		<link rel="stylesheet" href="../css/animate.css" />
+		<link rel="stylesheet" href="../css/icomoon.css" />
+		<link rel="stylesheet" href="../css/screen.css" />
+	</head>
+	<body data-smooth-scroll="on">
+		<!-- Page Wrapper -->
+		<div class="page">
+			<!-- Header -->
+			<header>
+				<div class="container">
+					<div class="row">
+						<!-- Brand -->
+						<div class="col-xs-12 col-md-6">
+							<div class="brand">
+								<a href="../index.html"><img src="../img/brand.png" alt="brand" /></a>
+							</div>
+						</div>
+
+						<!-- Nav -->
+						<div class="col-xs-12 col-md-18">
+							<nav>
+								<ul>
+									<li>
+										<a href="../index.html">Inicio</a>
+									</li>
+									<li class="has-children current-menu-item">
+										<a href="">Búsqueda</a>
+										<ul class="children">
+											<li>
+												<a href="../busqueda/">Búsqueda de Solicitud</a>
+											</li>
+											<li>
+												<a href="../busqueda-leyes/">Búsqueda de Leyes</a>
+											</li>
+											<li>
+												<a href="">Consulta Cronología</a>
+											</li>
+										</ul>
+									</li>
+									<li class="has-children">
+										<a href="">Trámites</a>
+										<ul class="children">
+											<li>
+												<a href="../insercion/">Insercion</a>
+											</li>
+											<li>
+												<a href="../carga-imagen/">Carga Imagenes Inserción</a>
+											</li>
+											<li>
+												<a href="../carga-transcrito/">Carga Transcripciones</a>
+											</li>
+											<li>
+												<a href="../carga-leyes/">Carga Leyes</a>
+											</li>
+											<li>
+												<a href="../carga-periodico/">Carga Períodicos Publicados</a>
+											</li>
+											<li>
+												<a href="../carga-suplementos/">Carga Suplementos</a>
+											</li>
+											<li>
+												<a href="../nota-sumario/">Nota del Sumario</a>
+											</li>
+											<li>
+												<a href="../busqueda-sumario/">Reporte Sumario</a>
+											</li>
+
+										</ul>
+									</li>
+									<li>
+										<a href="#">Servicios</a>
+									</li>
+									<li>
+										<a href="#">Leyes y Reglamentos</a>
+									</li>
+									<li class="has-children">
+										<a href="">Parametros</a>
+										<ul class="children">
+											<li>
+												<a href="">Tipos de Inserciones</a>
+											</li>
+											<li>
+												<a href="">Categoría de Tipos</a>
+											</li>
+											<li>
+												<a href="../municipios/">Municipios</a>
+											</li>
+											<li>
+												<a href="../juzgados/">Juzgados</a>
+											</li>
+											<li>
+												<a href="">Calendario Publicaciones</a>
+											</li>
+											<li>
+												<a href="">Contador Folio</a>
+											</li>
+											<li>
+												<a href="">Tipos de Leyes</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+
+								<i class="responsive-menu-trigger icon-menu"></i>
+
+							</nav>
 						</div>
 					</div>
 
-					<!-- Nav -->
-					<div class="col-xs-12 col-md-18">
-						<nav> 							<ul>
-								<li><a href="../index.html">Inicio</a></li>
-								<li class="has-children current-menu-item">
-									<a href="">Búsqueda</a>
-									<ul class="children">
-										<li><a href="../busqueda/">Búsqueda de Solicitud</a></li>
-										<li><a href="#">Búsqueda de Leyes</a></li>
-										<li><a href="">Consulta Cronología</a></li>
-									</ul>
-								</li>
-								<li class="has-children">
-									<a href="">Trámites</a>
-									<ul class="children">
-										<li><a href="../insercion/">Insercion</a></li>
-										<li><a href="../carga-imagen/">Carga Imagenes Inserción</a></li>
-										<li><a href="../carga-transcrito/">Carga Transcripciones</a></li>
-										<li><a href="../carga-leyes/">Carga Leyes</a></li>
-										<li><a href="../carga-periodico/">Carga Períodicos Publicados</a></li>
-										<li><a href="../carga-suplementos/">Carga Suplementos</a></li>
-										<li><a href="../nota-sumario/">Nota del Sumario</a></li>
-										
-										
-										
-									</ul>
-								</li>
-								<li><a href="#">Servicios</a></li>
-								<li><a href="#">Leyes y Reglamentos</a></li>
-								<li class="has-children">
-									<a href="">Parametros</a>
-									<ul class="children">
-										<li><a href="">Tipos de Inserciones</a></li>
-										<li><a href="">Categoría de Tipos</a></li>
-										<li><a href="../municipios/">Municipios</a></li>
-										<li><a href="../juzgados/">Juzgados</a></li>
-										<li><a href="">Calendario Publicaciones</a></li>
-										<li><a href="">Contador Folio</a></li>
-										<li><a href="">Tipos de Leyes</a></li>
-									</ul>
-								</li>
-							</ul>
+				</div>
+			</header>
 
-							<i class="responsive-menu-trigger icon-menu"></i>
-							
-						</nav>
+			<!-- Blog Section -->
+			<section class="blog-section">
+				<!-- Section Header -->
+				<div class="section-header inverted inverted-all">
+					<div class="container">
+						<h1>Busqueda de Información</h1>
+						<p>
+							Ingrese los datos que considere necesarios para iniciar la búsqueda de Leyes.
+						</p>
 					</div>
 				</div>
 
-			</div>
-		</header>
+				<!-- Body -->
+				<div class="blog-section-wrapper">
+					<div class="container">
+						<div class="blog-content">
+							<div class="row">
+								<div class="col-xs-22 col-xs-offset-1">
+									<div class="simple-template-form">
+										<h4 class="caption">Puede realizar su búsqueda por:</h4>
 
-		<!-- Blog Section -->
-		<section class="blog-section">
-			<!-- Section Header -->
-			<div class="section-header inverted inverted-all">
-				<div class="container">
-					<h1>Busqueda de Información</h1>
-					<p>	Ingrese los datos que considere necesarios para iniciar la búsqueda de Leyes.</p>
+										<form class="respond-form" id="dataForm" name="dataForm">
+
+											<div class="row">
+
+												<div class="col-sm-12">
+													<select class="input-line js-input" name="categoria">
+														 <option disabled selected>Categoria:</option>
+                                        <option value="LeyesEstatales">Leyes Estatales</option>
+  										<option value="ReglamentosEstatales">Reglamentos Estatales</option>
+  										<option value="Codigos">Codigos</option>
+  										<option value="BandosPoliciaybuenGobierno">Bandos Policia y Buen Gobierno</option>
+  										<option value="LeyesReglamentarias">Leyes Reglamentarias</option>
+  										<option value="ConstituciondelEstado">Constitución del Estado</option>
+  										<option value="ReglamentosMunicipales">ReglamentosMunicipales</option>
+  										<option value="Convenios">Convenios</option>
+  										<option value="Acuerdos">Acuerdos</option>
+  										<option value="Normativas">Normativas</option>
+  										<option value="BandoDelBuenGobierno">Bando del Buen Gobierno</option>
+  										<option value="Expropiacion">Expropiación</option>
+  										<option value="Otros">Otros</option>
+										</select>
+												</div>
+											</div>
+
+											<div class="row">
+
+												<div class="col-sm-12">
+													<input class="input-line js-input" type="text" name="descripcion" placeholder="Descripcion:" />
+												</div>
+
+											</div>
+
+											<div class="submit-button">
+												<input type="button" value="Buscar" onclick="makeCorsRequest('http://189.254.255.72:9000/busqueda/leyes','lista','dataForm')"/>
+												<i class="icon icon-search"></i>
+											</div>
+
+										</form>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-xs-22 col-xs-offset-1">
+
+									<div class="row">
+										<div class="col-md-14 col-lg-24">
+											<h4 id="resultado">Resultados encontrados</h4>
+										</div>
+									</div>
+
+									<div class="services-list-header">
+										<div class="row row-fit">
+											<div class="col-sm-6">
+												<h4>Categoria</h4>
+											</div>
+											<div class="col-sm-6">
+												<h4>Descripcion</h4>
+											</div>
+											<div class="col-sm-6">
+												<h4>Vigencia</h4>
+											</div>
+											<div class="col-sm-4">
+												<h4>Descargar</h4>
+											</div>
+										</div>
+									</div>
+
+									<div class="services-list">
+										<div class="service" id="lista"></div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
 				</div>
-			</div>
+			</section>
 
-			<!-- Body -->
-			<div class="blog-section-wrapper">
-				<div class="container">
-					<div class="blog-content">
-                        <div class="row">
-							<div class="col-xs-22 col-xs-offset-1">
-								<div class="simple-template-form">
-									<h4 class="caption">Puede realizar su búsqueda por:</h4>
+			<!-- Footer -->
+			<footer>
+				<!-- Upper Block -->
+				<div class="upper-block">
+					<div class="container">
+						<div class="menu">
+							<ul>
+								<li>
+									<a href="../index.html">Inicio</a>
+								</li>
+								<li>
+									<a href="#">Ejemplares</a>
+								</li>
+								<li>
+									<a href="#">Trámites</a>
+								</li>
+								<li>
+									<a href="#">Servicios</a>
+								</li>
+								<li>
+									<a href="#">Leyes y Reglamentos</a>
+								</li>
+								<li>
+									<a href="#">Parametros</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
 
-									<form class="respond-form" id="dataForm" name="dataForm">
-										
-											
-
-										<div class="row">
-											
-											<div class="col-sm-12">
-                                                <select class="input-line js-input" name="categoria">
-                                                    <option selected disabled>Categoría</option>
-                                                    <option>Sumario Civil</option>
-                                                    <option>Civil Ordinario</option>
-                                                    <option>Emplazamiento</option>
-                                                    <option>Ejecución</option>
-                                                    <option>Sanciones</option>
-                                                    <option>Causa Penal</option>
-                                                    <option>Juicio Mercantil</option>
-                                                </select>
-											</div>
-										</div>
-
-
-										<div class="row">
-											
-											<div class="col-sm-12">
-												<input class="input-line js-input" type="text" name="descripcion" placeholder="Descripcion:" />
-											</div>
-											
-										</div>
-
-
-										<div class="submit-button">
-											<input type="button" value="Buscar" onclick="makeCorsRequest('http://189.254.255.72:9000/busqueda/leyes','lista','dataForm')"/>
-											<i class="icon icon-search"></i>
-										</div>
-
-									</form>
+				<!-- Main Block -->
+				<div class="footer-widgets">
+					<div class="container">
+						<div class="row">
+							<!-- Info Section -->
+							<div class="col-md-12">
+								<div class="footer-widget info no-border">
+									<img src="../img/brand.png" alt="worker brand" />
+									<p>
+										Gobierno del Estado de Zacatecas
+										Circuito Cerro del Gato, Cd. Administrativa
+										C.P. 98160 Zacatecas, Zacatecas.
+										<br>
+										<br>
+										Tel. (492) 4915000
+										Habla con tu Gobernador
+									</p>
 								</div>
 							</div>
 						</div>
-                        
-
-                        <div class="row">
-                        	<div class="col-xs-22 col-xs-offset-1">
-                            
- 
-                                    <div class="row">
-                                        <div class="col-md-14 col-lg-24">
-                                            <h4 id="resultado">Resultados encontrados</h4>
-                                        </div>
-                                    </div>
-                           
-                                    <div class="services-list-header">
-                                        <div class="row row-fit">
-                                            <div class="col-sm-6">
-                                                <h4>Categoria</h4>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <h4>Descripcion</h4>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <h4>Vigencia</h4>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <h4>Descargar</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-
-									<div class="services-list">
-										<div class="service" id="lista">
-										</div>                                      
-									</div>
-                            </div>
-                        </div>
-                        
-                	</div>                            
-				</div>
-			</div>
-		</section>
-
-		<!-- Footer -->
-		<footer>
-			<!-- Upper Block -->
-			<div class="upper-block">
-				<div class="container">
-					<div class="menu">
-						<ul>
-							<li><a href="../index.html">Inicio</a></li>
-							<li><a href="#">Ejemplares</a></li>
-							<li><a href="#">Trámites</a></li>
-							<li><a href="#">Servicios</a></li>
-							<li><a href="#">Leyes y Reglamentos</a></li>
-							<li><a href="#">Parametros</a></li>
-						</ul>
 					</div>
 				</div>
-			</div>
 
-			<!-- Main Block -->
-			<div class="footer-widgets">
-				<div class="container">
-					<div class="row">
-						<!-- Info Section -->
-						<div class="col-md-12">
-							<div class="footer-widget info no-border">
-								<img src="../img/brand.png" alt="worker brand" />
-								<p>Gobierno del Estado de Zacatecas
-                                Circuito Cerro del Gato, Cd. Administrativa
-                                C.P. 98160 Zacatecas, Zacatecas.<br><br>
-                                Tel. (492) 4915000
-                                Habla con tu Gobernador</p>
-							</div>
-						</div>
+				<!-- Copyrights -->
+				<div class="copyrights">
+					<div class="container">
+						<p>
+							<a href="#">GOBIERNO DE ZACATECAS</a>
+						</p>
 					</div>
 				</div>
-			</div>
+			</footer>
+		</div>
 
-			<!-- Copyrights -->
-			<div class="copyrights">
-				<div class="container">
-					<p><a href="#">GOBIERNO DE ZACATECAS</a></p>
-				</div>
-			</div>
-		</footer>
-	</div>
+		<script language="javascript">
+			function slctr(texto, valor) {
+				this.texto = texto
+				this.valor = valor
+			}
 
-	<script language="javascript">
-    
-            function slctr(texto,valor){
-                this.texto = texto
-                this.valor = valor
-            }
-    
-    </script>
-	<!-- Scripts -->
-	<script src="../js/jquery.js"></script>
-	<script src="../js/modernizr.js"></script>
-	<script src="../js/smooth-scroll.js"></script>
-	<script src="../js/jquery-ui.js"></script>
-	<script src="../js/images.js"></script>
-	<script src="../js/isotope.js"></script>
-	<script src="../js/bootstrap.js"></script>
-	<script src="../js/bootstrap-datepicker.js"></script>
-	<script src="../js/owl-carousel.js"></script>
-	<script src="../js/visible.js"></script>
-	<script src="../js/knob.js"></script>
-	<script src="../js/options.js"></script>
-	<script src="../js/municipios/municipios.js"></script>
-	<script type="text/javascript">
-        
-            $(document).ready(function() {	
-    
-                    $('.date').datepicker({
-                        format: "yyyy-mm-dd",
-                        endDate: "Today",
-                        language: "es",
-                        daysOfWeekDisabled: "0",
-                        autoclose: true,
-                        orientation: "top auto"
-                    });			
-          
-            }); 
-		for (x=0;x<Municipios.length;x++){
-						
-			var nuevaOpcion = new Option(Municipios[x].texto);
-			document.dataForm.municipio.options[x]  = nuevaOpcion;
-			if (x==0){
-				document.dataForm.municipio.options[x].value = Municipios[x].valor;
-			}
-			else{
-				document.dataForm.municipio.options[x].value  = Municipios[x].texto;
-			}
-			
-		}	
-		
-		
-		function createCORSRequest(method, url) {
-		  var xhr = new XMLHttpRequest();
-		  if ("withCredentials" in xhr) {
-		    // Check if the XMLHttpRequest object has a "withCredentials" property.
-		    // "withCredentials" only exists on XMLHTTPRequest2 objects.
-		    xhr.open(method, url, true);
-		  } else if (typeof XDomainRequest != "undefined") {
-		    // Otherwise, check if XDomainRequest.
-		    // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
-		    xhr = new XDomainRequest();
-		    xhr.open(method, url);
-		  } else {
-		    // Otherwise, CORS is not supported by the browser.
-		    xhr = null;
-		  }
-		  return xhr;
-		}
-		function makeCorsRequest(url,id,form) {
-		  	var xhr = createCORSRequest('POST', url);
-		  	if (!xhr) {
-		    	alert('CORS not supported');
-		    	return;
-		  	}
-		  	var formElement = document.getElementById(form);
-		  	var formData = new FormData(formElement);
-		  	// Response handlers.
-			xhr.onload = function() {
-		  	var response = JSON.parse( xhr.responseText);
-        	displayList(response,id);
-		  	};
-		  	xhr.onerror = function() {
-		    alert('Woops, there was an error making the request.');
-		  	};
-		  	xhr.send(formData);
-			document.getElementById("resultado").innerHTML = "Buscando...";
-		}
-		
-		function displayList(arr,id){
-			var str = JSON.stringify(arr, null, 4);
-			//document.getElementById("resultado").innerHTML = 'JSON : ' + str;
-			var out = "";
-		    var i;
-		    var documents = arr.Documentos;
-		    for(i = 0; i < documents.length; i++) {
-		        out +=
-				"<div class='col-sm-16'>" + 
-				"	<div class='description'>" + 
-				"		<p>"+documents[i].notaDelSumario+"</p>" + 
-				"	</div>" + 
-				"</div>" + 
-				"<div class='col-sm-8'>" + 
-				"	<div class='price'>" + 
-				"		<p>"+documents[i].fecha+"</p> <a href="+documents[i].url+" target='_blank' class='button worker-button-2'>Descargar</a>" + 
-				"	</div>" + 
-				"</div>" 				
-			}
-    		document.getElementById(id).innerHTML = out;
-		}
-			
-    </script>
+		</script>
+		<!-- Scripts -->
+		<script src="../js/jquery.js"></script>
+		<script src="../js/modernizr.js"></script>
+		<script src="../js/smooth-scroll.js"></script>
+		<script src="../js/jquery-ui.js"></script>
+		<script src="../js/images.js"></script>
+		<script src="../js/isotope.js"></script>
+		<script src="../js/bootstrap.js"></script>
+		<script src="../js/bootstrap-datepicker.js"></script>
+		<script src="../js/owl-carousel.js"></script>
+		<script src="../js/visible.js"></script>
+		<script src="../js/knob.js"></script>
+		<script src="../js/options.js"></script>
+		<script src="../js/municipios/municipios.js"></script>
+		<script src="../js/descargas/descargas.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
 
-</body>
+				$('.date').datepicker({
+					format : "yyyy-mm-dd",
+					endDate : "Today",
+					language : "es",
+					daysOfWeekDisabled : "0",
+					autoclose : true,
+					orientation : "top auto"
+				});
+
+			});
+			for ( x = 0; x < Municipios.length; x++) {
+
+				var nuevaOpcion = new Option(Municipios[x].texto);
+				document.dataForm.municipio.options[x] = nuevaOpcion;
+				if (x == 0) {
+					document.dataForm.municipio.options[x].value = Municipios[x].valor;
+				} else {
+					document.dataForm.municipio.options[x].value = Municipios[x].texto;
+				}
+
+			}
+
+			function createCORSRequest(method, url) {
+				var xhr = new XMLHttpRequest();
+				if ("withCredentials" in xhr) {
+					// Check if the XMLHttpRequest object has a "withCredentials" property.
+					// "withCredentials" only exists on XMLHTTPRequest2 objects.
+					xhr.open(method, url, true);
+				} else if ( typeof XDomainRequest != "undefined") {
+					// Otherwise, check if XDomainRequest.
+					// XDomainRequest only exists in IE, and is IE's way of making CORS requests.
+					xhr = new XDomainRequest();
+					xhr.open(method, url);
+				} else {
+					// Otherwise, CORS is not supported by the browser.
+					xhr = null;
+				}
+				return xhr;
+			}
+
+			function makeCorsRequest(url, id, form) {
+				var xhr = createCORSRequest('POST', url);
+				if (!xhr) {
+					alert('CORS not supported');
+					return;
+				}
+				var formElement = document.getElementById(form);
+				var formData = new FormData(formElement);
+				// Response handlers.
+				xhr.onload = function() {
+					var response = JSON.parse(xhr.responseText);
+					displayList(response, id);
+				};
+				xhr.onerror = function() {
+					alert('Woops, there was an error making the request.');
+				};
+				xhr.send(formData);
+				document.getElementById("resultado").innerHTML = "Buscando...";
+			}
+
+			function displayList(arr, id) {
+				var str = JSON.stringify(arr, null, 4);
+				//document.getElementById("resultado").innerHTML = 'JSON : ' + str;
+				var out = "";
+				var i;
+				var documents = arr.Documentos;
+				for ( i = 0; i < documents.length; i++) {
+					out += "<div class='col-sm-6'>" + "	<div class='description'>" + "		<p>" + documents[i].categoria + "</p>" + "	</div>" + "</div>" +
+					"<div class='col-sm-6'>" + "	<div class='description'>" + "		<p>" + documents[i].descripcion + "</p>" + "	</div>" + "</div>" + 
+					"<div class='col-sm-6'>" + "	<div class='description'>" + "		<p>" + documents[i].estado + "</p>" + "	</div>" + "</div>" +  
+					"<div class='col-sm-4'>" + "	<div class='price'>" + 
+				"				<p>Click para descargar</p> <a href= 'javascript:void(0)' onclick='activarDescarga(" + '"'+ arr.Documentos[i].url +'"' + ")' class='button worker-button-2'>Descargar</a>" + 
+					"	</div>" + "</div>"
+				}
+				document.getElementById(id).innerHTML = out;
+			}
+
+		</script>
+
+	</body>
 </html>

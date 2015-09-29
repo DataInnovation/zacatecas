@@ -242,6 +242,7 @@
 	<script src="js/visible.js"></script>
 	<script src="js/knob.js"></script>
 	<script src="js/options.js"></script>
+	<script src="js/descargas/descargas.js"></script>
     
     <script language="javascript">
 				
@@ -257,7 +258,16 @@
 			xmlhttpLeyes.open("GET",urlLeyes,true);
 			xmlhttpLeyes.send();
 			
+			
+			
+			
+			
+			
+			
+			
 			function myLeyes(arr) {
+				
+			
 				var out = "";
 				document.getElementById("titleLeyes").innerHTML = "Cargando...";
 				for(i = 0; i < arr.Documentos.length; i++) {
@@ -271,7 +281,7 @@
 					"		</div>" + 
 					"		<div class='col-sm-8'>" + 
 					"			<div class='price'>" + 
-					"				<p>"+arr.Documentos[i].fechaPublicacion+"</p> <a href="+arr.Documentos[i].url+" target='_blank' class='button worker-button-2'>Descargar</a>" + 
+					"				<p>"+arr.Documentos[i].fechaPublicacion+"</p> <a href= 'javascript:void(0)' onclick='activarDescarga(" + '"'+ arr.Documentos[i].url +'"' + ")' class='button worker-button-2'>Descargar</a>" + 
 					"			</div>" + 
 					"		</div>" +				
 					"	</div>" + 
@@ -279,6 +289,8 @@
 				}
 				document.getElementById("titleLeyes").innerHTML = "Leyes";
 				document.getElementById("LEYES").innerHTML = out;
+			
+			
 			}
 			var xmlhttpSuplementos = new XMLHttpRequest();
 			var urlSuplementos = "http://189.254.255.72:9000/obtener/suplementos";
@@ -306,7 +318,7 @@
 					"		</div>" + 
 					"		<div class='col-sm-8'>" + 
 					"			<div class='price'>" + 
-					"				<p>"+arr.Documentos[i].fechaPublicacion+"</p> <a href="+arr.Documentos[i].url+" target='_blank' class='button worker-button-2'>Descargar</a>" + 
+					"				<p>"+arr.Documentos[i].fechaPublicacion+"</p> <a href= 'javascript:void(0)' onclick='activarDescarga(" + '"'+ arr.Documentos[i].url +'"' + ")' class='button worker-button-2'>Descargar</a>" + 
 					"			</div>" + 
 					"		</div>" +				
 					"	</div>" + 
@@ -340,22 +352,7 @@
                 }
             });
     
-    		function descargar(arr){
-    			var documents = arr.Descarga;
-    			var blob = b64toBlob(documents, 'application/vnd.ms-excel');
-				var blobUrl = URL.createObjectURL(blob);
-				//window.location = blobUrl;
-				var a = window.document.createElement('a');
-				a.href = window.URL.createObjectURL(blob);
-				a.download = 'periodico.pdf';
-
-				// Append anchor to body.
-				document.body.appendChild(a)
-				a.click();
-
-				// Remove anchor from body
-				document.body.removeChild(a)
-    		}
+    		
             function addLinks(dateText){
 				
 				var fechaS = dateText;
@@ -376,12 +373,14 @@
 			}
 			xmlhttpPeriodico.open("GET",urlPeriodico,true);
 			xmlhttpPeriodico.send();
-
-
-                       
-                    }
+   				}
                 }
             }
+            
+            
+		
+            
+            
 
             function addDates(date){
                 for (x = 0; x < days.length; x++) {
@@ -392,31 +391,7 @@
                 return [false, "dia_nodocumento", ''];
             }
 
-            function b64toBlob(b64Data, contentType, sliceSize) {
-				contentType = contentType || '';
-				sliceSize = sliceSize || 512;
-
-				var byteCharacters = atob(b64Data);
-				var byteArrays = [];
-
-				for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-					var slice = byteCharacters.slice(offset, offset + sliceSize);
-
-					var byteNumbers = new Array(slice.length);
-					for (var i = 0; i < slice.length; i++) {
-						byteNumbers[i] = slice.charCodeAt(i);
-					}
-
-					var byteArray = new Uint8Array(byteNumbers);
-
-					byteArrays.push(byteArray);
-				}
-
-				var blob = new Blob(byteArrays, {
-					type : contentType
-				});
-				return blob;
-			}
+            
 			
 		
     </script>

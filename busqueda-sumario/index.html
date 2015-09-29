@@ -42,7 +42,7 @@
 									<a href="">Búsqueda</a>
 									<ul class="children">
 										<li><a href="../busqueda/">Búsqueda de Solicitud</a></li>
-										<li><a href="#">Búsqueda de Leyes</a></li>
+										<li><a href="../busqueda-leyes/">Búsqueda de Leyes</a></li>
 										<li><a href="">Consulta Cronología</a></li>
 									</ul>
 								</li>
@@ -56,6 +56,7 @@
 										<li><a href="../carga-periodico/">Carga Períodicos Publicados</a></li>
 										<li><a href="../carga-suplementos/">Carga Suplementos</a></li>
 										<li><a href="../nota-sumario/">Nota del Sumario</a></li>
+										<li><a href="../busqueda-sumario/">Reporte Sumario</a></li>
 										
 										
 										
@@ -155,7 +156,7 @@
                         <div class="row">
                         	<div class="col-xs-22 col-xs-offset-1">
                             
- 
+ 								
                                     <div class="row">
                                         <div class="col-md-14 col-lg-24">
                                             <h4 id="resultado">Resultados encontrados</h4>
@@ -164,7 +165,7 @@
                            
                                     <div class="services-list-header">
                                         <div class="row row-fit">
-                                            
+                                           
                                             <div class="col-sm-8">
                                                 <h4>Volumen</h4>
                                             </div>
@@ -331,14 +332,19 @@
 		    var documents = arr.Documentos;
 		    for(i = 0; i < documents.length; i++) {
 		        out +=
-				"<div class='col-sm-16'>" + 
+				"<div class='col-sm-8'>" + 
 				"	<div class='description'>" + 
-				"		<p>"+documents[i].notaDelSumario+"</p>" + 
+				"		<p>"+documents[i].volumen+"</p>" + 
+				"	</div>" + 
+				"</div>" + 
+				"<div class='col-sm-8'>" + 
+				"	<div class='description'>" + 
+				"		<p>"+documents[i].fecha+"</p>" + 
 				"	</div>" + 
 				"</div>" + 
 				"<div class='col-sm-8'>" + 
 				"	<div class='price'>" + 
-				"		<p>"+documents[i].fecha+"</p> <a href="+documents[i].url+" target='_blank' class='button worker-button-2'>Descargar</a>" + 
+				"		<p>"+documents[i].notaDelSumario+"</p>" + 
 				"	</div>" + 
 				"</div>" 				
 			}

@@ -1,9 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8" />
     <title>Periódico Oficial del Gobierno del Estado de Zacatecas</title>
     <meta name="description" content="Here goes description" />
     <meta name="author" content="author name" />
@@ -15,13 +13,12 @@
     <!-- Style CSS -->
     <link rel="stylesheet" href="../css/font-awesome.min.css" />
     <link rel="stylesheet" href="../css/owl-carousel.css" />
+    <link rel="stylesheet" href="../css/bootstrap.css" />
     <link rel="stylesheet" href="../css/datepicker.css" />
     <link rel="stylesheet" href="../css/add-date.css" />
-    <link rel="stylesheet" href="../css/bootstrap.css" />
     <link rel="stylesheet" href="../css/animate.css" />
     <link rel="stylesheet" href="../css/icomoon.css" />
     <link rel="stylesheet" href="../css/screen.css" />
-
 </head>
 <body data-smooth-scroll="on">
 	<!-- Page Wrapper -->
@@ -39,8 +36,7 @@
 
 					<!-- Nav -->
 					<div class="col-xs-12 col-md-18">
-						<nav>
-							<ul>
+						<nav> 							<ul>
 								<li><a href="../index.html">Inicio</a></li>
 								<li class="has-children current-menu-item">
 									<a href="">Búsqueda</a>
@@ -71,13 +67,13 @@
 								<li class="has-children">
 									<a href="">Parametros</a>
 									<ul class="children">
-										<li><a href="">Tipos de Inserciones</a></li>
-										<li><a href="">Categoría de Tipos</a></li>
+										<li><a href="#/">Tipos de Inserciones</a></li>
+										<li><a href="#/">Categoría de Tipos</a></li>
 										<li><a href="../municipios/">Municipios</a></li>
 										<li><a href="../juzgados/">Juzgados</a></li>
-										<li><a href="">Calendario Publicaciones</a></li>
-										<li><a href="">Contador Folio</a></li>
-										<li><a href="">Tipos de Leyes</a></li>
+										<li><a href="#/">Calendario Publicaciones</a></li>
+										<li><a href="#/">Contador Folio</a></li>
+										<li><a href="#/">Tipos de Leyes</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -97,7 +93,7 @@
 			<div class="section-header inverted inverted-all">
 				<div class="container">
 					<h1>Inserción de Información</h1>
-					<p>	Ingrese los datos para iniciar el proceso de inserción de una publicación.</p>
+					<p>	Ingrese los datos para iniciar el proceso de inserción de una publicación</p>
 				</div>
 			</div>
 
@@ -220,9 +216,15 @@
 											</div>
 											<div class="col-sm-5">
                                                 <div class="input-append date">
-                                                    <input class="input-line js-input" type="text" name="siFecha" placeholder="Fecha de Solicitud" value=""/><span class="add-on"><i class="icon icon-calendar"></i></span>
+                                                    <input class="input-line js-input" type="text" name="siFecha" placeholder="Fecha de Solicitud" value=""/><span class="add-on"><i class="icon icon-calendar"> 
+                                                    </i></span>
                                                 </div>
                                             </div>
+                                            
+                                            
+                                            
+                                            
+                                            
 										</div>
 
 										
@@ -230,15 +232,25 @@
                                         	<input type="button" value="Guardar" onclick="insertarSolicitud('http://189.254.255.72:9000')"/>
                                             <i class="icon icon-pencil"></i>
 										</div>
-
+										
+										<!--<div class="submit-button">
+                                        	<input type="button" value="Siguiente" onclick="location.href = 'http://189.254.255.72/insercion/'"/>
+                                            <i class="icon icon-pencil"></i>
+										</div>	-->
+										
+										<div class="submit-button">
+                                        	<input type="button" value="Siguiente" onclick="window.location.href='../insercion/'"/>
+                                            <i class="icon icon-pencil"></i>
+										</div>	
 									</form>
-                                    <ul id="resultado"></ul>
+									<ul id="resultado"></ul>
+									
 								</div>
 							</div>
 						</div>
                         
 
-
+                        
                         
                 	</div>                            
 				</div>
@@ -291,42 +303,55 @@
 		</footer>
 	</div>
 
-
+	<script language="javascript">
+    
+            function slctr(texto,valor){
+                this.texto = texto
+                this.valor = valor
+            }
+    
+    </script>
 	<!-- Scripts -->
 	<script src="../js/jquery.js"></script>
 	<script src="../js/modernizr.js"></script>
 	<script src="../js/smooth-scroll.js"></script>
 	<script src="../js/jquery-ui.js"></script>
+	<script src="../js/images.js"></script>
 	<script src="../js/isotope.js"></script>
 	<script src="../js/bootstrap.js"></script>
+	<script src="../js/bootstrap-datepicker.js"></script>
 	<script src="../js/owl-carousel.js"></script>
 	<script src="../js/visible.js"></script>
 	<script src="../js/knob.js"></script>
 	<script src="../js/options.js"></script>
+	<script src="../js/municipios/municipios.js"></script>
+	<script src="../js/descargas/descargas.js"></script>
+	
 	<script src="../js/jspdf.debug.js"></script>
 	<script src="../js/insert/jsInsert.js"></script>
 	<script src="../js/tipos/tipos_inserciones.js"></script>   
 	<script src="../js/juzgados/juzgados.js"></script>   
 	<script src="../js/calendario/CalendarioPublicaciones.js"></script>   
-	<script src="../js/bootstrap-datepicker.js"></script>
-	<script src="../js/municipios/municipios.js"></script>
-    
-    <script language="javascript">
-
-		$(document).ready(function() {	
-
-                $('.date').datepicker({
-					format: "yyyy/mm/dd",
-					endDate: "Today",
-					language: "es",
-					daysOfWeekDisabled: "0",
-    				autoclose: true,
-					orientation: "top auto"
-				});			
-	  
-		}); 
-
 	
+	
+	
+	
+	
+	
+	<script type="text/javascript">
+        
+            $(document).ready(function() {	
+    
+                    $('.date').datepicker({
+                        format: "yyyy/mm/dd",
+                        endDate: "Today",
+                        language: "es",
+                        daysOfWeekDisabled: "0",
+                        autoclose: true,
+                        orientation: "top auto"
+                    });			
+          
+            }); 
 		for (m=0;m<Municipios.length;m++){
 			var nuevaOpcion = new Option(Municipios[m].texto);
 			document.dataForm.siMunicipio.options[m] = nuevaOpcion;
@@ -336,8 +361,11 @@
 			else{
 				document.dataForm.siMunicipio.options[m].value = Municipios[m].valor;
 			}
-		}	
-	</script>
-    
+		}		
+		
+		
+			
+    </script>
+
 </body>
 </html>

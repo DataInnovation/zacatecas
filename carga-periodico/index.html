@@ -126,7 +126,7 @@
 												<input class="input-line js-input" type="number" name="pVolumen" id="siVolumenesPublicacion1"  placeholder="Volumen:" value="" onChange="Fechas(this,siFechasPublicacion1);"/>
 											</div>
 											<div class="col-sm-12">
-												<input class="input-line js-input" type="text" name="pFechaPublicacion"  id="siFechasPublicacion1" placeholder="Fecha de Publicación (yyyy/mm/dd)" value="" />
+												<input class="input-line js-input" type="text" name="pFechaPublicacion"  id="siFechasPublicacion1" placeholder="Fecha de Publicación (aaaa/mm/dd)" value="" />
 											</div>
 										</div>
 										 
@@ -149,6 +149,11 @@
 											<input type="button" value="Guardar" onClick="makeCorsRequest('http://189.254.255.72:9000/upload/periodico', 'form-carga-doc')" />
 											<i class="icon icon-pencil"></i>
 										</div>
+
+										<div class="submit-button">
+                                        	<input type="button" value="Siguiente" onclick="window.location.href='../carga-periodico/'"/>
+                                            <i class="icon icon-pencil"></i>
+										</div>	
 
 									</form>
                                     <ul id="resultado"></ul>
@@ -200,7 +205,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>	
 			</div>
 
 			<!-- Copyrights -->
@@ -278,13 +283,8 @@
 
 			xhr.onload = function() {
 				var response = JSON.parse( xhr.responseText);
-				document.getElementById("resultado").innerHTML = response.Causa;	
-				
-				if (response.Resultado==1){
-					document.formcargadoc.tFolio.value = "";	
-					document.formcargadoc.labelFile.value = "";	
-				}							
-		  	};
+				document.getElementById("resultado").innerHTML = response.Causa;
+			};
 		  	xhr.onerror = function() {
 		    alert('Woops, there was an error making the request.');
 		  	};

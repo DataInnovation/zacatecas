@@ -67,13 +67,13 @@
 								<li class="has-children">
 									<a href="">Parametros</a>
 									<ul class="children">
-										<li><a href="">Tipos de Inserciones</a></li>
-										<li><a href="">Categoría de Tipos</a></li>
+										<li><a href="#/">Tipos de Inserciones</a></li>
+										<li><a href="#/">Categoría de Tipos</a></li>
 										<li><a href="../municipios/">Municipios</a></li>
 										<li><a href="../juzgados/">Juzgados</a></li>
-										<li><a href="">Calendario Publicaciones</a></li>
-										<li><a href="">Contador Folio</a></li>
-										<li><a href="">Tipos de Leyes</a></li>
+										<li><a href="#/">Calendario Publicaciones</a></li>
+										<li><a href="#/">Contador Folio</a></li>
+										<li><a href="#/">Tipos de Leyes</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -115,6 +115,12 @@
 											</div>
 										</div>
 										
+										<div class="row">
+											<div class="col-sm-8">
+												<input class="input-line js-input" type="text" name="tomo" placeholder="Tomo:" />
+											</div>
+										</div>
+										
 										
 										<div class="row">
 											<div class="col-sm-8">
@@ -146,6 +152,12 @@
 											<input type="button" value="Buscar" onclick="makeCorsRequest('http://189.254.255.72:9000/busqueda/sumarios','lista','dataForm')"/>
 											<i class="icon icon-search"></i>
 										</div>
+										
+										<div class="submit-button">
+                                        	<input type="button" value="Siguiente" onclick="window.location.href='../busqueda-sumario/'"/>
+                                            <i class="icon icon-pencil"></i>
+										</div>	
+
 
 									</form>
 								</div>
@@ -166,13 +178,22 @@
                                     <div class="services-list-header">
                                         <div class="row row-fit">
                                            
-                                            <div class="col-sm-8">
+                                            <div class="col-sm-4">
                                                 <h4>Volumen</h4>
                                             </div>
-                                            <div class="col-sm-8">
-                                                <h4>Fecha</h4>
+                                            <div class="col-sm-4">
+                                                <h4>Tipo</h4>
                                             </div>
-                                            <div class="col-sm-8">
+                                            <div class="col-sm-4">
+                                                <h4>Categoria</h4>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <h4>Folio</h4>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <h4>Fecha Solicitud</h4>
+                                            </div>
+                                            <div class="col-sm-4">
                                                 <h4>Nota del Sumario</h4>
                                             </div>
                                        
@@ -316,6 +337,7 @@
 			xhr.onload = function() {
 		  	var response = JSON.parse( xhr.responseText);
         	displayList(response,id);
+        	document.getElementById("resultado").innerHTML = "Resultados Encontrados";
 		  	};
 		  	xhr.onerror = function() {
 		    alert('Woops, there was an error making the request.');
@@ -332,17 +354,32 @@
 		    var documents = arr.Documentos;
 		    for(i = 0; i < documents.length; i++) {
 		        out +=
-				"<div class='col-sm-8'>" + 
+				"<div class='col-sm-4'>" + 
 				"	<div class='description'>" + 
 				"		<p>"+documents[i].volumen+"</p>" + 
 				"	</div>" + 
 				"</div>" + 
-				"<div class='col-sm-8'>" + 
+				"<div class='col-sm-4'>" + 
+				"	<div class='description'>" + 
+				"		<p>"+documents[i].tipo+"</p>" + 
+				"	</div>" + 
+				"</div>" +
+				"<div class='col-sm-4'>" + 
+				"	<div class='description'>" + 
+				"		<p>"+documents[i].categoria+"</p>" + 
+				"	</div>" + 
+				"</div>" +
+				"<div class='col-sm-4'>" + 
+				"	<div class='description'>" + 
+				"		<p>"+documents[i].folio+"</p>" + 
+				"	</div>" + 
+				"</div>" +
+				"<div class='col-sm-4'>" + 
 				"	<div class='description'>" + 
 				"		<p>"+documents[i].fecha+"</p>" + 
 				"	</div>" + 
 				"</div>" + 
-				"<div class='col-sm-8'>" + 
+				"<div class='col-sm-4'>" + 
 				"	<div class='price'>" + 
 				"		<p>"+documents[i].notaDelSumario+"</p>" + 
 				"	</div>" + 

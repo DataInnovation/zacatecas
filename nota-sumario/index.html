@@ -37,7 +37,7 @@
 						<nav>
 							<ul>
 								<li><a href="../index.html">Inicio</a></li>
-								<li class="has-children current-menu-item">
+								<li class="has-children">
 									<a href="">Búsqueda</a>
 									<ul class="children">
 										<li><a href="../busqueda/">Búsqueda de Solicitud</a></li>
@@ -45,7 +45,7 @@
 										<li><a href="">Consulta Cronología</a></li>
 									</ul>
 								</li>
-								<li class="has-children">
+								<li class="has-children current-menu-item">
 									<a href="">Trámites</a>
 									<ul class="children">
 										<li><a href="../insercion/">Insercion</a></li>
@@ -56,9 +56,6 @@
 										<li><a href="../carga-suplementos/">Carga Suplementos</a></li>
 										<li><a href="../nota-sumario/">Nota del Sumario</a></li>
 										<li><a href="../busqueda-sumario/">Reporte Sumario</a></li>
-										
-										
-										
 									</ul>
 								</li>
 								<li><a href="#">Servicios</a></li>
@@ -66,13 +63,13 @@
 								<li class="has-children">
 									<a href="">Parametros</a>
 									<ul class="children">
-										<li><a href="">Tipos de Inserciones</a></li>
-										<li><a href="">Categoría de Tipos</a></li>
+										<li><a href="#/">Tipos de Inserciones</a></li>
+										<li><a href="#/">Categoría de Tipos</a></li>
 										<li><a href="../municipios/">Municipios</a></li>
 										<li><a href="../juzgados/">Juzgados</a></li>
-										<li><a href="">Calendario Publicaciones</a></li>
-										<li><a href="">Contador Folio</a></li>
-										<li><a href="">Tipos de Leyes</a></li>
+										<li><a href="#/">Calendario Publicaciones</a></li>
+										<li><a href="#/">Contador Folio</a></li>
+										<li><a href="#/">Tipos de Leyes</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -113,16 +110,22 @@
 										<div class="col-sm-12">
 												<input class="input-line js-input" type="text" name="folio" placeholder="Folio:" value="" />
 										</div>
+											<br>
 											
 											
-											
-										 <!--<textarea class="input-line js-input" name="sumario"  placeholder="Nota sumario:"></textarea>-->
-											
+										 <textarea class="input-line js-input" name="sumario"  placeholder="Nota sumario:"></textarea>
+										
 					
 										<br><br><br>
                                         
 										<div class="submit-button">
-											<input type="button" value="Cargar" onClick="makeCorsRequest('http://189.254.255.72:9000/upload/periodico, 'form-carga-doc')" />
+											<input type="button" value="Cargar" onClick="makeCorsRequest('http://189.254.255.72:9000/busqueda/folio', 'form-carga-doc')" />
+											<i class="icon icon-pencil"></i>
+										</div>
+										
+										
+										<div class="submit-button">
+											<input type="button"  value="Actualizar" onClick="makeCorsRequest2('http://189.254.255.72:9000/update/sumario', 'form-carga-doc')" />
 											<i class="icon icon-pencil"></i>
 										</div>
 
@@ -204,7 +207,31 @@
 	<script src="../js/insert/jsInsert.js"></script>
 	<script src="../js/calendario/CalendarioPublicaciones.js"></script>
     
-    <script>
+    <script language="javascript">
+
+
+		$(document).on('change', '.btn-file :file', function() {
+		  var input = $(this),
+			  numFiles = input.get(0).files ? input.get(0).files.length : 1,
+			  label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		  input.trigger('fileselect', [numFiles, label]);
+		});
+		
+		$(document).ready( function() {
+			$('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+				
+				var input = $(this).parents('.input-group').find(':text'),
+					log = numFiles > 1 ? numFiles + ' files selected' : label;
+				
+				if( input.length ) {
+					input.val(log);
+				} else {
+					if( log ) alert(log);
+				}
+				
+			});
+		});
+		
 
 		function createCORSRequest(method, url) {
 		  var xhr = new XMLHttpRequest();
@@ -234,9 +261,14 @@
 				document.getElementById("resultado").innerHTML = response.Causa;	
 				
 				if (response.Resultado==1){
-					document.formcargadoc.tFolio.value = "";	
-					document.formcargadoc.labelFile.value = "";	
-				}							
+					document.formcargadoc.sumario.value = response.sumario;	
+					
+				}
+				else{
+					document.formcargadoc.sumario.value = "";	
+					
+				}
+										
 		  	};
 		  	xhr.onerror = function() {
 		    alert('Woops, there was an error making the request.');
@@ -244,6 +276,30 @@
 		  	xhr.send(formData);
 		}
 
+
+		function makeCorsRequest2(url,form) {
+
+		  	var xhr = createCORSRequest('POST', url);
+		  	if (!xhr) {
+		    	alert('CORS not supported');
+		    	return;
+		  	}
+		  	var formElement = document.getElementById(form);
+		  	var formData = new FormData(formElement);
+
+			xhr.onload = function() {
+				var response = JSON.parse( xhr.responseText);
+				document.getElementById("resultado").innerHTML = response.Causa;	
+				
+				
+										
+		  	};
+		  	xhr.onerror = function() {
+		    alert('Woops, there was an error making the request.');
+		  	};
+		  	xhr.send(formData);
+		}
+			
 	
 		
 	</script>

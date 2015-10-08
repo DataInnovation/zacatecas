@@ -53,7 +53,7 @@ var Fraccionamiento=new Array()
 	Fraccionamiento[4] = new slctr("Revocaciones",'Revocaciones')	
 	Fraccionamiento[5] = new slctr("Aviso",'Aviso')	
 	Fraccionamiento[6] = new slctr("Administrativo",'Administrativo')		
-	Fraccionamiento[6] = new slctr("Vacancias",'Vacancias')	
+	Fraccionamiento[7] = new slctr("Vacancias",'Vacancias')	
 
 var Edictos=new Array()
 	Edictos[0] = new slctr('Categoria:')

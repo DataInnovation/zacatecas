@@ -136,7 +136,7 @@
   										<option value="BandosPoliciaybuenGobierno">Bandos Policia y Buen Gobierno</option>
   										<option value="LeyesReglamentarias">Leyes Reglamentarias</option>
   										<option value="ConstituciondelEstado">Constitución del Estado</option>
-  										<option value="ReglamentosMunicipales">ReglamentosMunicipales</option>
+  										<option value="ReglamentosMunicipales">Reglamentos Municipales</option>
   										<option value="Convenios">Convenios</option>
   										<option value="Acuerdos">Acuerdos</option>
   										<option value="Normativas">Normativas</option>
@@ -160,9 +160,17 @@
                                        	
                                     <div class="row">
 											
-											<div class="col-sm-12">
-												<input class="input-line js-input" type="text" name="lFechaPublicacion" placeholder="Fecha (yyyy/mm/dd):" value="" />
-											</div>
+										
+											
+											<div class="col-sm-5">
+                                                <div class="input-append date">
+                                                    <input class="input-line js-input" type="text" name="lFechaPublicacion" placeholder="Fecha (yyyy/mm/dd)" value=""/><span class="add-on"><i class="icon icon-calendar"> 
+                                                    </i></span>
+                                                </div>
+                                            </div>
+											
+											
+											
                                        </div> 
 											
 											
@@ -200,6 +208,11 @@
 										<div class="submit-button">
 											<input type="button" value="Guardar" onClick="makeCorsRequest('http://189.254.255.72:9000/upload/ley', 'form-carga-doc')" />
 											<i class="icon icon-pencil"></i>
+										</div>
+										
+										<div class="submit-button">
+                                        	<input type="button" value="Siguiente" onclick="window.location.href='../carga-leyes/'"/>
+                                            <i class="icon icon-pencil"></i>
 										</div>
 
 									</form>
@@ -276,14 +289,23 @@
 	<script src="../js/visible.js"></script>
 	<script src="../js/knob.js"></script>
 	<script src="../js/options.js"></script>
+	<script src="../js/bootstrap-datepicker.js"></script>
 	
 
-	
-	
-	
-	
-    
     <script language="javascript">
+    
+    $(document).ready(function() {	
+    
+                    $('.date').datepicker({
+                        format: "yyyy/mm/dd",
+                        endDate: "Today",
+                        language: "es",
+                        daysOfWeekDisabled: "0",
+                        autoclose: true,
+                        orientation: "top auto"
+                    });			
+          
+            }); 
 
 
 		$(document).on('change', '.btn-file :file', function() {

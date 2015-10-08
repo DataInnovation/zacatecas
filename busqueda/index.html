@@ -67,13 +67,13 @@
 								<li class="has-children">
 									<a href="">Parametros</a>
 									<ul class="children">
-										<li><a href="">Tipos de Inserciones</a></li>
-										<li><a href="">Categoría de Tipos</a></li>
+										<li><a href="#/">Tipos de Inserciones</a></li>
+										<li><a href="#/">Categoría de Tipos</a></li>
 										<li><a href="../municipios/">Municipios</a></li>
 										<li><a href="../juzgados/">Juzgados</a></li>
-										<li><a href="">Calendario Publicaciones</a></li>
-										<li><a href="">Contador Folio</a></li>
-										<li><a href="">Tipos de Leyes</a></li>
+										<li><a href="#/">Calendario Publicaciones</a></li>
+										<li><a href="#/">Contador Folio</a></li>
+										<li><a href="#/">Tipos de Leyes</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -350,6 +350,7 @@
 			xhr.onload = function() {
 		  	var response = JSON.parse( xhr.responseText);
         	displayList(response,id);
+        	document.getElementById("resultado").innerHTML = "Resultados Encontrados";
 		  	};
 		  	xhr.onerror = function() {
 		    alert('Woops, there was an error making the request.');
@@ -373,7 +374,7 @@
 				"</div>" + 
 				"<div class='col-sm-8'>" + 
 				"	<div class='price'>" + 
-				"				<p>"+arr.Documentos[i].fecha+"</p> <a href= 'javascript:void(0)' onclick='activarDescarga(" + '"'+ arr.Documentos[i].url +'"' + ")' class='button worker-button-2'>Descargar</a>" + 
+				"				<p>"+documents[i].fecha+"</p> <a href= 'javascript:void(0)' onclick='activarDescarga(" + '"'+ documents[i].url +'"' + ")' class='button worker-button-2'>Descargar</a>" + 
 					"	</div>" + 
 				"</div>" 				
 			}

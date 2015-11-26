@@ -56,5 +56,6 @@ var Municipios=new Array()
 	Municipios[53] = new slctr("Villa García",'VillaGarcia')
 	Municipios[54] = new slctr("Villa González Ortega",'VillaGonzalezOrtega')
 	Municipios[55] = new slctr("Villa Hidalgo",'VillaHidalgo')
-	Municipios[56] = new slctr("Trancoso",'Trancoso')
+	Municipios[56] = new slctr("Villanueva",'Villanueva')
+	Municipios[57] = new slctr("Trancoso",'Trancoso')
 

@@ -10,30 +10,62 @@
 
 	function TipoInser(cual,donde, juzgados){
 		
-		if(cual.selectedIndex != 0){
-			if(cual.selectedIndex == 4 || cual.selectedIndex == 6  ){
-				document.getElementById(juzgados).disabled = false;
+		if(cual.selectedIndex != 0){ //saca cual fue el que le mando
+			if(cual.selectedIndex == 4 || cual.selectedIndex == 6  ){//dependiendo del que 
+				document.getElementById(juzgados).disabled = false;//si es correcto lo habilita
 				
 			}
 			else{
-				document.getElementById(juzgados).disabled = true;
+				document.getElementById(juzgados).disabled = true; 
 				document.getElementById(juzgados).options.length = 0;
 				
 			}
-			donde.length=0;
+			donde.length=0;//donde es categoria el que modificara
 			cual = eval(cual.value);
+			
+			
+			
 			for(m=0;m<cual.length;m++){
 				var nuevaOpcion = new Option(cual[m].texto);
 				donde.options[m] = nuevaOpcion;
+				
 				if(cual[m].valor != null){
 					donde.options[m].value = cual[m].valor;
 				}
 				else{
 					donde.options[m].value = cual[m].texto;
 				}
-			}
+			}//termina for
 		}
 	}
+	
+	
+	
+	function TomoFecha(cual,donde){
+		
+		if(cual.selectedIndex != 0){ //saca cual fue el que le mando
+			
+			donde.length=0;//donde es categoria el que modificara
+			cual = eval(cual.value);
+			
+			
+			
+			for(m=0;m<cual.length;m++){
+				var nuevaOpcion = new Option(cual[m].texto);
+				donde.options[m] = nuevaOpcion;
+				
+				if(cual[m].valor != null){
+					donde.options[m].value = cual[m].valor;
+				}
+				else{
+					donde.options[m].value = cual[m].texto;
+				}
+			}//termina for
+		}
+	}
+	
+	
+	
 	
 	
 	function Juzgados(cual,donde){
@@ -54,22 +86,69 @@
 	}
 
 
-	function Fechas(cual,donde){
+	function changeRangeVolumen(x,y) {
+	var input = document.getElementById("siVolumenesPublicacion1");
+	input.setAttribute("min", x);
+	input.setAttribute("max", y);
+	}
+
+
+
+	function Fechas(cual,donde,tomo){
 		if(cual.value != 0){
+			var tomos=tomo.value;
+			var input = document.getElementById("siVolumenesPublicacion1");
+			
+			if(tomos=="CXXIV"){ //105
+			cual = eval(cual.value)
+			var nuevaOpcion = FechasPublicaciones2014[cual].fecha;
+			donde.value=nuevaOpcion;
+			input.setAttribute("min", 1);
+			input.setAttribute("max", 105);
+			}
+			
+			if(tomos=="CXXV"){//104
 			cual = eval(cual.value)
 			var nuevaOpcion = FechasPublicaciones[cual].fecha;
 			donde.value=nuevaOpcion;
+			input.setAttribute("min", 1);
+			input.setAttribute("max", 104);
+			}
+		
+		}
+	}
+	
+	
+	function Fechas2(cual,tomo){
+		if(cual.value != 0){
+			var tomos=tomo.value;
+			var input = document.getElementById("siVolumenesPublicacion1");
+			
+			if(tomos=="CXXIV"){ //105
+			cual = eval(cual.value)
+			
+			input.setAttribute("min", 1);
+			input.setAttribute("max", 105);
+			}
+			
+			if(tomos=="CXXV"){//104
+			cual = eval(cual.value)
+			input.setAttribute("min", 1);
+			input.setAttribute("max", 104);
+			}
+		
 		}
 	}
 
 
 	function publicaciones(ctas){
-	  var num = ctas.value
+	  var num = ctas.value;
 	  var div = '';
+	  
 	  for (var i=1;i<num;i++){ 
 		   var cont=i+1;
 		   div+="<div class='col-sm-12'>"
-		   div+="	<input class='input-line js-input' type='number' name='siVolumenesPublicacion[]' id='siVolumenesPublicacion"+cont+"' placeholder='Numero de Inserciones:' value='' onChange='Fechas(this,siFechasPublicacion"+cont+");'/>"
+		   div+="	<input class='input-line js-input' type='number' name='siVolumenesPublicacion[]' id='siVolumenesPublicacion"+cont+"' placeholder='Volumen:' value='' onChange='Fechas(this,siFechasPublicacion"+cont+",this.form.siTomo);'/>"
 		   div+="</div>"
 		   div+="<div class='col-sm-12'>"
 		   div+="	<input class='input-line js-input' type='text' name='siFechasPublicacion[]' id='siFechasPublicacion"+cont+"' placeholder='Fecha de Publicación' value='' />"
@@ -112,7 +191,7 @@
 		var usuario = document.getElementsByName("usuario")[0].value; //dinamicos, obtenidos al accesar el usuario
 		var password = document.getElementsByName("password")[0].value; //dinamicos,obtenidos al accesar el usuario
 		var path  = document.getElementsByName("path")[0].value;
-		var urlAlfresco = document.getElementsByName("urlAlfresco")[0].value;
+		//var urlAlfresco = document.getElementsByName("urlAlfresco")[0].value;
 		
 		var siActor = document.getElementsByName("siActor")[0].value;
 		var siTipoInsercion = document.getElementsByName("siTipoInsercion")[0].value;
@@ -122,6 +201,7 @@
 		var siMunicipio = document.getElementsByName("siMunicipio")[0].value;
 		var siJuzgado = document.getElementsByName("siJuzgado")[0].value;
 		var siNumInserciones = document.getElementsByName("siNumInserciones")[0].value;
+		var siTomo = document.getElementsByName("siTomo")[0].value;
 		var siVolumenesPublicacion = idVolumenesPublicacion.join() //document.getElementsByName("siVolumenesPublicacion").value;
 		var siFechasPublicacion = idsiFechasPublicacion.join() //document.getElementsByName("siFechasPublicacion").value;
 		var siCantidadAPagar = document.getElementsByName("siCantidadAPagar")[0].value;
@@ -163,7 +243,7 @@
 				doc.text(80, 63, 'NOMBRE DE LA PERSONA QUE SOLICITA');
 				doc.text(93, 73, 'NOMBRE DEL ACTOR');
 				doc.text(90, 83, 'A BIENES O ENCONTRA DE');
-				doc.text(100, 93, 'JUZGADO');
+				doc.text(92, 93, 'MUNICIPIO / JUZGADO');
 				//valores sobre las lineas
 				doc.setFontSize(9);
 				doc.setTextColor(0,0,0);
@@ -179,9 +259,10 @@
    				var textWidth = doc.getStringUnitWidth(text) * doc.internal.getFontSize() / doc.internal.scaleFactor;
    				var textOffset = ((doc.internal.pageSize.width - textWidth) / 4) * 2;
   				doc.text(textOffset, 79, text);
-				var text = ''+siJuzgado;
+				
+  				var text = ''+siMunicipio+' / '+siJuzgado;
    				var textWidth = doc.getStringUnitWidth(text) * doc.internal.getFontSize() / doc.internal.scaleFactor;
-   				var textOffset = ((doc.internal.pageSize.width - textWidth) / 4) * 2;
+   				var textOffset = ((doc.internal.pageSize.width - textWidth) / 8) * 4;
   				doc.text(textOffset, 89, text);
   				
   				//segunda parte del marco1
@@ -277,26 +358,29 @@
 				doc.setLineWidth(.5);
 				doc.setDrawColor(0); 
 				doc.setFillColor(255, 255, 255); 
-				doc.roundedRect(10, 220, 190,26, 1, 1, 'FD');
+				doc.roundedRect(10, 220, 190,46, 1, 1, 'FD');
 				
 				//valores
 				doc.setFontSize(9);
 				doc.setFontType("normal");
-				doc.text(120, 228, ''+siVolumenesPublicacion );
-				doc.text(93, 238, ''+siFechasPublicacion);
+				doc.text(93, 228, ''+siTomo);
+				doc.text(120, 238, ''+siVolumenesPublicacion );
+				doc.text(93, 248, ''+siFechasPublicacion);
 				
 				//lineas
 				doc.setLineWidth(0);
 				doc.setDrawColor(0,0,0); 
 				doc.line(89, 229, 190, 229);
 				doc.line(89, 239, 190, 239)
+				doc.line(89, 249, 190, 249)
 				
 				//valores a poner
 				doc.setLineWidth(0);
 				doc.setFontSize(9);
 				doc.setFontType("bold");
-				doc.text(15, 229, 'No. DE PERIÓDICOS:');
-				doc.text(15, 239, 'FECHA DE PUBLICACIÓN:');
+				doc.text(15, 229, 'TOMO:');
+				doc.text(15, 239, 'VOLUMENES:');
+				doc.text(15, 249, 'FECHA DE PUBLICACIÓN:');
 			
 		
 		
@@ -316,6 +400,7 @@
 			siCategoria : siCategoria,
 			siMunicipio : siMunicipio,
 			siJuzgado : siJuzgado,
+			siTomo : siTomo,
 			siNumInserciones : siNumInserciones,
 			siVolumenesPublicacion : idVolumenesPublicacion.join(),
 			siFechasPublicacion : idsiFechasPublicacion.join(),
@@ -323,7 +408,7 @@
 			siPartidaPagoNum : siPartidaPagoNum,
 			siFecha : siFecha,
 			siNotaSumario : siNotaSumario,
-			urlAlfresco : urlAlfresco
+			//urlAlfresco : urlAlfresco
 		};
 		
 		
@@ -341,3 +426,20 @@
 		});
 		
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

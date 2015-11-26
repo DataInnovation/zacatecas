@@ -42,45 +42,72 @@
 					<div class="col-xs-12 col-md-18">
 						<nav>
 							<ul>
-								<li><a href="../index.html">Inicio</a></li>
+								<li ><a href="#" id="usuarioR">Usuario</a></li>
+								<li class="current-menu-item"><a href="index.html">Inicio</a></li>
 								<li class="has-children current-menu-item">
-									<a href="">Búsqueda</a>
-									<ul class="children">
-										<li><a href="../busqueda/">Búsqueda de Solicitud</a></li>
-										<li><a href="../busqueda-leyes/">Búsqueda de Leyes</a></li>
-										<li><a href="">Consulta Cronología</a></li>
-									</ul>
-								</li>
-								<li class="has-children">
-									<a href="">Trámites</a>
-									<ul class="children">
-										<li><a href="../insercion/">Insercion</a></li>
-										<li><a href="../carga-imagen/">Carga Imagenes Inserción</a></li>
-										<li><a href="../carga-transcrito/">Carga Transcripciones</a></li>
-										<li><a href="../carga-leyes/">Carga Leyes</a></li>
-										<li><a href="../carga-periodico/">Carga Períodicos Publicados</a></li>
-										<li><a href="../carga-suplementos/">Carga Suplementos</a></li>
-										<li><a href="../nota-sumario/">Nota del Sumario</a></li>
-										<li><a href="../busqueda-sumario/">Reporte Sumario</a></li>
-										
-										
-										
-									</ul>
-								</li>
-								<li><a href="#">Servicios</a></li>
-								<li><a href="#">Leyes y Reglamentos</a></li>
-								<li class="has-children">
-									<a href="">Parametros</a>
-									<ul class="children">
-										<li><a href="">Tipos de Inserciones</a></li>
-										<li><a href="">Categoría de Tipos</a></li>
+										<img src="../img/lupac.png"><a href="">Búsqueda</a>
+										<ul class="children">
+											<li>
+												<a href="../busqueda/">Búsqueda de Solicitud</a>
+											</li>
+											<li>
+												<a href="../busqueda-leyes/">Búsqueda de Leyes</a>
+											</li>
+											<li><a href="../busqueda-suplemento/">Búsqueda de Suplemento</a></li>
+											
+										</ul>
+									</li>
+									<li class="has-children">
+										<a href="">Trámites</a>
+										<ul class="children">
+											<li>
+												<a href="../insercion/">Insercion</a>
+											</li>
+											<li>
+												<a href="../carga-imagen/">Carga Imagenes Inserción</a>
+											</li>
+											<li>
+												<a href="../carga-transcrito/">Carga Transcripciones</a>
+											</li>
+											<li>
+												<a href="../carga-leyes/">Carga Leyes</a>
+											</li>
+											<li>
+												<a href="../carga-periodico/">Carga Períodicos Publicados</a>
+											</li>
+											<li>
+												<a href="../carga-suplementos/">Carga Suplementos</a>
+											</li>
+											<li>
+												<a href="../nota-sumario/">Nota del Sumario</a>
+											</li>
+											<li>
+												<a href="../busqueda-sumario/">Reporte Sumario</a>
+											</li>
+
+										</ul>
+									</li>
+									<li>
+										<a href="#">Servicios</a>
+									</li>
+									
+									<li class="has-children">
+										<a href="">Parametros</a>
+										<ul class="children">
+											<li><a href="#/">Tipos de Inserciones</a></li>
+										<li><a href="#/">Categoría de Tipos</a></li>
 										<li><a href="../municipios/">Municipios</a></li>
 										<li><a href="../juzgados/">Juzgados</a></li>
-										<li><a href="">Calendario Publicaciones</a></li>
-										<li><a href="">Contador Folio</a></li>
-										<li><a href="">Tipos de Leyes</a></li>
-									</ul>
+										<li><a href="#/">Calendario Publicaciones</a></li>
+										<li><a href="#/">Contador Folio</a></li>
+										<li><a href="#/">Tipos de Leyes</a></li>
+										</ul>
+									</li>
+								
+								<li>
+									<a href='javascript:void(0)' onclick='eliminarCookies()'>Cerrar sesión</a>
 								</li>
+                                
 							</ul>
 
 							<i class="responsive-menu-trigger icon-menu"></i>
@@ -114,7 +141,7 @@
 									<form id="form-carga-doc" name="formcargadoc" class="respond-form" method="post" action="">
                                     	<input type="hidden"  name="usuario" value="admin">
                                     	<input type="hidden"  name="password" value="pofzacatecas123">
-                                        <input type="hidden"  name="urlAlfresco" value="189.254.255.72:8080">
+                                         
                                         <input type="hidden"  name="path" value="/Sitios/periodico-zacatecas/documentLibrary/Leyes">
 										
 										<!--<div class="row">
@@ -164,7 +191,7 @@
 											
 											<div class="col-sm-5">
                                                 <div class="input-append date">
-                                                    <input class="input-line js-input" type="text" name="lFechaPublicacion" placeholder="Fecha (yyyy/mm/dd)" value=""/><span class="add-on"><i class="icon icon-calendar"> 
+                                                    <input class="input-line js-input" type="text" name="lFechaPublicacion" placeholder="Fecha" value=""/><span class="add-on"><i class="icon icon-calendar"> 
                                                     </i></span>
                                                 </div>
                                             </div>
@@ -206,7 +233,7 @@
 										<br>
                                         
 										<div class="submit-button">
-											<input type="button" value="Guardar" onClick="makeCorsRequest('http://189.254.255.72:9000/upload/ley', 'form-carga-doc')" />
+											<input type="button" value="Guardar" onClick="makeCorsRequest('http://periodicooficial.zacatecas.gob.mx:9000/upload/ley', 'form-carga-doc')" />
 											<i class="icon icon-pencil"></i>
 										</div>
 										
@@ -289,10 +316,14 @@
 	<script src="../js/visible.js"></script>
 	<script src="../js/knob.js"></script>
 	<script src="../js/options.js"></script>
+	<script src="../js/cookies/cookies.js"></script>
 	<script src="../js/bootstrap-datepicker.js"></script>
 	
 
     <script language="javascript">
+    
+    verificarLogin();
+    
     
     $(document).ready(function() {	
     

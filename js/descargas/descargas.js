@@ -25,14 +25,16 @@ function b64toBlob(b64Data, contentType, sliceSize) {
 			}
 			
 
-function descargar(arr){
-    			var documents = arr.Descarga;
-    			var blob = b64toBlob(documents, 'application/vnd.ms-excel');
+function descargar(arr,nombre){
+				nombre = nombre || 'Periodico.pdf';
+				var documents = arr.Descarga;
+    			var blob = b64toBlob(documents, 'application/pdf');
 				var blobUrl = URL.createObjectURL(blob);
 				//window.location = blobUrl;
 				var a = window.document.createElement('a');
 				a.href = window.URL.createObjectURL(blob);
-				a.download = 'periodico.pdf';
+				//descargar con el nombre indicado
+				a.download = nombre;
 
 				// Append anchor to body.
 				document.body.appendChild(a)
@@ -45,13 +47,13 @@ function descargar(arr){
 
 
 
-function activarDescarga(urle)
+function activarDescarga(urle,nombre)
 			{
 			 var xmlhttpPeriodico = new XMLHttpRequest();
 			 xmlhttpPeriodico.onreadystatechange = function() {
 				if (xmlhttpPeriodico.readyState==4 && xmlhttpPeriodico.status==200){
 					var myArr = JSON.parse(xmlhttpPeriodico.responseText);
-					descargar(myArr);
+					descargar(myArr,nombre);
 				}
 			}
 			xmlhttpPeriodico.open("GET",urle,true);

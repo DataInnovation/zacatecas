@@ -70,8 +70,8 @@
 			<!-- Section Header -->
 			<div class="section-header inverted inverted-all">
 				<div class="container">
-					<h1>Busqueda de Información</h1>
-					<p>	Ingrese los datos que considere necesarios para iniciar la búsqueda avanzada.</p>
+					<h1>Busqueda de Suplementos</h1>
+					<p>	Ingrese los datos que considere necesarios para iniciar la búsqueda por suplementos.</p>
 				</div>
 			</div>
 
@@ -85,85 +85,56 @@
 									<h4 class="caption">Puede realizar su búsqueda por:</h4>
 
 									<form class="respond-form" id="dataForm" name="dataForm" onsubmit="return false">
+										
+										
 										<div class="row">
 											<div class="col-sm-8">
-												<input class="input-line js-input" type="text" name="folio" placeholder="Folio:" />
+                                                <select class="input-line js-input" name="tomo" id="siTomo">
+                                                    <option disabled selected>Tomo:</option>
+                                                    <option value="CXXIV">CXXIV(2014)</option>
+                                                    <option value="CXXV">CXXV(2015)</option>
+                                                    <!--<option value="CXXVI">CXXVI</option>-->
+                               				 </select>
 											</div>
+										</div>
+										
+										
+										<div class="row">
 											<div class="col-sm-8">
-												<div class="input-append date">
-													<input class="input-line js-input" type="text" name="fechaInicial" placeholder="Fecha Inicial" value=""/><span class="add-on"><i class="icon icon-calendar"></i></span>
-												</div>
+												<input class="input-line js-input" type="number" name="volumen" id="siVolumenesPublicacion1" placeholder="Volumen Periodico Ordinario:" value="" onChange="Fechas2(this,this.form.siTomo);"/>
 											</div>
-											<div class="col-sm-8">
-												<div class="input-append date">
-													<input class="input-line js-input" type="text" name="fechaFinal" placeholder="Fecha Final" value=""/><span class="add-on"><i class="icon icon-calendar"></i></span>
-												</div>
 											</div>
 											
-											 
+									
+										
 											
-										</div>
-
+											
+											
 										<div class="row">
 											<div class="col-sm-8">
-												<input class="input-line js-input" type="text" name="solicitante" placeholder="Solicitante:" />
+												<input class="input-line js-input" type="text" name="titulo" placeholder="Titulo:" />
 											</div>
-											<div class="col-sm-8">
-												<input class="input-line js-input" type="text" name="actor" placeholder="Actor:" />
-											</div>
-											<div class="col-sm-8">
-												<input class="input-line js-input" type="text" name="contraparte" placeholder="Contraparte:" />
-											</div>
-										</div>
-
-										<div class="row">
-											<div class="col-sm-12">
-                                                <select class="input-line js-input" name="tipoInsercion">
-                                                    <option selected disabled>Tipo de Insercion:</option>
-                                                    <option>Edicto</option>
-                                                    <option>Aviso Notarial</option>
-                                                    <option>Ley</option>
-                                                    <option>Particular</option>
-                                                    <option>Judicial</option>
-                                                    <option>Fraccionamientos</option>
-                                                    <option>Otros</option>
-                                                </select>
-											</div>
-											<div class="col-sm-12">
-                                                <select class="input-line js-input" name="categoria">
-                                                    <option selected disabled>Categoría</option>
-                                                    <option>Sumario Civil</option>
-                                                    <option>Civil Ordinario</option>
-                                                    <option>Emplazamiento</option>
-                                                    <option>Ejecución</option>
-                                                    <option>Sanciones</option>
-                                                    <option>Causa Penal</option>
-                                                    <option>Juicio Mercantil</option>
-                                                </select>
-											</div>
-										</div>
-
-
+											</div>	
+											
 										<div class="row">
 											<div class="col-sm-8">
-                                                <select class="input-line js-input" name="municipio">
-                                                </select>
+												<input class="input-line js-input" type="number" name="numeroSuplemento" placeholder="Numero Suplemento:" />
 											</div>
-											<div class="col-sm-8">
-												<input class="input-line js-input" type="text" name="juzgado" placeholder="Juzgado:" />
-											</div>
-											<div class="col-sm-8">
-												<input class="input-line js-input" type="text" name="partidaPago" placeholder="Partida pago No.:" />
-											</div>
-										</div>
+											</div>		
+										
+										
+										
+										
 
+										
 
 										<div class="submit-button">
-											<input type="submit" value="Buscar" onclick="makeCorsRequest('http://periodicooficial.zacatecas.gob.mx:9000/busqueda/avanzada','lista','dataForm')"/>
+											<input type="submit" value="Buscar" onclick="makeCorsRequest('http://189.254.255.72:9000/busqueda/suplementos','lista','dataForm')"/>
 											<i class="icon icon-search"></i>
 										</div>
+										
 										<div class="submit-button">
-                                        	<input type="button" value="Siguiente" onclick="window.location.href='../busqueda/'"/>
+                                        	<input type="button" value="Siguiente" onclick="window.location.href='../busqueda-suplemento/'"/>
                                             <i class="icon icon-pencil"></i>
 										</div>
 
@@ -182,7 +153,6 @@
                                             <h4 id="resultado">Resultados encontrados</h4>
                                         </div>
                                         
-                                        
                                     <div class="row center" >
 									<button onclick="primeraPag('lista')"> <img src="../img/first.png" /> </button>
 									<button onclick="anteriorPag('lista')"><img src="../img/previous.png" /> </button>
@@ -192,32 +162,27 @@
 									<button onclick="ultimaPag('lista')"> <img src="../img/last.png" /> </button>
 									</div>
                                         
-                                        
-                                        
-                                        
-                                        
-                                        
                                     </div>
                            
                                     <div class="services-list-header">
                                         <div class="row row-fit">
                                             <div class="col-sm-9">
-                                                <h4>Descripción</h4>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h4>Volumen</h4>
+                                                <h4>Titulo</h4>
                                             </div>
                                             <div class="col-sm-3">
                                                 <h4>Tomo</h4>
                                             </div>
                                             <div class="col-sm-3">
-                                                <h4>Fecha</h4>
+                                                <h4>Volumen Periodico</h4>
                                             </div>
                                             <div class="col-sm-3">
-                                                <h4>Descargar Periodico</h4>
+                                                <h4>Numero Suplemento</h4>
                                             </div>
                                             <div class="col-sm-3">
-                                                <h4>Descargar Solicitud</h4>
+                                                <h4>Fecha Publicacion</h4>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <h4>Descargar</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -300,10 +265,10 @@
 	<script src="../js/owl-carousel.js"></script>
 	<script src="../js/visible.js"></script>
 	<script src="../js/knob.js"></script>
-	<script src="../js/options.js"></script>
-	<script src="../js/municipios/municipios.js"></script>
 	<script src="../js/descargas/descargas.js"></script>
-	<script src="../js/table/pagBusqueda.js"></script>
+	<script src="../js/insert/jsInsert.js"></script>
+	<script src="../js/options.js"></script>
+	<script src="../js/table/pagBusquedaSuplemento.js"></script>
 	<script type="text/javascript">
         
             $(document).ready(function() {	
@@ -318,18 +283,7 @@
                     });			
           
             }); 
-		for (x=0;x<Municipios.length;x++){
-						
-			var nuevaOpcion = new Option(Municipios[x].texto);
-			document.dataForm.municipio.options[x]  = nuevaOpcion;
-			if (x==0){
-				document.dataForm.municipio.options[x].value = Municipios[x].valor;
-			}
-			else{
-				document.dataForm.municipio.options[x].value  = Municipios[x].texto;
-			}
-			
-		}	
+		
 		
 		
 		function createCORSRequest(method, url) {
@@ -350,6 +304,7 @@
 		  return xhr;
 		}
 		function makeCorsRequest(url,id,form) {
+			
 		  	var xhr = createCORSRequest('POST', url);
 		  	if (!xhr) {
 		    	alert('CORS not supported');
@@ -360,9 +315,10 @@
 		  	// Response handlers.
 			xhr.onload = function() {
 		  	var response = JSON.parse( xhr.responseText);
+		  	
         	displayList(response,id);
         	
-		  	};
+        	};
 		  	xhr.onerror = function() {
 		    alert('Woops, there was an error making the request.');
 		  	};
@@ -373,16 +329,15 @@
 		function displayList(arr,id){
 			//var str = JSON.stringify(arr, null, 4);
 			//document.getElementById("resultado").innerHTML = 'JSON : ' + str;
-			arr2=arr;
-			indice=1;
 			
-			if(arr.Documentos==undefined){
+			arr2=arr;
+				indice=1;
+				
+				if(arr.Documentos==undefined){
 		    	document.getElementById("resultado").innerHTML = "No se encontraron resultados";
+		    	}
 		    	
-		    }
-		    
-		    mostrarLista(id);
-		    
+		    	mostrarLista(id);	
 		}
 			
     </script>

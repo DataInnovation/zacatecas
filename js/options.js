@@ -10,7 +10,7 @@
 		module: function () {
 			//this.datePickerInit();
 			this.tabsInit();
-			// this.isotopeInit();
+			this.isotopeInit();
 			this.owlCarouselInit();
 			this.inputHasValue();
 			this.accordionToggles();
@@ -66,42 +66,46 @@
 		    });
 		},
 
-		// isotopeInit: function () {
-		// 	var isotopeContainer = jQuery('.works-wrapper .row'),
-		// 		defaultSelection = jQuery('.works-wrapper').attr('data-default-selection');
+		isotopeInit: function () {
+			// Isotope on Gallery 
+			var isotopeContainer = jQuery('.works-wrapper .row'),
+				defaultSelection = jQuery('.works-wrapper').attr('data-default-selection');
 			
-		// 	isotopeContainer.imagesLoaded(function () {
-		// 		isotopeContainer.isotope({
-		// 			filter: defaultSelection,
-		// 			itemSelector: '.item'
-		// 		});
-		// 	});
+			//Isotope Init
+			isotopeContainer.imagesLoaded(function () {
+				isotopeContainer.isotope({
+					filter: defaultSelection,
+					itemSelector: '.item'
+				});
+			});
 
-		// 	jQuery('.filters a').on('click', function () {
-		// 		jQuery('.filters .current').removeClass('current');
-		// 		jQuery(this).addClass('current');
+			// Isotope Filters
+			jQuery('.filters a').on('click', function () {
+				jQuery('.filters .current').removeClass('current');
+				jQuery(this).addClass('current');
 
-		// 		var selector = jQuery(this).attr('data-filter');
-		// 			isotopeContainer.isotope({
-		// 				filter: selector,
-		// 				animationOptions: {
-		// 				    duration: 750,
-		// 				    easing: 'linear',
-		// 				    queue: false
-		// 				}
-		// 			});
-		// 		return false;
-		// 	});
+				var selector = jQuery(this).attr('data-filter');
+					isotopeContainer.isotope({
+						filter: selector,
+						animationOptions: {
+						    duration: 750,
+						    easing: 'linear',
+						    queue: false
+						}
+					});
+				return false;
+			});
 
-		// 	var isotopeSidebarContainer = jQuery('.sidebar .sidebar-widgets');
+			// Isotope On Sidebar
+			var isotopeSidebarContainer = jQuery('.sidebar .sidebar-widgets');
 			
 			
-		// 	isotopeSidebarContainer.imagesLoaded(function () {
-		// 		isotopeSidebarContainer.isotope({
-		// 			itemSelector: '.widget-wrapper'
-		// 		});
-		// 	});
-		// },
+			isotopeSidebarContainer.imagesLoaded(function () {
+				isotopeSidebarContainer.isotope({
+					itemSelector: '.widget-wrapper'
+				});
+			});
+		},
 	 
 		owlCarouselInit: function () {
 			// Testimonials Slider

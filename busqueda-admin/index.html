@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="../css/animate.css" />
     <link rel="stylesheet" href="../css/icomoon.css" />
     <link rel="stylesheet" href="../css/screen.css" />
-    <link rel="stylesheet" href="../css/align.css" />
 </head>
 <body data-smooth-scroll="on">
 	<!-- Page Wrapper -->
@@ -91,16 +90,16 @@
 											</div>
 											<div class="col-sm-8">
 												<div class="input-append date">
-													<input class="input-line js-input" type="text" name="fechaInicial" placeholder="Fecha Inicial" value=""/><span class="add-on"><i class="icon icon-calendar"></i></span>
+													<input class="input-line js-input" type="text" name="fechaInicial" placeholder="aaaa-mm-dd" value=""/><span class="add-on"><i class="icon icon-calendar"></i></span>
 												</div>
 											</div>
 											<div class="col-sm-8">
 												<div class="input-append date">
-													<input class="input-line js-input" type="text" name="fechaFinal" placeholder="Fecha Final" value=""/><span class="add-on"><i class="icon icon-calendar"></i></span>
+													<input class="input-line js-input" type="text" name="fechaFinal" placeholder="aaaa-mm-dd" value=""/><span class="add-on"><i class="icon icon-calendar"></i></span>
 												</div>
 											</div>
 											
-											 
+											
 											
 										</div>
 
@@ -162,10 +161,6 @@
 											<input type="submit" value="Buscar" onclick="makeCorsRequest('http://periodicooficial.zacatecas.gob.mx:9000/busqueda/avanzada','lista','dataForm')"/>
 											<i class="icon icon-search"></i>
 										</div>
-										<div class="submit-button">
-                                        	<input type="button" value="Siguiente" onclick="window.location.href='../busqueda/'"/>
-                                            <i class="icon icon-pencil"></i>
-										</div>
 
 									</form>
 								</div>
@@ -181,22 +176,6 @@
                                         <div class="col-md-14 col-lg-24">
                                             <h4 id="resultado">Resultados encontrados</h4>
                                         </div>
-                                        
-                                        
-                                    <div class="row center" >
-									<button onclick="primeraPag('lista')"> <img src="../img/first.png" /> </button>
-									<button onclick="anteriorPag('lista')"><img src="../img/previous.png" /> </button>
-									<input type="number" style="width:40px; height:15px" size="3" min="1" maxlength="3" id="indiceP" placeholder="1"  value="" onChange="indicePag('lista',indiceP);"/>
-									
-									<button onclick="siguientePag('lista')">   <img src="../img/nextt.png" />    </button>
-									<button onclick="ultimaPag('lista')"> <img src="../img/last.png" /> </button>
-									</div>
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
                                     </div>
                            
                                     <div class="services-list-header">
@@ -303,7 +282,6 @@
 	<script src="../js/options.js"></script>
 	<script src="../js/municipios/municipios.js"></script>
 	<script src="../js/descargas/descargas.js"></script>
-	<script src="../js/table/pagBusqueda.js"></script>
 	<script type="text/javascript">
         
             $(document).ready(function() {	
@@ -361,7 +339,7 @@
 			xhr.onload = function() {
 		  	var response = JSON.parse( xhr.responseText);
         	displayList(response,id);
-        	
+        	document.getElementById("resultado").innerHTML = "Resultados Encontrados";
 		  	};
 		  	xhr.onerror = function() {
 		    alert('Woops, there was an error making the request.');
@@ -371,18 +349,57 @@
 		}
 		
 		function displayList(arr,id){
-			//var str = JSON.stringify(arr, null, 4);
+			var str = JSON.stringify(arr, null, 4);
 			//document.getElementById("resultado").innerHTML = 'JSON : ' + str;
-			arr2=arr;
-			indice=1;
 			
 			if(arr.Documentos==undefined){
 		    	document.getElementById("resultado").innerHTML = "No se encontraron resultados";
 		    	
 		    }
-		    
-		    mostrarLista(id);
-		    
+			
+			var out = "";
+		    var i;
+		    var documents = arr.Documentos;
+		    for(i = 0; i < documents.length; i++) {
+		        out +=
+		        '<div class="row">'+
+				"<div class='col-sm-9'>" + 
+				"	<div class='description'>" + 
+				"		<p>"+documents[i].notaDelSumario+"</p>" + 
+				"	</div>" + 
+				"</div>" + 
+				"<div class='col-sm-3'>" + 
+				"	<div class='description'>" + 
+				"		<p>"+documents[i].volumen+"</p>" + 
+				"	</div>" + 
+				"</div>" + 
+				"<div class='col-sm-3'>" + 
+				"	<div class='description'>" + 
+				"		<p>"+documents[i].tomo+"</p>" + 
+				"	</div>" + 
+				"</div>" + 
+				"<div class='col-sm-3'>" + 
+				"	<div class='description'>" + 
+				"		<p>"+documents[i].fecha+"</p>" + 
+				"	</div>" + 
+				"</div>" + 
+				
+				"<div class='col-sm-3'>" + 
+				"	<div class='description'>" + 
+				"		<a href= 'javascript:void(0)' onclick='activarDescarga(" + '"'+ documents[i].url +'"' + ")' class='button worker-button-2'>Descargar</a>" +  
+				"	</div>" + 
+				"</div>" + 
+				
+				"<div class='col-sm-3'>" + 
+				"	<div class='description'>" + 
+				"		<a href= 'javascript:void(0)' onclick='activarDescarga(" + '"'+ documents[i].urlSolicitud +'"' + ")' class='button worker-button-2'>Descargar</a>" + 
+					"	</div>" + 
+				"</div>"+"</div>" 
+
+				
+				
+			}
+    		document.getElementById(id).innerHTML = out;
 		}
 			
     </script>

@@ -37,45 +37,72 @@
 					<!-- Nav -->
 					<div class="col-xs-12 col-md-18">
 						<nav> 							<ul>
-								<li><a href="../index.html">Inicio</a></li>
+								<li ><a href="#" id="usuarioR">Usuario</a></li>
+								<li class="current-menu-item"><a href="index.html">Inicio</a></li>
 								<li class="has-children current-menu-item">
-									<a href="">Búsqueda</a>
-									<ul class="children">
-										<li><a href="../busqueda/">Búsqueda de Solicitud</a></li>
-										<li><a href="../busqueda-leyes/">Búsqueda de Leyes</a></li>
-										<li><a href="">Consulta Cronología</a></li>
-									</ul>
-								</li>
-								<li class="has-children">
-									<a href="">Trámites</a>
-									<ul class="children">
-										<li><a href="../insercion/">Insercion</a></li>
-										<li><a href="../carga-imagen/">Carga Imagenes Inserción</a></li>
-										<li><a href="../carga-transcrito/">Carga Transcripciones</a></li>
-										<li><a href="../carga-leyes/">Carga Leyes</a></li>
-										<li><a href="../carga-periodico/">Carga Períodicos Publicados</a></li>
-										<li><a href="../carga-suplementos/">Carga Suplementos</a></li>
-										<li><a href="../nota-sumario/">Nota del Sumario</a></li>
-										<li><a href="../busqueda-sumario/">Reporte Sumario</a></li>
-										
-										
-										
-									</ul>
-								</li>
-								<li><a href="#">Servicios</a></li>
-								<li><a href="#">Leyes y Reglamentos</a></li>
-								<li class="has-children">
-									<a href="">Parametros</a>
-									<ul class="children">
-										<li><a href="#/">Tipos de Inserciones</a></li>
+										<img src="../img/lupac.png"><a href="">Búsqueda</a>
+										<ul class="children">
+											<li>
+												<a href="../busqueda/">Búsqueda de Solicitud</a>
+											</li>
+											<li>
+												<a href="../busqueda-leyes/">Búsqueda de Leyes</a>
+											</li>
+											<li><a href="../busqueda-suplemento/">Búsqueda de Suplemento</a></li>
+											
+										</ul>
+									</li>
+									<li class="has-children">
+										<a href="">Trámites</a>
+										<ul class="children">
+											<li>
+												<a href="../insercion/">Insercion</a>
+											</li>
+											<li>
+												<a href="../carga-imagen/">Carga Imagenes Inserción</a>
+											</li>
+											<li>
+												<a href="../carga-transcrito/">Carga Transcripciones</a>
+											</li>
+											<li>
+												<a href="../carga-leyes/">Carga Leyes</a>
+											</li>
+											<li>
+												<a href="../carga-periodico/">Carga Períodicos Publicados</a>
+											</li>
+											<li>
+												<a href="../carga-suplementos/">Carga Suplementos</a>
+											</li>
+											<li>
+												<a href="../nota-sumario/">Nota del Sumario</a>
+											</li>
+											<li>
+												<a href="../busqueda-sumario/">Reporte Sumario</a>
+											</li>
+
+										</ul>
+									</li>
+									<li>
+										<a href="#">Servicios</a>
+									</li>
+									
+									<li class="has-children">
+										<a href="">Parametros</a>
+										<ul class="children">
+											<li><a href="#/">Tipos de Inserciones</a></li>
 										<li><a href="#/">Categoría de Tipos</a></li>
 										<li><a href="../municipios/">Municipios</a></li>
 										<li><a href="../juzgados/">Juzgados</a></li>
 										<li><a href="#/">Calendario Publicaciones</a></li>
 										<li><a href="#/">Contador Folio</a></li>
 										<li><a href="#/">Tipos de Leyes</a></li>
-									</ul>
+										</ul>
+									</li>
+								
+								<li>
+									<a href='javascript:void(0)' onclick='eliminarCookies()'>Cerrar sesión</a>
 								</li>
+                                
 							</ul>
 
 							<i class="responsive-menu-trigger icon-menu"></i>
@@ -109,7 +136,7 @@
 									<form class="respond-form" id="dataForm" name="dataForm">
                                     	<input type="hidden"  name="usuario" value="admin">
                                     	<input type="hidden"  name="password" value="pofzacatecas123">
-                                    	<input type="hidden"  name="urlAlfresco" value="189.254.255.72:8080">
+                                    	
                                         <input type="hidden"  name="path" value="/Sitios/periodico-zacatecas/documentLibrary/Solicitudes de Insercion">
                                         
                                         <div class="row">
@@ -117,6 +144,7 @@
 												<input class="input-line js-input" type="text" name="siNombreSolicitante"  placeholder="Nombre de Solicitante" value=""/>
 											</div>
 										</div>
+										
 
 										<div class="row">
 											<div class="col-sm-12">
@@ -162,6 +190,21 @@
 
 										<textarea class="input-line js-input" name="siNotaSumario"  placeholder="Nota sumario:"></textarea>
 										
+										
+										
+										<div class="row">
+											<div class="col-sm-12">
+                                                <select class="input-line js-input" name="siTomo" id="siTomo">
+                                                    <option disabled selected>Tomo:</option>
+                                                    <option value="CXXIV">CXXIV(2014)</option>
+                                                    <option value="CXXV">CXXV(2015)</option>
+                                                    <!--<option value="CXXVI">CXXVI</option>-->
+                               				 </select>
+											</div>
+											
+										</div>
+										
+										
                                         <br>
                                         <hr>
                                         
@@ -188,10 +231,10 @@
 										
                                         <div class="row">
 											<div class="col-sm-12">
-												<input class="input-line js-input" type="number" name="siVolumenesPublicacion[]" id="siVolumenesPublicacion1"  placeholder="Volumen:" value="" onChange="Fechas(this,siFechasPublicacion1);"/>
+												<input class="input-line js-input" type="number" name="siVolumenesPublicacion[]" id="siVolumenesPublicacion1"  placeholder="Volumen:" value="" onChange="Fechas(this,siFechasPublicacion1,this.form.siTomo);"/>
 											</div>
 											<div class="col-sm-12">
-												<input class="input-line js-input" type="text" name="siFechasPublicacion[]"  id="siFechasPublicacion1" placeholder="Fecha de Publicación" value="" />
+												<input class="input-line js-input" type="text" name="siFechasPublicacion[]"  id="siFechasPublicacion1" placeholder="Fecha de Publicación" value="" readonly />
 											</div>
 										</div>
                                         <div class="row" id="PUBLICACIONES">
@@ -221,15 +264,13 @@
                                                 </div>
                                             </div>
                                             
-                                            
-                                            
-                                            
-                                            
 										</div>
+										
+                                            
 
 										
 										<div class="submit-button">
-                                        	<input type="button" value="Guardar" onclick="insertarSolicitud('http://189.254.255.72:9000')"/>
+                                        	<input type="button" value="Guardar" onclick="insertarSolicitud('http://periodicooficial.zacatecas.gob.mx:9000')"/>
                                             <i class="icon icon-pencil"></i>
 										</div>
 										
@@ -324,6 +365,7 @@
 	<script src="../js/visible.js"></script>
 	<script src="../js/knob.js"></script>
 	<script src="../js/options.js"></script>
+	<script src="../js/cookies/cookies.js"></script>
 	<script src="../js/municipios/municipios.js"></script>
 	<script src="../js/descargas/descargas.js"></script>
 	
@@ -334,11 +376,9 @@
 	<script src="../js/calendario/CalendarioPublicaciones.js"></script>   
 	
 	
-	
-	
-	
-	
 	<script type="text/javascript">
+	
+	verificarLogin();
         
             $(document).ready(function() {	
     
@@ -350,8 +390,9 @@
                         autoclose: true,
                         orientation: "top auto"
                     });			
-          
-            }); 
+           });            
+
+            
 		for (m=0;m<Municipios.length;m++){
 			var nuevaOpcion = new Option(Municipios[m].texto);
 			document.dataForm.siMunicipio.options[m] = nuevaOpcion;

@@ -19,6 +19,7 @@
 		<link rel="stylesheet" href="../css/animate.css" />
 		<link rel="stylesheet" href="../css/icomoon.css" />
 		<link rel="stylesheet" href="../css/screen.css" />
+		<link rel="stylesheet" href="../css/align.css" />
 	</head>
 	<body data-smooth-scroll="on">
 		<!-- Page Wrapper -->
@@ -42,7 +43,7 @@
 										<a href="../index.html">Inicio</a>
 									</li>
 									<li class="has-children current-menu-item">
-										<a href="">Búsqueda</a>
+										<img src="../img/lupac.png"><a href="">Búsqueda</a>
 										<ul class="children">
 											<li>
 												<a href="../busqueda/">Búsqueda de Solicitud</a>
@@ -50,59 +51,18 @@
 											<li>
 												<a href="../busqueda-leyes/">Búsqueda de Leyes</a>
 											</li>
-											<li>
-												<a href="">Consulta Cronología</a>
-											</li>
+											<li><a href="../busqueda-suplemento/">Búsqueda de Suplemento</a></li>
+											
 										</ul>
 									</li>
-									<li class="has-children">
-										<a href="">Trámites</a>
-										<ul class="children">
-											<li>
-												<a href="../insercion/">Insercion</a>
-											</li>
-											<li>
-												<a href="../carga-imagen/">Carga Imagenes Inserción</a>
-											</li>
-											<li>
-												<a href="../carga-transcrito/">Carga Transcripciones</a>
-											</li>
-											<li>
-												<a href="../carga-leyes/">Carga Leyes</a>
-											</li>
-											<li>
-												<a href="../carga-periodico/">Carga Períodicos Publicados</a>
-											</li>
-											<li>
-												<a href="../carga-suplementos/">Carga Suplementos</a>
-											</li>
-											<li>
-												<a href="../nota-sumario/">Nota del Sumario</a>
-											</li>
-											<li>
-												<a href="../busqueda-sumario/">Reporte Sumario</a>
-											</li>
+									
 
-										</ul>
-									</li>
 									<li>
 										<a href="#">Servicios</a>
 									</li>
-									<li>
-										<a href="#">Leyes y Reglamentos</a>
-									</li>
-									<li class="has-children">
-										<a href="">Parametros</a>
-										<ul class="children">
-											<li><a href="#/">Tipos de Inserciones</a></li>
-										<li><a href="#/">Categoría de Tipos</a></li>
-										<li><a href="../municipios/">Municipios</a></li>
-										<li><a href="../juzgados/">Juzgados</a></li>
-										<li><a href="#/">Calendario Publicaciones</a></li>
-										<li><a href="#/">Contador Folio</a></li>
-										<li><a href="#/">Tipos de Leyes</a></li>
-										</ul>
-									</li>
+									
+									
+
 								</ul>
 
 								<i class="responsive-menu-trigger icon-menu"></i>
@@ -135,7 +95,7 @@
 									<div class="simple-template-form">
 										<h4 class="caption">Puede realizar su búsqueda por:</h4>
 
-										<form class="respond-form" id="dataForm" name="dataForm">
+										<form class="respond-form" id="dataForm" name="dataForm" onsubmit="return false">
 
 											<div class="row">
 
@@ -168,51 +128,92 @@
 											</div>
 
 											<div class="submit-button">
-												<input type="button" value="Buscar" onclick="makeCorsRequest('http://189.254.255.72:9000/busqueda/leyes','lista','dataForm')"/>
+												<input type="submit" value="Buscar" onclick="makeCorsRequest('http://periodicooficial.zacatecas.gob.mx:9000/busqueda/leyes','lista','dataForm')"/>
 												<i class="icon icon-search"></i>
 											</div>
+											
+											<div class="submit-button">
+                                        	<input type="button" value="Siguiente" onclick="window.location.href='../busqueda-leyes/'"/>
+                                            <i class="icon icon-pencil"></i>
+										</div>
 
 										</form>
 									</div>
 								</div>
-							</div>
+								
+									
+							
+							
+									
 
-							<div class="row">
+							
+								
+								
+									
+									
+									
+									
+								
+								
+								
 								<div class="col-xs-22 col-xs-offset-1">
-
 									<div class="row">
+										
+										
 										<div class="col-md-14 col-lg-24">
 											<h4 id="resultado">Resultados encontrados</h4>
 										</div>
+										
+										
+										
+										
+									
+									<div class="row center" >
+									<button onclick="primeraPag('lista')"> <img src="../img/first.png" /> </button>
+									<button onclick="anteriorPag('lista')"><img src="../img/previous.png" /> </button>
+									<input type="number" style="width:40px; height:15px" size="3" min="1" maxlength="3" id="indiceP" placeholder="1"  value="" onChange="indicePag('lista',indiceP);"/>
+									
+									<button onclick="siguientePag('lista')">   <img src="../img/nextt.png" />    </button>
+									<button onclick="ultimaPag('lista')"> <img src="../img/last.png" /> </button>
 									</div>
+									
+									
+									</div>
+									
 
 									<div class="services-list-header">
 										<div class="row row-fit">
-											<div class="col-sm-6">
+											<div class="col-sm-5">
 												<h4>Categoria</h4>
 											</div>
-											<div class="col-sm-6">
+											<div class="col-sm-9">
 												<h4>Descripcion</h4>
 											</div>
-											<div class="col-sm-6">
+											<div class="col-sm-5">
 												<h4>Vigencia</h4>
 											</div>
-											<div class="col-sm-4">
+											<div class="col-sm-5">
 												<h4>Descargar</h4>
 											</div>
 										</div>
 									</div>
 
-									<div class="services-list">
-										<div class="service" id="lista"></div>
-									</div>
+									
+										<div class="services-list" id="lista"></div>
+									
 								</div>
 							</div>
 
 						</div>
 					</div>
 				</div>
+									
 			</section>
+			
+			
+									
+			
+			
 
 			<!-- Footer -->
 			<footer>
@@ -300,6 +301,7 @@
 		<script src="../js/options.js"></script>
 		<script src="../js/municipios/municipios.js"></script>
 		<script src="../js/descargas/descargas.js"></script>
+		<script src="../js/table/pagBusquedaLeyes.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 
@@ -355,6 +357,7 @@
 				xhr.onload = function() {
 					var response = JSON.parse(xhr.responseText);
 					displayList(response, id);
+					//document.getElementById("resultado").innerHTML = "Resultados encontrados:";
 				};
 				xhr.onerror = function() {
 					alert('Woops, there was an error making the request.');
@@ -364,23 +367,26 @@
 			}
 
 			function displayList(arr, id) {
-				var str = JSON.stringify(arr, null, 4);
+				//var str = JSON.stringify(arr, null, 4);
 				//document.getElementById("resultado").innerHTML = 'JSON : ' + str;
-				var out = "";
-				var i;
-				var documents = arr.Documentos;
-				for ( i = 0; i < documents.length; i++) {
-					out += "<div class='col-sm-6'>" + "	<div class='description'>" + "		<p>" + documents[i].categoria + "</p>" + "	</div>" + "</div>" +
-					"<div class='col-sm-6'>" + "	<div class='description'>" + "		<p>" + documents[i].descripcion + "</p>" + "	</div>" + "</div>" + 
-					"<div class='col-sm-6'>" + "	<div class='description'>" + "		<p>" + documents[i].estado + "</p>" + "	</div>" + "</div>" +  
-					"<div class='col-sm-4'>" + "	<div class='price'>" + 
-				"				<p>Click para descargar</p> <a href= 'javascript:void(0)' onclick='activarDescarga(" + '"'+ arr.Documentos[i].url +'"' + ")' class='button worker-button-2'>Descargar</a>" + 
-					"	</div>" + "</div>"
-				}
-				document.getElementById(id).innerHTML = out;
+				arr2=arr;
+				indice=1;
+				
+				if(arr.Documentos==undefined){
+		    	document.getElementById("resultado").innerHTML = "No se encontraron resultados";
+		    	}
+		    	
+		    	mostrarLista(id);	
+				
 			}
+			
+			//"<p>Click para descargar</p> <a href= 'javascript:void(0)' onclick='activarDescarga(" + '"'+ arr.Documentos[i].url +'"' + ")' class='button worker-button-2'>Descargar</a>" + 
+				
 
 		</script>
 
+
+
+		
 	</body>
 </html>

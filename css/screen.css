@@ -1193,6 +1193,10 @@ footer .copyrights p a:hover {
 }
 
 /* ----------------- 6.3.3. Call To Action ----------------- */
+.call-to-action-section2 {
+  background: #951B1B;
+  padding: 35px 0;
+}
 .call-to-action-section {
   background: #303030;
   padding: 35px 0;

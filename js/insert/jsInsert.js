@@ -99,12 +99,50 @@
 			var tomos=tomo.value;
 			var input = document.getElementById("siVolumenesPublicacion1");
 			
+			
+			
+			
+			if(tomos=="CXX"){//104
+			cual = eval(cual.value)
+			var nuevaOpcion = FechasPublicaciones2010[cual].fecha;
+			donde.value=nuevaOpcion;
+			input.setAttribute("min", 1);
+			input.setAttribute("max", FechasPublicaciones2010.length-1);
+			}
+
+			if(tomos=="CXXI"){//104
+			cual = eval(cual.value)
+			var nuevaOpcion = FechasPublicaciones2011[cual].fecha;
+			donde.value=nuevaOpcion;
+			input.setAttribute("min", 1);
+			input.setAttribute("max", FechasPublicaciones2011.length-1);
+			}
+
+			if(tomos=="CXXII"){//104
+			cual = eval(cual.value)
+			var nuevaOpcion = FechasPublicaciones2012[cual].fecha;
+			donde.value=nuevaOpcion;
+			input.setAttribute("min", 1);
+			input.setAttribute("max", FechasPublicaciones2012.length-1);
+			}
+			
+			
+
+
+			if(tomos=="CXXIII"){//104
+			cual = eval(cual.value)
+			var nuevaOpcion = FechasPublicaciones2013[cual].fecha;
+			donde.value=nuevaOpcion;
+			input.setAttribute("min", 1);
+			input.setAttribute("max", FechasPublicaciones2013.length-1);
+			}
+
 			if(tomos=="CXXIV"){ //105
 			cual = eval(cual.value)
 			var nuevaOpcion = FechasPublicaciones2014[cual].fecha;
 			donde.value=nuevaOpcion;
 			input.setAttribute("min", 1);
-			input.setAttribute("max", 105);
+			input.setAttribute("max", FechasPublicaciones2014.length-1);
 			}
 			
 			if(tomos=="CXXV"){//104
@@ -112,8 +150,18 @@
 			var nuevaOpcion = FechasPublicaciones[cual].fecha;
 			donde.value=nuevaOpcion;
 			input.setAttribute("min", 1);
-			input.setAttribute("max", 104);
+			input.setAttribute("max", FechasPublicaciones.length-1);
 			}
+
+			if(tomos=="CXXVI"){//104
+			cual = eval(cual.value)
+			var nuevaOpcion = FechasPublicaciones2016[cual].fecha;
+			donde.value=nuevaOpcion;
+			input.setAttribute("min", 1);
+			input.setAttribute("max", FechasPublicaciones2016.length-1);
+			}
+
+
 		
 		}
 	}
@@ -123,10 +171,34 @@
 		if(cual.value != 0){
 			var tomos=tomo.value;
 			var input = document.getElementById("siVolumenesPublicacion1");
+
+
+			if(tomos=="CXX"){ //105
+			cual = eval(cual.value)
+			input.setAttribute("min", 1);
+			input.setAttribute("max", 104);
+			}
+
+			if(tomos=="CXXI"){ //105
+			cual = eval(cual.value)
+			input.setAttribute("min", 1);
+			input.setAttribute("max", 105);
+			}
+
+			if(tomos=="CXXII"){ //105
+			cual = eval(cual.value)
+			input.setAttribute("min", 1);
+			input.setAttribute("max", 104);
+			}
+
+			if(tomos=="CXXIII"){ //105
+			cual = eval(cual.value)
+			input.setAttribute("min", 1);
+			input.setAttribute("max", 104);
+			}
 			
 			if(tomos=="CXXIV"){ //105
 			cual = eval(cual.value)
-			
 			input.setAttribute("min", 1);
 			input.setAttribute("max", 105);
 			}
@@ -135,6 +207,12 @@
 			cual = eval(cual.value)
 			input.setAttribute("min", 1);
 			input.setAttribute("max", 104);
+			}
+
+			if(tomos=="CXXVI"){ //105
+			cual = eval(cual.value)
+			input.setAttribute("min", 1);
+			input.setAttribute("max", 105);
 			}
 		
 		}

@@ -80,8 +80,10 @@
 											<li>
 												<a href="../busqueda-sumario/">Reporte Sumario</a>
 											</li>
-
-										</ul>
+											<li>
+												<a href="../busqueda-sumario-edicion/">Reporte Sumario Edicion</a>
+											</li>
+											</ul>
 									</li>
 									<li>
 										<a href="#">Servicios</a> 
@@ -274,7 +276,7 @@
 	<script src="../js/modernizr.js"></script>
 	<script src="../js/smooth-scroll.js"></script>
 	<script src="../js/jquery-cal-ui.js"></script>
-	<script src="../js/cookies/cookies.js"></script>
+	<script src="../js/cookies/cookies.js"></script> 
 	<script src="../js/lightbox.js"></script>
 	<script src="../js/isotope.js"></script>
 	<script src="../js/bootstrap.js"></script>
@@ -432,7 +434,7 @@
                 url: 'http://periodicooficial.zacatecas.gob.mx:9000/busqueda/periodicoMesAnio',
                 type: 'post',
                 dataType: 'json',
-                data: {fechaInicial:"2014-01-01",fechaFinal:"2015-12-31"},
+                data: {fechaInicial:"2014-01-01",fechaFinal:"2019-12-31"},
                 success: function (data) {
 					
 					for (x = 0; x < data.Documentos.length; x++) {

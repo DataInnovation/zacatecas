@@ -1,38 +1,43 @@
 
+function testPDF2(documents) {
+	var doc = new jsPDF('p', 'in', 'letter'), size = 10, font, size, lines, margin = 0.5 // inches
+																							// on a
+																							// 8.5
+																							// x 11
+																							// inch
+																							// sheet.
+	, verticalOffset = margin
 
-	function testPDF2(documents) {// @TODO: Need to simplify this demo
+	// Margins:
+	doc.setDrawColor(0, 255, 0).setLineWidth(1 / 72).line(margin, margin,
+			margin, 11 - margin).line(8.5 - margin, margin, 8.5 - margin,
+			11 - margin)
+			doc.setFont("Sans-Serif")
+	doc.setFontType("bold");
+	doc.setFontSize(14);
+	doc.text(3.5, 0.8, 'SUMARIOS');
+	verticalOffset += 0.5
+	// the 3 blocks of text
+	for (i = 0; i < documents.length; i++) {
+		var texto = documents[i].tipo.toUpperCase() + '.- ' + documents[i].categoria + ' - ' + documents[i].notaDelSumario + ', ' + documents[i].municipio + '  ' + documents[i].fecha
+		lines = doc.setFont("Sans-Serif").setFontSize(size).splitTextToSize(texto, 6.5)
+		doc.text(0.5, verticalOffset + size / 72, lines)
+//		alert(texto.length)
+		var cont = texto.length
+		if (texto.length > 87) {
+			while(cont > 0){
+				cont -= 87
+				verticalOffset += 0.1
+			}}
+		doc.text(0.5, verticalOffset + 2 * (size /72), documents[i].folio + '.............................................................................................................................................................................'+ documents[i].volumen)
 
-		//Creación del PDF y su contenido
-		var doc = new jsPDF();
-		doc.setFont("sans-serif");
-		doc.setFontType("normal");
-		pageHeight= doc.internal.pageSize.height;
-		
-		//documents[i].volumen
-		//tipo categoria folio fecha notaDelSumario
-		
-		doc.setFontType("bold");
-		doc.setFontSize(14);
-		doc.text(85,10,'SUMARIOS');
-		
-		doc.setFontType("bold");
-		doc.setFontSize(10);
-		
-		var i,x=15,y=23;
-		for(i = 0; i < documents.length; i++) {
-			doc.text(x, y, documents[i].categoria.toUpperCase()+'.-  '+documents[i].notaDelSumario+',  ');
-			doc.text(x,(y+4),documents[i].folio+'..........................................................................................................................................................................'+documents[i].volumen);
-/*					doc.text(x,(y+8),);
-*/				//doc.text(x,(y+12),'Fecha: '+documents[i].fecha);
-			y=y+10;
-			
-			if (y >= (pageHeight-30))
-			{
-				doc.addPage();
-					y = 23; // Restart height position
-			}
-			
-		}		
-doc.output('dataurlnewwindow');
+		verticalOffset += (lines.length + 3) * size / 72
 
+		if (verticalOffset > 10.25 - margin && i != documents.length - 1) {
+			doc.addPage()
+			verticalOffset = margin
+		}
 	}
+
+	doc.output('dataurlnewwindow');
+}

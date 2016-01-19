@@ -1,329 +1,262 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
-    <title>Periódico Oficial del Gobierno del Estado de Zacatecas</title>
-    <meta name="description" content="Here goes description" />
-    <meta name="author" content="author name" />
-    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
+<meta charset="utf-8" />
+<title>Periódico Oficial del Gobierno del Estado de Zacatecas</title>
+<meta name="description" content="Here goes description" />
+<meta name="author" content="author name" />
+<link rel="shortcut icon" href="../images/favicon.ico"
+	type="image/x-icon" />
 
-    <!-- Mobile Specific Meta -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<!-- Mobile Specific Meta -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="../css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../css/owl-carousel.css" />
-    <link rel="stylesheet" href="../css/bootstrap.css" />
-    <link rel="stylesheet" href="../css/datepicker.css" />
-    <link rel="stylesheet" href="../css/add-date.css" />
-    <link rel="stylesheet" href="../css/animate.css" />
-    <link rel="stylesheet" href="../css/icomoon.css" />
-    <link rel="stylesheet" href="../css/screen.css" />
-    <link rel="stylesheet" href="../css/align.css" />
+<!-- Style CSS -->
+<link rel="stylesheet" href="../css/font-awesome.min.css" />
+<link rel="stylesheet" href="../css/owl-carousel.css" />
+<link rel="stylesheet" href="../css/bootstrap.css" />
+<link rel="stylesheet" href="../css/datepicker.css" />
+<link rel="stylesheet" href="../css/add-date.css" />
+<link rel="stylesheet" href="../css/animate.css" />
+<link rel="stylesheet" href="../css/icomoon.css" />
+<link rel="stylesheet" href="../css/screen.css" />
+<link rel="stylesheet" href="../css/align.css" />
 </head>
 <body data-smooth-scroll="on">
 	<!-- Page Wrapper -->
 	<div class="page">
-		<!-- Header -->
-		<header>
-			<div class="container">
-				<div class="row">
-					<!-- Brand -->
-					<div class="col-xs-12 col-md-6">
-						<div class="brand">
-							<a href="../index.html"><img src="../img/brand.png" alt="brand" /></a>
+		<body onload="header('tramites')">
+			<div id="menu"></div>
+			<!-- Blog Section -->
+			<section class="blog-section">
+				<!-- Section Header -->
+				<div class="section-header inverted inverted-all">
+					<div class="container">
+						<h1>Busqueda de Información</h1>
+						<p>Ingrese los datos que considere necesarios para iniciar la
+							búsqueda de Sumario.</p>
+					</div>
+				</div>
+
+				<!-- Body -->
+				<div class="blog-section-wrapper">
+					<div class="container">
+						<div class="blog-content">
+							<div class="row">
+								<div class="col-xs-22 col-xs-offset-1">
+									<div class="simple-template-form">
+										<h4 class="caption">Puede realizar su búsqueda por:</h4>
+
+										<form class="respond-form" id="dataForm" name="dataForm"
+											onsubmit="return false">
+
+
+											<div class="row">
+												<div class="col-sm-8">
+													<select class="input-line js-input" name="tomo">
+														<option disabled selected>Tomo:</option>
+														<option value="CXXIV">CXXIV(2014)</option>
+														<option value="CXXV">CXXV(2015)</option>
+														<option value="CXXVI">CXXVI(2016)</option>
+													</select>
+												</div>
+
+											</div>
+
+
+											<div class="row">
+												<div class="col-sm-8">
+													<input class="input-line js-input" type="number" min="1"
+														name="volumenPeriodico" placeholder="Volumen:" id="volumenPeriodico"/>
+												</div>
+											</div>
+
+
+
+											<div class="row">
+												<div class="col-sm-8">
+													<input class="input-line js-input" type="text"
+														name="folioInicial" placeholder="Folio Inicial:" />
+												</div>
+												<div class="col-sm-8">
+													<input class="input-line js-input" type="text"
+														name="folioFinal" placeholder="Folio Final:" />
+												</div>
+
+											</div>
+
+											<div class="row">
+												<div class="col-sm-8">
+													<div class="input-append date">
+														<input class="input-line js-input" type="text"
+															name="fechaInicial" placeholder="Fecha Inicial" value="" /><span
+															class="add-on"><i class="icon icon-calendar"></i></span>
+													</div>
+												</div>
+												<div class="col-sm-8">
+													<div class="input-append date">
+														<input class="input-line js-input" type="text"
+															name="fechaFinal" placeholder="Fecha Final" value="" /><span
+															class="add-on"><i class="icon icon-calendar"></i></span>
+													</div>
+												</div>
+											</div>
+
+
+
+
+											<div class="submit-button">
+												<input type="submit" value="Buscar"
+													onclick="makeCorsRequest('http://periodicooficial.zacatecas.gob.mx:9000/busqueda/sumarios','lista','dataForm')" />
+												<i class="icon icon-search"></i>
+											</div>
+
+											<div class="submit-button">
+												<input type="button" value="Siguiente"
+													onclick="window.location.href='../busqueda-sumario/'" /> <i
+													class="icon icon-pencil"></i>
+											</div>
+
+											<div class="submit-button">
+												<input type="button" value="Ver PDF"
+													onclick="makeCorsRequest2('http://periodicooficial.zacatecas.gob.mx:9000/busqueda/sumarios','lista','dataForm', this.form.volumenPeriodico)" />
+												<i class="icon icon-search"></i>
+											</div>
+
+
+										</form>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="row">
+								<div class="col-xs-22 col-xs-offset-1">
+
+
+									<div class="row">
+										<div class="col-md-14 col-lg-24">
+											<h4 id="resultado">Resultados encontrados</h4>
+										</div>
+
+										<div class="row center">
+											<button onclick="primeraPag('lista')">
+												<img src="../img/first.png" />
+											</button>
+											<button onclick="anteriorPag('lista')">
+												<img src="../img/previous.png" />
+											</button>
+											<input type="number" style="width: 40px; height: 15px"
+												size="3" min="1" maxlength="3" id="indiceP" placeholder="1"
+												value="" onChange="indicePag('lista',indiceP);" />
+
+											<button onclick="siguientePag('lista')">
+												<img src="../img/nextt.png" />
+											</button>
+											<button onclick="ultimaPag('lista')">
+												<img src="../img/last.png" />
+											</button>
+										</div>
+
+
+									</div>
+
+									<div class="services-list-header">
+										<div class="row row-fit">
+
+											<div class="col-sm-3">
+												<h4>Volumen</h4>
+											</div>
+											<div class="col-sm-3">
+												<h4>Tipo</h4>
+											</div>
+											<div class="col-sm-4">
+												<h4>Categoria</h4>
+											</div>
+											<div class="col-sm-2">
+												<h4>Folio</h4>
+											</div>
+											<div class="col-sm-3">
+												<h4>Fecha Solicitud</h4>
+											</div>
+											<div class="col-sm-4">
+												<h4>Nota del Sumario</h4>
+											</div>
+											<div class="col-sm-5">
+												<h4>Municipio</h4>
+											</div>
+
+										</div>
+									</div>
+
+									<div class="services-list">
+										<div class="service" id="lista"></div>
+									</div>
+								</div>
+							</div>
+
 						</div>
 					</div>
+				</div>
+			</section>
 
-					<!-- Nav -->
-					<div class="col-xs-12 col-md-18">
-						<nav> 							<ul>
-								<li ><a href="#" id="usuarioR">Usuario</a></li>
-								<li class="current-menu-item"><a href="index.html">Inicio</a></li>
-								<li class="has-children current-menu-item">
-										<img src="../img/lupac.png"><a href="">Búsqueda</a>
-										<ul class="children">
-											<li>
-												<a href="../busqueda/">Búsqueda de Solicitud</a>
-											</li>
-											<li>
-												<a href="../busqueda-leyes/">Búsqueda de Leyes</a>
-											</li>
-											<li><a href="../busqueda-suplemento/">Búsqueda de Suplemento</a></li>
-											
-										</ul>
-									</li>
-									<li class="has-children">
-										<a href="">Trámites</a>
-										<ul class="children">
-											<li>
-												<a href="../insercion/">Insercion</a>
-											</li>
-											<li>
-												<a href="../carga-imagen/">Carga Imagenes Inserción</a>
-											</li>
-											<li>
-												<a href="../carga-transcrito/">Carga Transcripciones</a>
-											</li>
-											<li>
-												<a href="../carga-leyes/">Carga Leyes</a>
-											</li>
-											<li>
-												<a href="../carga-periodico/">Carga Períodicos Publicados</a>
-											</li>
-											<li>
-												<a href="../carga-suplementos/">Carga Suplementos</a>
-											</li>
-											<li>
-												<a href="../nota-sumario/">Nota del Sumario</a>
-											</li>
-											<li>
-												<a href="../busqueda-sumario/">Reporte Sumario</a>
-											</li>
-											<li>
-												<a href="../busqueda-sumario-edicion/">Reporte Sumario Edicion</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="#">Servicios</a>
-									</li>
-									
-									<li class="has-children">
-										<a href="">Parametros</a>
-										<ul class="children">
-											<li><a href="#/">Tipos de Inserciones</a></li>
-										<li><a href="#/">Categoría de Tipos</a></li>
-										<li><a href="../municipios/">Municipios</a></li>
-										<li><a href="../juzgados/">Juzgados</a></li>
-										<li><a href="#/">Calendario Publicaciones</a></li>
-										<li><a href="#/">Contador Folio</a></li>
-										<li><a href="#/">Tipos de Leyes</a></li>
-										</ul>
-									</li>
-								
-								<li>
-									<a href='javascript:void(0)' onclick='eliminarCookies()'>Cerrar sesión</a>
-								</li>
-                                
+			<!-- Footer -->
+			<footer>
+				<!-- Upper Block -->
+				<div class="upper-block">
+					<div class="container">
+						<div class="menu">
+							<ul>
+								<li><a href="../index.html">Inicio</a></li>
+								<li><a href="#">Ejemplares</a></li>
+								<li><a href="#">Trámites</a></li>
+								<li><a href="#">Servicios</a></li>
+								<li><a href="#">Leyes y Reglamentos</a></li>
+								<li><a href="#">Parametros</a></li>
 							</ul>
-
-							<i class="responsive-menu-trigger icon-menu"></i>
-							
-						</nav>
+						</div>
 					</div>
 				</div>
 
-			</div>
-		</header>
-
-		<!-- Blog Section -->
-		<section class="blog-section">
-			<!-- Section Header -->
-			<div class="section-header inverted inverted-all">
-				<div class="container">
-					<h1>Busqueda de Información</h1>
-					<p>	Ingrese los datos que considere necesarios para iniciar la búsqueda de Sumario.</p>
-				</div>
-			</div>
-
-			<!-- Body -->
-			<div class="blog-section-wrapper">
-				<div class="container">
-					<div class="blog-content">
-                        <div class="row">
-							<div class="col-xs-22 col-xs-offset-1">
-								<div class="simple-template-form">
-									<h4 class="caption">Puede realizar su búsqueda por:</h4>
-
-									<form class="respond-form" id="dataForm" name="dataForm" onsubmit="return false">
-										
-										
-										<div class="row">
-											<div class="col-sm-8">
-                                                <select class="input-line js-input" name="tomo">
-                                                    <option disabled selected>Tomo:</option>
-                                                    <option value="CXXIV">CXXIV(2014)</option>
-                                                    <option value="CXXV">CXXV(2015)</option>
-                                                    <option value="CXXVI">CXXVI(2016)</option>
-                               				 </select>
-											</div>
-											
-										</div>
-										
-										
-											<div class="row">
-										<div class="col-sm-8">
-												<input class="input-line js-input" type="number" min="1" name="volumenPeriodico" placeholder="Volumen:" />
-											</div>
-										</div>
-										
-										
-										
-										<div class="row">
-											<div class="col-sm-8">
-												<input class="input-line js-input" type="text" name="folioInicial" placeholder="Folio Inicial:" />
-											</div>
-											<div class="col-sm-8">
-												<input class="input-line js-input" type="text" name="folioFinal" placeholder="Folio Final:" />
-											</div>
-										
-										</div>
-										
-										<div class="row">
-											<div class="col-sm-8">
-												<div class="input-append date">
-													<input class="input-line js-input" type="text" name="fechaInicial" placeholder="Fecha Inicial" value=""/><span class="add-on"><i class="icon icon-calendar"></i></span>
-												</div>
-											</div>
-											<div class="col-sm-8">
-												<div class="input-append date">
-													<input class="input-line js-input" type="text" name="fechaFinal" placeholder="Fecha Final" value=""/><span class="add-on"><i class="icon icon-calendar"></i></span>
-												</div>
-											</div>
-										</div>
-
-										
-
-
-										<div class="submit-button">
-											<input type="submit" value="Buscar" onclick="makeCorsRequest('http://periodicooficial.zacatecas.gob.mx:9000/busqueda/sumarios','lista','dataForm')"/>
-											<i class="icon icon-search"></i>
-										</div>
-										
-										<div class="submit-button">
-                                        	<input type="button" value="Siguiente" onclick="window.location.href='../busqueda-sumario/'"/>
-                                            <i class="icon icon-pencil"></i>
-										</div>	
-										
-										<div class="submit-button">
-											<input type="button" value="Ver PDF" onclick="makeCorsRequest2('http://periodicooficial.zacatecas.gob.mx:9000/busqueda/sumarios','lista','dataForm')"/>
-											<i class="icon icon-search"></i>
-										</div>
-
-
-									</form>
+				<!-- Main Block -->
+				<div class="footer-widgets">
+					<div class="container">
+						<div class="row">
+							<!-- Info Section -->
+							<div class="col-md-12">
+								<div class="footer-widget info no-border">
+									<img src="../img/brand.png" alt="worker brand" />
+									<p>
+										Gobierno del Estado de Zacatecas Circuito Cerro del Gato, Cd.
+										Administrativa C.P. 98160 Zacatecas, Zacatecas.<br>
+										<br> Tel. (492) 4915000 Habla con tu Gobernador
+									</p>
 								</div>
 							</div>
 						</div>
-                        
-
-                        <div class="row">
-                        	<div class="col-xs-22 col-xs-offset-1">
-                            
- 								
-                                    <div class="row">
-                                        <div class="col-md-14 col-lg-24">
-                                            <h4 id="resultado">Resultados encontrados</h4>
-                                        </div>
-                                        
-                                     <div class="row center" >
-									<button onclick="primeraPag('lista')"> <img src="../img/first.png" /> </button>
-									<button onclick="anteriorPag('lista')"><img src="../img/previous.png" /> </button>
-									<input type="number" style="width:40px; height:15px" size="3" min="1" maxlength="3" id="indiceP" placeholder="1"  value="" onChange="indicePag('lista',indiceP);"/>
-									
-									<button onclick="siguientePag('lista')">   <img src="../img/nextt.png" />    </button>
-									<button onclick="ultimaPag('lista')"> <img src="../img/last.png" /> </button>
-									</div>
-                                        
-                                        
-                                    </div>
-                           
-                                    <div class="services-list-header">
-                                        <div class="row row-fit">
-                                           
-                                            <div class="col-sm-3">
-                                                <h4>Volumen</h4>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h4>Tipo</h4>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <h4>Categoria</h4>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <h4>Folio</h4>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h4>Fecha Solicitud</h4>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <h4>Nota del Sumario</h4>
-                                            </div>
-                                            <div class="col-sm-5">
-                                                <h4>Municipio</h4>
-                                            </div>
-                                       
-                                    </div>
-                                     </div>
-
-									<div class="services-list">
-										<div class="service" id="lista">
-										</div>                                      
-									</div>
-                            </div>
-                        </div>
-                        
-                	</div>                            
-				</div>
-			</div>
-		</section>
-
-		<!-- Footer -->
-		<footer>
-			<!-- Upper Block -->
-			<div class="upper-block">
-				<div class="container">
-					<div class="menu">
-						<ul>
-							<li><a href="../index.html">Inicio</a></li>
-							<li><a href="#">Ejemplares</a></li>
-							<li><a href="#">Trámites</a></li>
-							<li><a href="#">Servicios</a></li>
-							<li><a href="#">Leyes y Reglamentos</a></li>
-							<li><a href="#">Parametros</a></li>
-						</ul>
 					</div>
 				</div>
-			</div>
 
-			<!-- Main Block -->
-			<div class="footer-widgets">
-				<div class="container">
-					<div class="row">
-						<!-- Info Section -->
-						<div class="col-md-12">
-							<div class="footer-widget info no-border">
-								<img src="../img/brand.png" alt="worker brand" />
-								<p>Gobierno del Estado de Zacatecas
-                                Circuito Cerro del Gato, Cd. Administrativa
-                                C.P. 98160 Zacatecas, Zacatecas.<br><br>
-                                Tel. (492) 4915000
-                                Habla con tu Gobernador</p>
-							</div>
-						</div>
+				<!-- Copyrights -->
+				<div class="copyrights">
+					<div class="container">
+						<p>
+							<a href="#">GOBIERNO DE ZACATECAS</a>
+						</p>
 					</div>
 				</div>
-			</div>
-
-			<!-- Copyrights -->
-			<div class="copyrights">
-				<div class="container">
-					<p><a href="#">GOBIERNO DE ZACATECAS</a></p>
-				</div>
-			</div>
-		</footer>
+			</footer>
 	</div>
 
 	<script language="javascript">
-    
-            function slctr(texto,valor){
-                this.texto = texto
-                this.valor = valor
-            }
-    
-    </script>
+		function slctr(texto, valor) {
+			this.texto = texto
+			this.valor = valor
+		}
+	</script>
 	<!-- Scripts -->
+	<script src="../js/insert/header.js"></script>
 	<script src="../js/jquery.js"></script>
 	<script src="../js/modernizr.js"></script>
 	<script src="../js/smooth-scroll.js"></script>
@@ -338,118 +271,108 @@
 	<script src="../js/options.js"></script>
 	<script src="../js/insert/sumarioedicionpdf.js"></script>
 	<script src="../js/jspdf.debug.js"></script>
-	<!-- <script src="../js/cookies/cookies.js"></script> -->
+	<script src="../js/cookies/cookies.js"></script>  
 	<script src="../js/table/pagBusquedaSumario.js"></script>
 	<script src="../js/municipios/municipios.js"></script>
-	
+
 	<script type="text/javascript">
-	
-	verificarLogin();
-        
-            $(document).ready(function() {	
-    
-                    $('.date').datepicker({
-                        format: "yyyy-mm-dd",
-                        endDate: "Today",
-                        language: "es",
-                        daysOfWeekDisabled: "0",
-                        autoclose: true,
-                        orientation: "top auto"
-                    });			
-          
-            }); 
-			
-		
-		
+		verificarLogin();
+
+		$(document).ready(function() {
+
+			$('.date').datepicker({
+				format : "yyyy-mm-dd",
+				endDate : "Today",
+				language : "es",
+				daysOfWeekDisabled : "0",
+				autoclose : true,
+				orientation : "top auto"
+			});
+
+		});
+
 		function createCORSRequest(method, url) {
-		  var xhr = new XMLHttpRequest();
-		  if ("withCredentials" in xhr) {
-		    // Check if the XMLHttpRequest object has a "withCredentials" property.
-		    // "withCredentials" only exists on XMLHTTPRequest2 objects.
-		    xhr.open(method, url, true);
-		  } else if (typeof XDomainRequest != "undefined") {
-		    // Otherwise, check if XDomainRequest.
-		    // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
-		    xhr = new XDomainRequest();
-		    xhr.open(method, url);
-		  } else {
-		    // Otherwise, CORS is not supported by the browser.
-		    xhr = null;
-		  }
-		  return xhr;
+			var xhr = new XMLHttpRequest();
+			if ("withCredentials" in xhr) {
+				// Check if the XMLHttpRequest object has a "withCredentials" property.
+				// "withCredentials" only exists on XMLHTTPRequest2 objects.
+				xhr.open(method, url, true);
+			} else if (typeof XDomainRequest != "undefined") {
+				// Otherwise, check if XDomainRequest.
+				// XDomainRequest only exists in IE, and is IE's way of making CORS requests.
+				xhr = new XDomainRequest();
+				xhr.open(method, url);
+			} else {
+				// Otherwise, CORS is not supported by the browser.
+				xhr = null;
+			}
+			return xhr;
 		}
-		function makeCorsRequest(url,id,form) {
-		  	var xhr = createCORSRequest('POST', url);
-		  	if (!xhr) {
-		    	alert('CORS not supported');
-		    	return;
-		  	}
-		  	var formElement = document.getElementById(form);
-		  	var formData = new FormData(formElement);
-		  	// Response handlers.
+		function makeCorsRequest(url, id, form) {
+			var xhr = createCORSRequest('POST', url);
+			if (!xhr) {
+				alert('CORS not supported');
+				return;
+			}
+			var formElement = document.getElementById(form);
+			var formData = new FormData(formElement);
+			// Response handlers.
 			xhr.onload = function() {
-		  	var response = JSON.parse( xhr.responseText);
-        	displayList(response,id);
-        	
-		  	};
-		  	xhr.onerror = function() {
-		    alert('Woops, there was an error making the request.');
-		  	};
-		  	xhr.send(formData);
+				var response = JSON.parse(xhr.responseText);
+				displayList(response, id);
+
+			};
+			xhr.onerror = function() {
+				alert('Woops, there was an error making the request.');
+			};
+			xhr.send(formData);
 			document.getElementById("resultado").innerHTML = "Buscando...";
 		}
-		
-		function displayList(arr,id){
-			
-			arr2=arr;
-				indice=1;
-				
-				if(arr.Documentos==undefined){
-		    	document.getElementById("resultado").innerHTML = "No se encontraron resultados";
-		    	}
-		    	
-		    	mostrarLista(id);
+
+		function displayList(arr, id) {
+
+			arr2 = arr;
+			indice = 1;
+
+			if (arr.Documentos == undefined) {
+				document.getElementById("resultado").innerHTML = "No se encontraron resultados";
+			}
+
+			mostrarLista(id);
 		}
-		
-		
-		
-		
-		
-		function makeCorsRequest2(url,id,form) {
-		  	var xhr = createCORSRequest('POST', url);
-		  	if (!xhr) {
-		    	alert('CORS not supported');
-		    	return;
-		  	}
-		  	var formElement = document.getElementById(form);
-		  	var formData = new FormData(formElement);
-		  	// Response handlers.
+
+		function makeCorsRequest2(url, id, form, volumen) {
+			var xhr = createCORSRequest('POST', url);
+			if (!xhr) {
+				alert('CORS not supported');
+				return;
+			}
+			var formElement = document.getElementById(form);
+			var formData = new FormData(formElement);
+			// Response handlers.
 			xhr.onload = function() {
-		  	var response = JSON.parse( xhr.responseText);
-        	displayList2(response,id);
-        	
-        	
-		  	};
-		  	xhr.onerror = function() {
-		    alert('Woops, there was an error making the request.');
-		  	};
-		  	xhr.send(formData);
-			
+				var response = JSON.parse(xhr.responseText);
+				displayList2(response, id, volumen);
+			};
+			xhr.onerror = function() {
+				alert('Woops, there was an error making the request.');
+			};
+			xhr.send(formData);
+
 		}
-		
-		function displayList2(arr,id){
+
+		function displayList2(arr, id, volumen) {
 			var str = JSON.stringify(arr, null, 4);
 			//document.getElementById("resultado").innerHTML = 'JSON : ' + str;
 			var out = "";
-		    var i;
-		    var documents = arr.Documentos;
-		    
-		    testPDF2(documents);
-		    
-    		document.getElementById(id).innerHTML = out;
+			var i;
+			var documents = arr.Documentos;
+
+			testPDF2(documents, volumen);
+
+			document.getElementById(id).innerHTML = out;
 		}
-			
-    </script>
+	</script>
 
 </body>
 </html>

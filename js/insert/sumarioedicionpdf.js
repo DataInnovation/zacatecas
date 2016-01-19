@@ -1,5 +1,5 @@
 
-function testPDF2(documents) {
+function testPDF2(documents, volumen) {
 	var doc = new jsPDF('p', 'in', 'letter'), size = 10, font, size, lines, margin = 0.5 // inches
 																							// on a
 																							// 8.5
@@ -7,19 +7,29 @@ function testPDF2(documents) {
 																							// inch
 																							// sheet.
 	, verticalOffset = margin
-
+	
+	
 	// Margins:
-	doc.setDrawColor(0, 255, 0).setLineWidth(1 / 72).line(margin, margin,
-			margin, 11 - margin).line(8.5 - margin, margin, 8.5 - margin,
-			11 - margin)
+//	doc.setDrawColor(0, 255, 0).setLineWidth(1 / 72).line(margin, margin,
+//			margin, 11 - margin).line(8.5 - margin, margin, 8.5 - margin,
+//			11 - margin)
 			doc.setFont("Sans-Serif")
 	doc.setFontType("bold");
 	doc.setFontSize(14);
-	doc.text(3.5, 0.8, 'SUMARIOS');
+	if(volumen.value){
+		//doc.text(3.5, 0.8, 'SUMARIO');
+		doc.text(2.5, 0.8, 'SUMARIO DEL PERIODICO NÚMERO ' + volumen.value);
+	}else{
+		doc.text(3.5, 0.8, 'SUMARIO');
+		//doc.text(2.5, 0.8, 'SUMARIO DEL PERIODICO NÚMERO ' + volumen.value);
+		
+	}
 	verticalOffset += 0.5
 	// the 3 blocks of text
 	for (i = 0; i < documents.length; i++) {
-		var texto = documents[i].tipo.toUpperCase() + '.- ' + documents[i].categoria + ' - ' + documents[i].notaDelSumario + ', ' + documents[i].municipio + '  ' + documents[i].fecha
+		var mun = documents[i].municipio.split(/(?=[A-Z])/);
+		var muni = mun.join(" ");
+		var texto = documents[i].tipo.toUpperCase() + ', ' + documents[i].categoria + ', ' + documents[i].notaDelSumario + ', Juzgado de ' + muni + ', Zac. '
 		lines = doc.setFont("Sans-Serif").setFontSize(size).splitTextToSize(texto, 6.5)
 		doc.text(0.5, verticalOffset + size / 72, lines)
 //		alert(texto.length)

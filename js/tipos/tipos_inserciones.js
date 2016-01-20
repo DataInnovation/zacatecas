@@ -58,17 +58,12 @@ var Fraccionamiento=new Array()
 var Edictos=new Array()
 	Edictos[0] = new slctr('Categoria:')
 	Edictos[1] = new slctr("Civil",'Civil')
-	Edictos[2] = new slctr("Civil Sucesorio",'Civil Sucesorio')	
-	Edictos[3] = new slctr("Civil Hipotecario",'Civil Hipotecario')
+	Edictos[2] = new slctr("Sucesorio",'Sucesorio')	
+	Edictos[3] = new slctr("Hipotecario",'Hipotecario')
 	Edictos[4] = new slctr("Mercantil",'Mercantil')
-	
-	Edictos[5] = new slctr("Sucesorios",'Sucesorios')
-	Edictos[6] = new slctr("Ad-Perpetuam",'Ad-Perpetuam')
-	Edictos[7] = new slctr("Hipotecarios",'Hipotecarios')
-	Edictos[8] = new slctr("Divorcio",'Divorcio')
-	
-	
-	Edictos[9] = new slctr("Otro",'Otro')		
+	Edictos[5] = new slctr("Ad-Perpetuam",'Ad-Perpetuam')
+	Edictos[6] = new slctr("Divorcio",'Divorcio')
+	Edictos[7] = new slctr("Otro",'Otro')		
 
 
 

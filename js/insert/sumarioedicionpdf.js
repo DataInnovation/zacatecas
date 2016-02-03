@@ -38,7 +38,15 @@ function testPDF2(documents, volumen) {
 				cont -= 87
 				verticalOffset += 0.1
 			}}
-		doc.text(0.5, verticalOffset + 2 * (size /72), documents[i].folio + '.............................................................................................................................................................................'+ documents[i].volumen)
+		
+		var pt = '.'
+		var tm = (documents[i].folio.length + documents[i].volumen.length)*2
+		//alert(documents[i].folio.length + documents[i].volumen.length)
+		while(pt.length < (190-tm)){
+			pt += '.'
+		}
+		
+		doc.text(0.5, verticalOffset + 2 * (size /72), documents[i].folio + pt + documents[i].volumen)
 
 		verticalOffset += (lines.length + 3) * size / 72
 

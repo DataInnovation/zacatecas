@@ -67,7 +67,7 @@
 														<option value="CXXIV">CXXIV(2014)</option>
 														<option value="CXXV">CXXV(2015)</option>
 														<option value="CXXVI">CXXVI(2016)</option>
-														<!--<option value="CXXVI">CXXVI</option>-->
+														<option value="CXXVII">CXXVII(2017)</option>
 													</select>
 												</div>
 
@@ -219,13 +219,11 @@
 	<script src="../js/knob.js"></script>
 	<script src="../js/cookies/cookies.js"></script>
 	<script src="../js/options.js"></script>
-
 	<script src="../js/insert/jsInsert.js"></script>
 	<script src="../js/calendario/CalendarioPublicaciones.js"></script>
-
-
+	
 	<script language="javascript">
-		verificarLogin();
+
 
 		$(document).on(
 				'change',
@@ -298,6 +296,7 @@
 			};
 			xhr.send(formData);
 		}
+		verificarLogin();
 	</script>
 
 </body>

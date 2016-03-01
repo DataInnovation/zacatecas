@@ -85,10 +85,22 @@ function mostrarLista(id){
 					if(i<documents.length){
 						out +=
 		        '<div class="row">'+
-				"<div class='col-sm-9'>" + 
-				"	<div class='description'>" + 
-				"		<p>"+documents[i].notaDelSumario+"</p>" + 
+		        "<div class='col-sm-2'>" + 
+				"	<div class='descripcion'>" + 
+				"		<p>"+documents[i].folio+"</p>" + 
 				"	</div>" + 
+				"</div>" + 
+				"<div class='col-sm-8'>" + 
+				"	<div class='description'>" + 
+				"		<p>"
+				+ (documents[i].solicitante == "" ? "" : " SOLICITANTE: " + documents[i].solicitante)
+				+ (documents[i].actor == "" ? "" : " ACTOR: " + documents[i].actor)
+				+ (documents[i].contraparte == "" ? "" : " CONTRAPARTE: " + documents[i].contraparte) 
+				+ (documents[i].tipo == "" ? "" : " TIPO: " + documents[i].tipo.toUpperCase())
+				+ (documents[i].categoria == "" ? "" : " CATEGORIA: " + documents[i].categoria.toUpperCase())
+				+ (documents[i].juzgado == undefined ? "" : " JUZGADO: " + documents[i].juzgado)
+				+ (documents[i].notaDelSumario == "" ? "" : " DESCRIPCION: " + documents[i].notaDelSumario) 
+				+"	</p> </div>" + 
 				"</div>" + 
 				"<div class='col-sm-3'>" + 
 				"	<div class='description'>" + 

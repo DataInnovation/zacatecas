@@ -1,7 +1,6 @@
 function eliminarCookies(){
 	
 	
-	
 	eliminarCookie("usuario");
 	eliminarCookie("password");
 	
@@ -28,19 +27,6 @@ function eliminarCookie(name){
 	
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-	
 
 function crearCookie(){
 	
@@ -112,12 +98,6 @@ function verificarLogin(){
 		alert('Inicia Sesion: ');
        //window.location="http://127.0.0.1:8020/Servidor/login.html";
        window.location="http://periodicooficial.zacatecas.gob.mx/login.html";
-       
 	}
-	else{
-		
-		
-		document.getElementById("usuarioR").innerHTML = getCookie('usuario');
-		
-	}
+
 }

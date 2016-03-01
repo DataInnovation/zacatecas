@@ -54,11 +54,16 @@
 
 											<div class="row">
 												<div class="col-sm-8">
-													<select class="input-line js-input" name="tomo">
+													<select class="input-line js-input" name="tomo" id="tomoPeriodico">
 														<option disabled selected>Tomo:</option>
+														<option value="CXX">CXX(2010)</option>
+														<option value="CXXI">CXXI(2011)</option>
+														<option value="CXXII">CXXII(2012)</option>
+														<option value="CXXIII">CXXIII(2013)</option>
 														<option value="CXXIV">CXXIV(2014)</option>
 														<option value="CXXV">CXXV(2015)</option>
 														<option value="CXXVI">CXXVI(2016)</option>
+														<option value="CXXVII">CXXVII(2017)</option>
 													</select>
 												</div>
 
@@ -120,7 +125,7 @@
 
 											<div class="submit-button">
 												<input type="button" value="Ver PDF"
-													onclick="makeCorsRequest2('http://periodicooficial.zacatecas.gob.mx:9000/busqueda/sumarios','lista','dataForm', this.form.volumenPeriodico)" />
+													onclick="makeCorsRequest2('http://periodicooficial.zacatecas.gob.mx:9000/busqueda/sumarios','lista','dataForm', this.form.volumenPeriodico, this.form.tomoPeriodico)" />
 												<i class="icon icon-search"></i>
 											</div>
 
@@ -256,7 +261,7 @@
 		}
 	</script>
 	<!-- Scripts -->
-	<script src="../js/insert/header.js"></script>
+        <script src="../js/insert/header.js"></script>
 	<script src="../js/jquery.js"></script>
 	<script src="../js/modernizr.js"></script>
 	<script src="../js/smooth-scroll.js"></script>
@@ -269,14 +274,15 @@
 	<script src="../js/visible.js"></script>
 	<script src="../js/knob.js"></script>
 	<script src="../js/options.js"></script>
-	<script src="../js/insert/sumarioedicionpdf.js"></script> 
 	<script src="../js/jspdf.debug.js"></script>
-	<!--  <script src="../js/cookies/cookies.js"></script>   -->
+    <script src="../js/calendario/CalendarioPublicaciones.js"></script>
+    <script src="../js/insert/jsInsert.js"></script>
+	<script src="../js/insert/sumarioedicionpdf.js"></script> 
+    <script src="../js/cookies/cookies.js"></script>   
 	<script src="../js/table/pagBusquedaSumario.js"></script>
 	<script src="../js/municipios/municipios.js"></script>
 
 	<script type="text/javascript">
-		verificarLogin();
 
 		$(document).ready(function() {
 
@@ -341,7 +347,7 @@
 			mostrarLista(id);
 		}
 
-		function makeCorsRequest2(url, id, form, volumen) {
+		function makeCorsRequest2(url, id, form, volumen, tomo) {
 			var xhr = createCORSRequest('POST', url);
 			if (!xhr) {
 				alert('CORS not supported');
@@ -352,7 +358,7 @@
 			// Response handlers.
 			xhr.onload = function() {
 				var response = JSON.parse(xhr.responseText);
-				displayList2(response, id, volumen);
+				displayList2(response, id, volumen, tomo);
 			};
 			xhr.onerror = function() {
 				alert('Woops, there was an error making the request.');
@@ -361,18 +367,18 @@
 
 		}
 
-		function displayList2(arr, id, volumen) {
+		function displayList2(arr, id, volumen, tomo) {
 			var str = JSON.stringify(arr, null, 4);
 			//document.getElementById("resultado").innerHTML = 'JSON : ' + str;
 			var out = "";
 			var i;
 			var documents = arr.Documentos;
 
-			testPDF2(documents, volumen);
+			testPDF2(documents, volumen, tomo);
 
 			document.getElementById(id).innerHTML = out;
 		}
+		verificarLogin();
 	</script>
-
 </body>
 </html>

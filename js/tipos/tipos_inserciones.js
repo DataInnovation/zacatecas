@@ -27,8 +27,9 @@ var Legislativo=new Array()
 	Legislativo[6] = new slctr("Convocatorias",'Convocatorias')
 	Legislativo[7] = new slctr("Nombramientos",'Nombramientos')
 	Legislativo[8] = new slctr("Expropiaciones",'Expropiaciones')
-	Legislativo[9] = new slctr("Leyes",'Leyes')	
-	Legislativo[10] = new slctr("Otros",'Otros')	
+	Legislativo[9] = new slctr("Otros",'Otros')	
+	//Legislativo[9] = new slctr("Leyes",'Leyes')	
+	
 		
 
 var Judicial=new Array()
@@ -55,15 +56,15 @@ var Fraccionamiento=new Array()
 	Fraccionamiento[6] = new slctr("Administrativo",'Administrativo')		
 	Fraccionamiento[7] = new slctr("Vacancias",'Vacancias')	
 
-var Edictos=new Array()
-	Edictos[0] = new slctr('Categoria:')
-	Edictos[1] = new slctr("Civil",'Civil')
-	Edictos[2] = new slctr("Sucesorio",'Sucesorio')	
-	Edictos[3] = new slctr("Hipotecario",'Hipotecario')
-	Edictos[4] = new slctr("Mercantil",'Mercantil')
-	Edictos[5] = new slctr("Ad-Perpetuam",'Ad-Perpetuam')
-	Edictos[6] = new slctr("Divorcio",'Divorcio')
-	Edictos[7] = new slctr("Otro",'Otro')		
+var Edicto=new Array()
+	Edicto[0] = new slctr('Categoria:')
+	Edicto[1] = new slctr("Civil",'Civil')
+	Edicto[2] = new slctr("Sucesorio",'Sucesorio')	
+	Edicto[3] = new slctr("Hipotecario",'Hipotecario')
+	Edicto[4] = new slctr("Mercantil",'Mercantil')
+	Edicto[5] = new slctr("Ad-Perpetuam",'Ad-Perpetuam')
+	Edicto[6] = new slctr("Divorcio",'Divorcio')
+	Edicto[7] = new slctr("Otro",'Otro')		
 
 
 

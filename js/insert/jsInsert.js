@@ -63,11 +63,7 @@
 			}//termina for
 		}
 	}
-	
-	
-	
-	
-	
+
 	function Juzgados(cual,donde){
 		if(cual.selectedIndex != 0){
 			donde.length=0
@@ -85,23 +81,17 @@
 		}
 	}
 
-
 	function changeRangeVolumen(x,y) {
 	var input = document.getElementById("siVolumenesPublicacion1");
 	input.setAttribute("min", x);
 	input.setAttribute("max", y);
 	}
 
-
-
 	function Fechas(cual,donde,tomo){
 		if(cual.value != 0){
 			var tomos=tomo.value;
 			var input = document.getElementById("siVolumenesPublicacion1");
-			
-			
-			
-			
+
 			if(tomos=="CXX"){//104
 			cual = eval(cual.value)
 			var nuevaOpcion = FechasPublicaciones2010[cual].fecha;
@@ -125,9 +115,6 @@
 			input.setAttribute("min", 1);
 			input.setAttribute("max", FechasPublicaciones2012.length-1);
 			}
-			
-			
-
 
 			if(tomos=="CXXIII"){//104
 			cual = eval(cual.value)
@@ -161,8 +148,13 @@
 			input.setAttribute("max", FechasPublicaciones2016.length-1);
 			}
 
-
-		
+			if(tomos=="CXXVII"){//104
+			cual = eval(cual.value)
+			var nuevaOpcion = FechasPublicaciones2017[cual].fecha;
+			donde.value=nuevaOpcion;
+			input.setAttribute("min", 1);
+			input.setAttribute("max", FechasPublicaciones2017.length-1);
+			}
 		}
 	}
 	
@@ -214,7 +206,12 @@
 			input.setAttribute("min", 1);
 			input.setAttribute("max", 105);
 			}
-		
+
+			if(tomos=="CXXVII"){ //104
+			cual = eval(cual.value)
+			input.setAttribute("min", 1);
+			input.setAttribute("max", 104);
+			}
 		}
 	}
 

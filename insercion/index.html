@@ -75,7 +75,7 @@
                                                     <option value="Legislativo">Legislativo</option>
                                                     <option value="Judicial">Judicial</option>
                                                     <option value="Fraccionamiento">Fraccionamiento</option>
-                                                    <option value="Edictos">Edictos</option>
+                                                    <option value="Edicto">Edicto</option>
                                                     <option value="Otros">Otros</option>
                                                 </select>
 											</div>
@@ -114,6 +114,7 @@
                                                     <option value="CXXIV">CXXIV(2014)</option>
                                                     <option value="CXXV">CXXV(2015)</option>
                                                     <option value="CXXVI">CXXVI(2016)</option>
+													<option value="CXXVII">CXXVII(2017)</option>
                                				 </select>
 											</div>
 											
@@ -149,7 +150,7 @@
 												<input class="input-line js-input" type="number" name="siVolumenesPublicacion[]" id="siVolumenesPublicacion1"  placeholder="Volumen:" value="" onChange="Fechas(this,siFechasPublicacion1,this.form.siTomo);"/>
 											</div>
 											<div class="col-sm-12">
-												<input class="input-line js-input" type="text" name="siFechasPublicacion[]"  id="siFechasPublicacion1" placeholder="Fecha de Publicación" value="" readonly />
+												<input class="input-line js-input date" type="text" name="siFechasPublicacion[]"  id="siFechasPublicacion1" placeholder="Fecha de Publicación" value="" readonly />
 											</div>
 										</div>
                                         <div class="row" id="PUBLICACIONES">
@@ -293,8 +294,7 @@
 	
 	<script type="text/javascript">
 	
-	verificarLogin();
-        
+	    
             $(document).ready(function() {	
     
                     $('.date').datepicker({
@@ -318,10 +318,8 @@
 				document.dataForm.siMunicipio.options[m].value = Municipios[m].valor;
 			}
 		}		
-		
-		
-			
-    </script>
+		verificarLogin();
+	    </script>
 
 </body>
 </html>

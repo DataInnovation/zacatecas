@@ -24,41 +24,8 @@
 <body data-smooth-scroll="on">
 	<!-- Page Wrapper -->
 	<div class="page">
-		<!-- Header -->
-		<header>
-			<div class="container">
-				<div class="row">
-					<!-- Brand -->
-					<div class="col-xs-12 col-md-6">
-						<div class="brand">
-							<a href="../index.html"><img src="../img/brand.png" alt="brand" /></a>
-						</div>
-					</div>
-
-					<!-- Nav -->
-					<div class="col-xs-12 col-md-18">
-						<nav> 							<ul>
-								<li><a href="../index.html">Inicio</a></li>
-								<li class="has-children current-menu-item">
-									<img src="../img/lupac.png"><a href="">Búsqueda</a>
-									<ul class="children">
-										<li><a href="../busqueda/">Búsqueda de Solicitud</a></li>
-										<li><a href="../busqueda-leyes/">Búsqueda de Leyes</a></li>
-										<li><a href="../busqueda-suplemento/">Búsqueda de Suplemento</a></li>
-										
-									</ul>
-								</li>
-							</ul>
-
-							<i class="responsive-menu-trigger icon-menu"></i>
-							
-						</nav>
-					</div>
-				</div>
-
-			</div>
-		</header>
-
+	<body onload="header('busqueda')">
+	<div id="menu"></div>
 		<!-- Blog Section -->
 		<section class="blog-section">
 			<!-- Section Header -->
@@ -92,6 +59,7 @@
                                                     <option value="CXXIV">CXXIV(2014)</option>
                                                     <option value="CXXV">CXXV(2015)</option>
                                                      <option value="CXXVI">CXXVI(2016)</option>
+													 <option value="CXXVII">CXXVII(2017)</option>
                                                     
                                				 </select>
 											</div>
@@ -254,6 +222,8 @@
     </script>
 	<!-- Scripts -->
 	<script src="../js/insert/header.js"></script>
+	<script src="../js/insert/header.js"></script>
+	<script src="../js/cookies/cookies.js"></script>
 	<script src="../js/jquery.js"></script>
 	<script src="../js/modernizr.js"></script>
 	<script src="../js/smooth-scroll.js"></script>

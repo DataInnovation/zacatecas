@@ -885,4 +885,49 @@ FechasPublicaciones2016[105] = new fecpub("2016/12/31", '105', '2016', 'CXXVI')
 function fecpub(fecha, numero, ano, tomo) {
     this.fecha = fecha;
 }
-	
+
+function dateToString(fech) {
+    var date = fech.split("/");
+    var fecha = date[2] + " DE ";
+    switch (date[1]) {
+        case "01":
+            fecha += "ENERO";
+            break;
+        case "02":
+            fecha += "FEBRERO";
+            break;
+        case "03":
+            fecha += "MARZO";
+        case "04":
+            fecha += "ABRIL"
+            break;
+        case "05":
+            fecha += "MAYO"
+            break;
+        case "06":
+            fecha += "JUNIO"
+            break;
+        case "07":
+            fecha += "JULIO"
+            break;
+        case "08":
+            fecha += "AGOSTO"
+            break;
+        case "09":
+            fecha += "SEPTIEMBRE"
+            break;
+        case "10":
+            fecha += "OCTUBRE"
+            break;
+        case "11":
+            fecha += "NOVIEMBRE"
+            break;
+        case "12":
+            fecha += "DICIEMBRE"
+            break;
+        default:
+            break;
+    }
+    fecha += " DEL " + date[0];
+    return fecha;
+}	

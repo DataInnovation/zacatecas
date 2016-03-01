@@ -162,49 +162,5 @@ Array.prototype.unique = function (a) {
 }(function (a, b, c) {
     return c.indexOf(a, b + 1) < 0
 });
-function dateToString(fech) {
-    var date = fech.split("/");
-    var fecha = date[2] + " DE ";
-    switch (date[1]) {
-        case "01":
-            fecha += "ENERO";
-            break;
-        case "02":
-            fecha += "FEBRERO";
-            break;
-        case "03":
-            fecha += "MARZO";
-        case "04":
-            fecha += "ABRIL"
-            break;
-        case "05":
-            fecha += "MAYO"
-            break;
-        case "06":
-            fecha += "JUNIO"
-            break;
-        case "07":
-            fecha += "JULIO"
-            break;
-        case "08":
-            fecha += "AGOSTO"
-            break;
-        case "09":
-            fecha += "SEPTIEMBRE"
-            break;
-        case "10":
-            fecha += "OCTUBRE"
-            break;
-        case "11":
-            fecha += "NOVIEMBRE"
-            break;
-        case "12":
-            fecha += "DICIEMBRE"
-            break;
-        default:
-            break;
-    }
-    fecha += " DEL " + date[0];
-    return fecha;
-}
+
 	

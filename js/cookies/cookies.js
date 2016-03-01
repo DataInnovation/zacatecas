@@ -5,8 +5,8 @@ function eliminarCookies(){
 	eliminarCookie("password");
 	
 	
-	window.location="http://periodicooficial.zacatecas.gob.mx/login.html";
-	//window.location="http://127.0.0.1:8020/Servidor/login.html";
+	//window.location="http://periodicooficial.zacatecas.gob.mx/login.html";
+	window.location="http://127.0.0.1:8020/Servidor/login.html";
 	
 	
 	
@@ -45,8 +45,8 @@ function crearCookie(){
 					var myArr = JSON.parse(xmlhttp.responseText);
 					setCookie('usuario',usuario.value,1);
 					setCookie('password',password.value,1);
-					//window.location="http://127.0.0.1:8020/Servidor/admin/index.html";
-					window.location="http://periodicooficial.zacatecas.gob.mx/admin/index.html";
+					window.location="http://127.0.0.1:8020/Servidor/admin/index.html";
+					//window.location="http://periodicooficial.zacatecas.gob.mx/admin/index.html";
 					
 					
 				}
@@ -96,8 +96,8 @@ function checkCookie() {
 function verificarLogin(){
 	if (!checkCookie()) {
 		alert('Inicia Sesion: ');
-       //window.location="http://127.0.0.1:8020/Servidor/login.html";
-       window.location="http://periodicooficial.zacatecas.gob.mx/login.html";
+       window.location="http://127.0.0.1:8020/Servidor/login.html";
+       //window.location="http://periodicooficial.zacatecas.gob.mx/login.html";
 	}
 
 }

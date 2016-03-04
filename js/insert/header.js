@@ -60,10 +60,11 @@ function header(page) {
             htm += '<li class = "has-children"> <a href = ""> Servicios </a>'
         }
         htm += '<ul class = "children">'
-                + '<li> <a href ="../directorio/"> Directorio </a></li></ul></li>'
+                + '<li> <a href ="../directorio/"> Directorio </a></li></ul></li>'				
                 + '<li>' + "<a href = 'javascript:void(0)' onclick='eliminarCookies()'>Cerrar sesion </a></li></ul>"
-                + '<i class = "responsive-menu-trigger icon-menu"> </i>' + '</nav>'
-                + '</div>' + '</div>' + '</div>' + '</header>';
+                + '<i class = "responsive-menu-trigger icon-menu"></i>' + '</nav>'
+                + '</div>' + '</div>' + '</div>'
+                + '</header>';
     } else {
         var htm = '<!-- Header -->'
                 + '		<!-- Header -->'
@@ -105,8 +106,9 @@ function header(page) {
                 + '</nav>'
                 + '</div>'
                 + '</div>'
-                + '</div>'
+                + '</div>';
                 + '</header>';
     }
+
     document.getElementById("menu").innerHTML = htm;
 }

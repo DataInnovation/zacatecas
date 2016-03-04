@@ -37,12 +37,12 @@ function testPDF2(documents, volumen, tomo) {
         fecha = dateToString(fecha);
     }
 
-//Se introducen todos los folios a una lista/arreglo
+	//Se introducen todos los folios a una lista/arreglo
     for (i = 0; i < documents.length; i++) {
         var aux = documents[i].folio.valueOf();
         lista.push(aux)
     }
-//Ordenamos los valores dentro de la lista/arreglo
+	//Ordenamos los valores dentro de la lista/arreglo
     lista.sort(ordenar);
     parseInt(lista);
     //ListaF es la lista/arreglo final de Folios
@@ -85,18 +85,16 @@ function testPDF2(documents, volumen, tomo) {
             doc.text(2.9, verticalOffset, 'FECHA: ' + fecha);
             verticalOffset += size / 20
         }
-        lines = doc.splitTextToSize('FOLIOS: ' + folios, 6.5);
+        lines = doc.splitTextToSize('FOLIOS: ' + folios, 7.3);
     } else {
-        doc.text(3.0, verticalOffset, 'SUMARIO DEL PERIODICO')
-        verticalOffset += size / 20
-        lines = doc.splitTextToSize('FOLIOS: ' + folios, 6.5);
+        doc.text(3.0, verticalOffset, 'SUMARIO DEL PERIODICO');
+        verticalOffset += size / 20;
+        lines = doc.splitTextToSize('FOLIOS: ' + folios, 7.3);
     }
     doc.text(0.5, verticalOffset + size / 72, lines);
-    if (folios.length > 130) {
-        verticalOffset += size / 25;
-    }
-    verticalOffset += size / 15;
-    var cat
+    var reng = (doc.getStringUnitWidth('FOLIOS: ' + folios)*size)/450;
+    verticalOffset += (size / 23) * reng;
+    var cat;
 
     // the 3 blocks of text
     for (i = 0; i < documents.length; i++) {
@@ -115,8 +113,12 @@ function testPDF2(documents, volumen, tomo) {
         var muni = mun.join(" ");
         var texto = documents[i].tipo.toUpperCase() + ', ' + documents[i].categoria + ', ' + documents[i].notaDelSumario
         if (muni.length > 0) {
-            if (documents[i].tipo.toUpperCase() != "FRACCIONAMIENTO") {
+            if (documents[i].tipo.toUpperCase() != "GOBIERNO") {
+            	if(documents[i].tipo.toUpperCase() != "FRACCIONAMIENTO"){
                 texto += ', Juzgado de ' + muni + ', Zac. '
+            	}else{
+            		texto += ', municipio de ' + muni + ', Zac. '
+            	}
             } else {
                 texto += ', municipio de ' + muni + ', Zac. '
             }
@@ -124,21 +126,16 @@ function testPDF2(documents, volumen, tomo) {
         lines = doc.setFont("Sans-Serif").setFontSize(size).splitTextToSize(texto, 6.5);
         doc.text(0.5, verticalOffset + size / 72, lines)
 
-        var cont = texto.length;
-        if (texto.length > 87) {
-            while (cont > 0) {
-                cont -= 87;
-                verticalOffset += 0.1;
-            }
-        }
+        var cont = (doc.getStringUnitWidth(texto)*size)/450;
+        verticalOffset += 0.1 * cont;
 
-        var pt = '.'
-        var tm = (documents[i].folio.length + documents[i].volumen.length) * 2
-        while (pt.length < (190 - tm)) {
+        var pt = documents[i].folio  + '.'
+        
+        while (doc.getStringUnitWidth(pt)*size < 480 - doc.getStringUnitWidth(documents[i].volumen)*size) {
             pt += '.'
         }
 
-        doc.text(0.5, verticalOffset + 2 * (size / 72), documents[i].folio + pt + documents[i].volumen)
+        doc.text(0.5, verticalOffset + 2 * (size / 72), pt + documents[i].volumen)
 
         verticalOffset += (lines.length + 3) * size / 72
 

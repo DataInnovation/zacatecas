@@ -81,7 +81,6 @@ function mostrarLista(id){
 				for ( i = (indice-1)*10; i < indice*10; i++) {
 					if(i<documents.length){
 				
-				
 				out +=
 		        '<div class="row">'+
 				"<div class='col-sm-3'>" + 

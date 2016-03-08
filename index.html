@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
-    <title>Periódico Oficial del Gobierno del Estado de Zacatecas</title>
-    <meta name="description" content="Here goes description" />
-    <meta name="author" content="author name" />
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<meta charset="utf-8" />
+<title>Periódico Oficial del Gobierno del Estado de Zacatecas</title>
+<meta name="description" content="Here goes description" />
+<meta name="author" content="author name" />
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 
-    
-    
-    <!-- Mobile Specific Meta -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/owl-carousel.css" />
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/lightbox.css" />
-    <link rel="stylesheet" href="css/animate.css" />
-    <link rel="stylesheet" href="css/icomoon.css" />
-    <link rel="stylesheet" href="css/screen.css" />
-    
-		
-    
+
+<!-- Mobile Specific Meta -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Style CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/owl-carousel.css" />
+<link rel="stylesheet" href="css/bootstrap.css" />
+<link rel="stylesheet" href="css/lightbox.css" />
+<link rel="stylesheet" href="css/animate.css" />
+<link rel="stylesheet" href="css/icomoon.css" />
+<link rel="stylesheet" href="css/screen.css" />
+
+
+
 </head>
 <body data-smooth-scroll="on">
 
@@ -44,24 +46,33 @@
 						<nav>
 							<ul>
 								<li class="current-menu-item"><a href="index.html">Inicio</a></li>
-								<li class="has-children">
-									<img src="img/lupac.png"><a href="">Búsqueda</a>
+								<li class="current-menu-item"><a href="">Historia</a></li>
+								<li class="has-children"><img src="img/lupac.png">
+								<a href="">Búsqueda</a>
 									<ul class="children">
 										<li><a href="busqueda/">Búsqueda de Solicitud</a></li>
 										<li><a href="busqueda-leyes/">Búsqueda de Leyes</a></li>
 										<li><a href="busqueda-suplemento/">Búsqueda de Suplemento</a></li>
+
+									</ul></li>
+								<li class="has-children"> <a href="">Servicios</a>
+									<ul class="children">
+										<li><a href="../directorio/">Directorio</a></li>
 										
-									</ul>
-								</li>
-								
-								<li><a href="#">Servicios</a></li>
-								
-								
-                                
+
+									</ul></li>
+									<li><script language="JavaScript">
+									var fhsh = document.createElement('script');
+									var fhs_id_h = "3103628";
+									fhsh.src = "//s1.freehostedscripts.net/ocount.php?site="+ fhs_id_h + "&name=Visitas&a=1";
+									document.head.appendChild(fhsh);
+									document.write("<span id='h_"+fhs_id_h+"'></span>");
+								</script></li>
+
 							</ul>
 
 							<i class="responsive-menu-trigger icon-menu"></i>
-							
+
 						</nav>
 					</div>
 				</div>
@@ -73,9 +84,13 @@
 		<section class="hero-section">
 			<div class="container">
 				<div class="row">
-					<div class="col-xs-20 col-xs-offset-2 col-md-10 col-md-offset-12 col-lg-10 col-lg-offset-14">
-						<h1>Periódico Oficial<br />del Gobierno de Zacatecas</h1>
-						<p>Órgano del gobierno del estado libre y soberano de Zacatecas.</p>
+					<div
+						class="col-xs-20 col-xs-offset-2 col-md-10 col-md-offset-12 col-lg-10 col-lg-offset-14">
+						<h1>
+							Periódico Oficial<br />del Gobierno de Zacatecas
+						</h1>
+						<p>Órgano del gobierno del estado libre y soberano de
+							Zacatecas.</p>
 						<div class="calendar">
 							<div class="datepicker"></div>
 						</div>
@@ -84,64 +99,70 @@
 			</div>
 		</section>
 
-		
-        
+
+
 
 		<!-- Call to action Section -->
 		<section class="call-to-action-section">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-14 col-lg-24">
-						<h3>Publicaciones recientes del Periódico Oficial del Gobierno de Zacatecas</h3>
+						<h3>Publicaciones recientes del Periódico Oficial del
+							Gobierno de Zacatecas</h3>
 					</div>
 				</div>
 			</div>
 		</section>
-		
-		
-		
-	
-	
-	<section class="call-to-action-section2">
+
+
+
+
+
+		<section class="call-to-action-section2">
 			<div class="container">
 
-	<form id="dataForm" name="dataForm" onsubmit="return false">
+				<form id="dataForm" name="dataForm" onsubmit="return false">
 
-		<center>
-		
-					
-					<input type="text" name="Buscar" id="aBuscar" class="Fields" placeholder="Buscar:" /> 
-					
-					<select class="Fields" id="Busqueda">
-                    <option value="Leyes">Leyes</option>
-                    <option value="Suplementos">Suplementos</option>
-                    </select>
-					
-					<img src="img/lupai.png" onclick="BusquedaRapida(aBuscar,Busqueda,lista,dataForm);">
+					<center>
 
-					<div class="row center" >
-									<button onclick="primeraPag('lista')"> <img src="img/first.png" /> </button>
-									<button onclick="anteriorPag('lista')"><img src="img/previous.png" /> </button>
-									<input type="number" style="width:40px; height:15px" size="3" min="1" maxlength="3" id="indiceP" placeholder="1"  value="" onChange="indicePag('lista',indiceP);"/>
-									
-									<button onclick="siguientePag('lista')">   <img src="img/nextt.png" />    </button>
-									<button onclick="ultimaPag('lista')"> <img src="img/last.png" /> </button>
-									</div>
-			
-		</center>
-		</form>
-		</div>
+
+						<input type="text" name="Buscar" id="aBuscar" class="Fields"
+							placeholder="Buscar:" /> <select class="Fields" id="Busqueda">
+							<option value="Leyes">Leyes</option>
+							<option value="Suplementos">Suplementos</option>
+						</select> <img src="img/lupai.png"
+							onclick="BusquedaRapida(aBuscar,Busqueda,lista,dataForm);">
+
+						<div class="row center">
+							<button onclick="primeraPag('lista')">
+								<img src="img/first.png" />
+							</button>
+							<button onclick="anteriorPag('lista')">
+								<img src="img/previous.png" />
+							</button>
+							<input type="number" style="width: 40px; height: 15px" size="3"
+								min="1" maxlength="3" id="indiceP" placeholder="1" value=""
+								onChange="indicePag('lista',indiceP);" />
+
+							<button onclick="siguientePag('lista')">
+								<img src="img/nextt.png" />
+							</button>
+							<button onclick="ultimaPag('lista')">
+								<img src="img/last.png" />
+							</button>
+						</div>
+
+					</center>
+				</form>
+			</div>
 		</section>
 
 		<p id="resultado"></p>
 		<p id="headertable"></p>
 		<div class="services-list">
-				<center>
-				<div class="services-list" id="lista">
-
-
-				</div>  
-				</center>                                    
+			<center>
+				<div class="services-list" id="lista"></div>
+			</center>
 		</div>
 
 		<!-- Order Services -->
@@ -152,57 +173,76 @@
 						<!-- Tabs  Header -->
 						<div class="col-md-5">
 							<div class="heading">
-								<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist">
-									<li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" aria-controls="service-group-1" aria-labelledby="ui-id-1" role="tab" tabindex="0" aria-selected="true" aria-expanded="true">
-										<a href="#service-group-1" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-1">
-											
+								<ul
+									class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all"
+									role="tablist">
+									<li
+										class="ui-state-default ui-corner-top ui-tabs-active ui-state-active"
+										aria-controls="service-group-1" aria-labelledby="ui-id-1"
+										role="tab" tabindex="0" aria-selected="true"
+										aria-expanded="true"><a href="#service-group-1"
+										class="ui-tabs-anchor" role="presentation" tabindex="-1"
+										id="ui-id-1">
+
 											<h4 id="titleLeyes">Leyes</h4>
 											<div>
-											
-											<a href ="busqueda-leyes/index.html"><img src="img/lupai.png"></a>
+
+												<a href="busqueda-leyes/index.html"><img
+													src="img/lupai.png"></a>
 											</div>
-										</a>
-									</li>
-								</br>
-									<li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="service-group-2" aria-labelledby="ui-id-2"  aria-selected="false" aria-expanded="false">
-										<a href="#service-group-2" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-2">
+									</a></li>
+									</br>
+									<li class="ui-state-default ui-corner-top" role="tab"
+										tabindex="-1" aria-controls="service-group-2"
+										aria-labelledby="ui-id-2" aria-selected="false"
+										aria-expanded="false"><a href="#service-group-2"
+										class="ui-tabs-anchor" role="presentation" tabindex="-1"
+										id="ui-id-2">
 											<h4 id="titleSuplementos">Suplementos</h4>
 											<div>
-											
-											<a href ="busqueda-suplemento/index.html"><img src="img/lupai.png"></a>
+
+												<a href="busqueda-suplemento/index.html"><img
+													src="img/lupai.png"></a>
 											</div>
-										</a>
-									</li>
+									</a></li>
 									</br>
-									<li class="ui-state-default ui-corner-top" role="tab" tabindex="-2" aria-controls="service-group-3" aria-labelledby="ui-id-3"  aria-selected="false" aria-expanded="false">
-										<a href="#service-group-3" class="ui-tabs-anchor" role="presentation" tabindex="-2" id="ui-id-3">
+									<li class="ui-state-default ui-corner-top" role="tab"
+										tabindex="-2" aria-controls="service-group-3"
+										aria-labelledby="ui-id-3" aria-selected="false"
+										aria-expanded="false"><a href="#service-group-3"
+										class="ui-tabs-anchor" role="presentation" tabindex="-2"
+										id="ui-id-3">
 											<h4 id="titleReglamentos">Reglamentos</h4>
 											<div>
-											
-											<a href ="busqueda-leyes/index.html"><img src="img/lupai.png"></a>
+
+												<a href="busqueda-leyes/index.html"><img
+													src="img/lupai.png"></a>
 											</div>
-										</a>
-									</li>
+									</a></li>
 									</br>
-									<li class="ui-state-default ui-corner-top" role="tab" tabindex="-3" aria-controls="service-group-4" aria-labelledby="ui-id-4"  aria-selected="false" aria-expanded="false">
-										<a href="#service-group-4" class="ui-tabs-anchor" role="presentation" tabindex="-3" id="ui-id-4">
+									<li class="ui-state-default ui-corner-top" role="tab"
+										tabindex="-3" aria-controls="service-group-4"
+										aria-labelledby="ui-id-4" aria-selected="false"
+										aria-expanded="false"><a href="#service-group-4"
+										class="ui-tabs-anchor" role="presentation" tabindex="-3"
+										id="ui-id-4">
 											<h4 id="titleCodigos">Codigos</h4>
 											<div>
-											
-											<a href ="busqueda-leyes/index.html"><img src="img/lupai.png"></a>
+
+												<a href="busqueda-leyes/index.html"><img
+													src="img/lupai.png"></a>
 											</div>
-										</a>
-									</li>
-								
+									</a></li>
+
 								</ul>
 
-							</br></br></br>
+								</br> </br> </br>
 
-								
-									
-									
-								
-								
+
+
+
+
+
 							</div>
 						</div>
 
@@ -222,29 +262,33 @@
 
 							<!-- Services Wrapper -->
 							<div class="tabs-body">
-                                <div class="tab ui-tabs-panel ui-widget-content ui-corner-bottom" id="service-group-1" aria-labelledby="ui-id-1" role="tabpanel">
-									<div class="services-list" id="LEYES">
-									</div>
-                                </div>
-								<div class="tab ui-tabs-panel ui-widget-content ui-corner-bottom" id="service-group-2" aria-labelledby="ui-id-2" role="tabpanel">
-									
-									<div class="services-list" id="SUPLEMENTOS">
-									</div>
+								<div
+									class="tab ui-tabs-panel ui-widget-content ui-corner-bottom"
+									id="service-group-1" aria-labelledby="ui-id-1" role="tabpanel">
+									<div class="services-list" id="LEYES"></div>
 								</div>
-								<div class="tab ui-tabs-panel ui-widget-content ui-corner-bottom" id="service-group-3" aria-labelledby="ui-id-3" role="tabpanel">
-									<div class="services-list" id="REGLAMENTOS">			
-									</div>
+								<div
+									class="tab ui-tabs-panel ui-widget-content ui-corner-bottom"
+									id="service-group-2" aria-labelledby="ui-id-2" role="tabpanel">
+
+									<div class="services-list" id="SUPLEMENTOS"></div>
 								</div>
-								<div class="tab ui-tabs-panel ui-widget-content ui-corner-bottom" id="service-group-4" aria-labelledby="ui-id-4" role="tabpanel">
-									<div class="services-list" id="CODIGOS">			
-									</div>
+								<div
+									class="tab ui-tabs-panel ui-widget-content ui-corner-bottom"
+									id="service-group-3" aria-labelledby="ui-id-3" role="tabpanel">
+									<div class="services-list" id="REGLAMENTOS"></div>
 								</div>
-                                
+								<div
+									class="tab ui-tabs-panel ui-widget-content ui-corner-bottom"
+									id="service-group-4" aria-labelledby="ui-id-4" role="tabpanel">
+									<div class="services-list" id="CODIGOS"></div>
+								</div>
+
 							</div>
 						</div>
 					</div>
 				</div>
-			 </div>
+			</div>
 		</section>
 
 
@@ -276,11 +320,11 @@
 						<div class="col-md-12">
 							<div class="footer-widget info no-border">
 								<img src="img/brand.png" alt="worker brand" />
-								<p>Gobierno del Estado de Zacatecas
-                                Circuito Cerro del Gato, Cd. Administrativa
-                                C.P. 98160 Zacatecas, Zacatecas.<br><br>
-                                Tel. (492) 4915000
-                                Habla con tu Gobernador</p>
+								<p>
+									Gobierno del Estado de Zacatecas Circuito Cerro del Gato, Cd.
+									Administrativa C.P. 98160 Zacatecas, Zacatecas.<br> <br>
+									Tel. (492) 4915000 Habla con tu Gobernador
+								</p>
 							</div>
 						</div>
 					</div>
@@ -294,7 +338,7 @@
 				</div>
 			</div>
 		</footer>
-        
+
 	</div>
 
 	<!-- Scripts -->
@@ -304,8 +348,8 @@
 	<script src="js/jquery-cal-ui.js"></script>
 
 	<script src="js/table/pagBusquedaRapida.js"></script>
-	
-	
+
+
 	<script src="js/lightbox.js"></script>
 	<script src="js/isotope.js"></script>
 	<script src="js/bootstrap.js"></script>
@@ -314,329 +358,325 @@
 	<script src="js/knob.js"></script>
 	<script src="js/options.js"></script>
 	<script src="js/descargas/descargas.js"></script>
-    
-    <script language="javascript">
-				
-			var xmlhttpLeyes = new XMLHttpRequest();
-			var urlLeyes = "http://periodicooficial.zacatecas.gob.mx:9000/obtener/leyes";
-			
-			xmlhttpLeyes.onreadystatechange = function() {
-				if (xmlhttpLeyes.readyState==4 && xmlhttpLeyes.status==200){
-					var myArr = JSON.parse(xmlhttpLeyes.responseText);
-					myLeyes(myArr);
-				}
+
+	<script language="javascript">
+		var xmlhttpLeyes = new XMLHttpRequest();
+		var urlLeyes = "http://periodicooficial.zacatecas.gob.mx:9000/obtener/leyes";
+
+		xmlhttpLeyes.onreadystatechange = function() {
+			if (xmlhttpLeyes.readyState == 4 && xmlhttpLeyes.status == 200) {
+				var myArr = JSON.parse(xmlhttpLeyes.responseText);
+				myLeyes(myArr);
 			}
-			xmlhttpLeyes.open("GET",urlLeyes,true);
-			xmlhttpLeyes.send();
+		}
+		xmlhttpLeyes.open("GET", urlLeyes, true);
+		xmlhttpLeyes.send();
 
-			function myLeyes(arr) {
-				var out = "";
-				document.getElementById("titleLeyes").innerHTML = "Cargando...";
-				for(i = 0; i < arr.Documentos.length; i++) {
-					out +=
-					"<div class='service'>" +
-					"	<div class='row row-fit'>" +
-					"		<div class='col-sm-16'>" + 
-					"			<div class='description'>" + 
-					"				<p>"+arr.Documentos[i].descripcion+"</p>" + 
-					"			</div>" + 
-					"		</div>" + 
-					"		<div class='col-sm-8'>" + 
-					"			<div class='price'>" + 
-					"				<p>"+arr.Documentos[i].fechaPublicacion+"</p> <a href= 'javascript:void(0)' onclick='activarDescarga(" + '"'+ arr.Documentos[i].url +'","' + arr.Documentos[i].nombre + '"' + ")' class='button worker-button-2'>Descargar</a>" + 
-					"			</div>" + 
-					"		</div>" +				
-					"	</div>" + 
-					"</div>" 				
-				}
-				document.getElementById("titleLeyes").innerHTML = "Leyes";
-				document.getElementById("LEYES").innerHTML = out;
+		function myLeyes(arr) {
+			var out = "";
+			document.getElementById("titleLeyes").innerHTML = "Cargando...";
+			for (i = 0; i < arr.Documentos.length; i++) {
+				out += "<div class='service'>"
+						+ "	<div class='row row-fit'>"
+						+ "		<div class='col-sm-16'>"
+						+ "			<div class='description'>"
+						+ "				<p>"
+						+ arr.Documentos[i].descripcion
+						+ "</p>"
+						+ "			</div>"
+						+ "		</div>"
+						+ "		<div class='col-sm-8'>"
+						+ "			<div class='price'>"
+						+ "				<p>"
+						+ arr.Documentos[i].fechaPublicacion
+						+ "</p> <a href= 'javascript:void(0)' onclick='activarDescarga("
+						+ '"' + arr.Documentos[i].url + '","'
+						+ arr.Documentos[i].nombre + '"'
+						+ ")' class='button worker-button-2'>Descargar</a>"
+						+ "			</div>" + "		</div>" + "	</div>" + "</div>"
 			}
+			document.getElementById("titleLeyes").innerHTML = "Leyes";
+			document.getElementById("LEYES").innerHTML = out;
+		}
 
-			var xmlhttpSuplementos = new XMLHttpRequest();
-			var urlSuplementos = "http://periodicooficial.zacatecas.gob.mx:9000/obtener/suplementos";
-			xmlhttpSuplementos.onreadystatechange = function() {
-				if (xmlhttpSuplementos.readyState==4 && xmlhttpSuplementos.status==200){
-					var myArr = JSON.parse(xmlhttpSuplementos.responseText);
-					mySuplementos(myArr);
-				}
+		var xmlhttpSuplementos = new XMLHttpRequest();
+		var urlSuplementos = "http://periodicooficial.zacatecas.gob.mx:9000/obtener/suplementos";
+		xmlhttpSuplementos.onreadystatechange = function() {
+			if (xmlhttpSuplementos.readyState == 4
+					&& xmlhttpSuplementos.status == 200) {
+				var myArr = JSON.parse(xmlhttpSuplementos.responseText);
+				mySuplementos(myArr);
 			}
-			xmlhttpSuplementos.open("GET",urlSuplementos,true);
-			xmlhttpSuplementos.send();
-			
-			function mySuplementos(arr) {
-				var out = "";
-				document.getElementById("titleSuplementos").innerHTML = "Cargando...";
-				for(i = 0; i < arr.Documentos.length; i++) {
-					out +=
-					"<div class='service'>" +
-					"	<div class='row row-fit'>" +
-					"		<div class='col-sm-16'>" + 
-					"			<div class='description'>" + 
-					"				<p>"+arr.Documentos[i].titulo+"</p>" + 
-					"			</div>" + 
-					"		</div>" + 
-					"		<div class='col-sm-8'>" + 
-					"			<div class='price'>" + 
-					"				<p>"+arr.Documentos[i].fechaPublicacion+"</p> <a href= 'javascript:void(0)' onclick='activarDescarga(" + '"'+ arr.Documentos[i].url +'","' + arr.Documentos[i].nombre + '"' + ")' class='button worker-button-2'>Descargar</a>" +
-					"			</div>" + 
-					"		</div>" +				
-					"	</div>" + 
-					"</div>" 				
-				}
-				document.getElementById("titleSuplementos").innerHTML = "Suplementos";
-				document.getElementById("SUPLEMENTOS").innerHTML = out;
+		}
+		xmlhttpSuplementos.open("GET", urlSuplementos, true);
+		xmlhttpSuplementos.send();
+
+		function mySuplementos(arr) {
+			var out = "";
+			document.getElementById("titleSuplementos").innerHTML = "Cargando...";
+			for (i = 0; i < arr.Documentos.length; i++) {
+				out += "<div class='service'>"
+						+ "	<div class='row row-fit'>"
+						+ "		<div class='col-sm-16'>"
+						+ "			<div class='description'>"
+						+ "				<p>"
+						+ arr.Documentos[i].titulo
+						+ "</p>"
+						+ "			</div>"
+						+ "		</div>"
+						+ "		<div class='col-sm-8'>"
+						+ "			<div class='price'>"
+						+ "				<p>"
+						+ arr.Documentos[i].fechaPublicacion
+						+ "</p> <a href= 'javascript:void(0)' onclick='activarDescarga("
+						+ '"' + arr.Documentos[i].url + '","'
+						+ arr.Documentos[i].nombre + '"'
+						+ ")' class='button worker-button-2'>Descargar</a>"
+						+ "			</div>" + "		</div>" + "	</div>" + "</div>"
 			}
+			document.getElementById("titleSuplementos").innerHTML = "Suplementos";
+			document.getElementById("SUPLEMENTOS").innerHTML = out;
+		}
 
-			var xmlhttpReglamentos = new XMLHttpRequest();
-			var urlReglamentos = "http://periodicooficial.zacatecas.gob.mx:9000/obtener/reglamentosestatales";
-			xmlhttpReglamentos.onreadystatechange = function() {
-				if (xmlhttpReglamentos.readyState==4 && xmlhttpReglamentos.status==200){
-					var myArr = JSON.parse(xmlhttpReglamentos.responseText);
-					myReglamentos(myArr);
-				}
+		var xmlhttpReglamentos = new XMLHttpRequest();
+		var urlReglamentos = "http://periodicooficial.zacatecas.gob.mx:9000/obtener/reglamentosestatales";
+		xmlhttpReglamentos.onreadystatechange = function() {
+			if (xmlhttpReglamentos.readyState == 4
+					&& xmlhttpReglamentos.status == 200) {
+				var myArr = JSON.parse(xmlhttpReglamentos.responseText);
+				myReglamentos(myArr);
 			}
-			xmlhttpReglamentos.open("GET",urlReglamentos,true);
-			xmlhttpReglamentos.send();
-			
-			function myReglamentos(arr) {
-				var out = "";
-				for(i = 0; i < arr.Documentos.length; i++) {
-					out +=
-					"<div class='service'>" +
-					"	<div class='row row-fit'>" +
-					"		<div class='col-sm-16'>" + 
-					"			<div class='description'>" + 
-					"				<p>"+arr.Documentos[i].descripcion+"</p>" + 
-					"			</div>" + 
-					"		</div>" + 
-					"		<div class='col-sm-8'>" + 
-					"			<div class='price'>" + 
-					"				<p>"+arr.Documentos[i].fechaPublicacion+"</p> <a href= 'javascript:void(0)' onclick='activarDescarga(" + '"'+ arr.Documentos[i].url +'","' + arr.Documentos[i].nombre + '"' + ")' class='button worker-button-2'>Descargar</a>" + 
-					"			</div>" + 
-					"		</div>" +				
-					"	</div>" + 
-					"</div>" 			
-				}
-				document.getElementById("titleReglamentos").innerHTML = "Reglamentos";
-				document.getElementById("REGLAMENTOS").innerHTML = out;
+		}
+		xmlhttpReglamentos.open("GET", urlReglamentos, true);
+		xmlhttpReglamentos.send();
+
+		function myReglamentos(arr) {
+			var out = "";
+			for (i = 0; i < arr.Documentos.length; i++) {
+				out += "<div class='service'>"
+						+ "	<div class='row row-fit'>"
+						+ "		<div class='col-sm-16'>"
+						+ "			<div class='description'>"
+						+ "				<p>"
+						+ arr.Documentos[i].descripcion
+						+ "</p>"
+						+ "			</div>"
+						+ "		</div>"
+						+ "		<div class='col-sm-8'>"
+						+ "			<div class='price'>"
+						+ "				<p>"
+						+ arr.Documentos[i].fechaPublicacion
+						+ "</p> <a href= 'javascript:void(0)' onclick='activarDescarga("
+						+ '"' + arr.Documentos[i].url + '","'
+						+ arr.Documentos[i].nombre + '"'
+						+ ")' class='button worker-button-2'>Descargar</a>"
+						+ "			</div>" + "		</div>" + "	</div>" + "</div>"
 			}
+			document.getElementById("titleReglamentos").innerHTML = "Reglamentos";
+			document.getElementById("REGLAMENTOS").innerHTML = out;
+		}
 
-			var xmlhttpCodigos = new XMLHttpRequest();
-			var urlCodigos = "http://periodicooficial.zacatecas.gob.mx:9000/obtener/codigos";
-			xmlhttpCodigos.onreadystatechange = function() {
-				if (xmlhttpCodigos.readyState==4 && xmlhttpCodigos.status==200){
-					var myArr = JSON.parse(xmlhttpCodigos.responseText);
-					myCodigos(myArr);
-				}
+		var xmlhttpCodigos = new XMLHttpRequest();
+		var urlCodigos = "http://periodicooficial.zacatecas.gob.mx:9000/obtener/codigos";
+		xmlhttpCodigos.onreadystatechange = function() {
+			if (xmlhttpCodigos.readyState == 4 && xmlhttpCodigos.status == 200) {
+				var myArr = JSON.parse(xmlhttpCodigos.responseText);
+				myCodigos(myArr);
 			}
-			xmlhttpCodigos.open("GET",urlCodigos,true);
-			xmlhttpCodigos.send();
-			
-			function myCodigos(arr) {
-				var out = "";
-				for(i = 0; i < arr.Documentos.length; i++) {
-					out +=
-					"<div class='service'>" +
-					"	<div class='row row-fit'>" +
-					"		<div class='col-sm-16'>" + 
-					"			<div class='description'>" + 
-					"				<p>"+arr.Documentos[i].descripcion+"</p>" + 
-					"			</div>" + 
-					"		</div>" + 
-					"		<div class='col-sm-8'>" + 
-					"			<div class='price'>" + 
-					"				<p>"+arr.Documentos[i].fechaPublicacion+"</p> <a href= 'javascript:void(0)' onclick='activarDescarga(" + '"'+ arr.Documentos[i].url +'","' + arr.Documentos[i].nombre + '"' + ")' class='button worker-button-2'>Descargar</a>" + 
-					"			</div>" + 
-					"		</div>" +				
-					"	</div>" + 
-					"</div>" 					
-				}
-				document.getElementById("titleCodigos").innerHTML = "Codigos";
-				document.getElementById("CODIGOS").innerHTML = out;
+		}
+		xmlhttpCodigos.open("GET", urlCodigos, true);
+		xmlhttpCodigos.send();
+
+		function myCodigos(arr) {
+			var out = "";
+			for (i = 0; i < arr.Documentos.length; i++) {
+				out += "<div class='service'>"
+						+ "	<div class='row row-fit'>"
+						+ "		<div class='col-sm-16'>"
+						+ "			<div class='description'>"
+						+ "				<p>"
+						+ arr.Documentos[i].descripcion
+						+ "</p>"
+						+ "			</div>"
+						+ "		</div>"
+						+ "		<div class='col-sm-8'>"
+						+ "			<div class='price'>"
+						+ "				<p>"
+						+ arr.Documentos[i].fechaPublicacion
+						+ "</p> <a href= 'javascript:void(0)' onclick='activarDescarga("
+						+ '"' + arr.Documentos[i].url + '","'
+						+ arr.Documentos[i].nombre + '"'
+						+ ")' class='button worker-button-2'>Descargar</a>"
+						+ "			</div>" + "		</div>" + "	</div>" + "</div>"
 			}
+			document.getElementById("titleCodigos").innerHTML = "Codigos";
+			document.getElementById("CODIGOS").innerHTML = out;
+		}
 
+		var months = [], days = [], years = [], hrefs = [];
+		$
+				.ajax({
+					url : 'http://periodicooficial.zacatecas.gob.mx:9000/busqueda/periodicoMesAnio',
+					type : 'post',
+					dataType : 'json',
+					data : {
+						fechaInicial : "2014-01-01",
+						fechaFinal : "2019-12-31"
+					},
+					success : function(data) {
 
-				
-            var months = [], days = [], years = [], hrefs = [];
-            $.ajax({
-                url: 'http://periodicooficial.zacatecas.gob.mx:9000/busqueda/periodicoMesAnio',
-                type: 'post',
-                dataType: 'json',
-                data: {fechaInicial:"2014-01-01",fechaFinal:"2019-12-31"},
-                success: function (data) {
-					
-					for (x = 0; x < data.Documentos.length; x++) {
-                        var fechaP = data.Documentos[x].fechaPublicacion;
-						years.push(fechaP.split("/")[0]);
-                        months.push(fechaP.split("/")[1]);
-                        days.push(fechaP.split("/")[2]);
-						hrefs.push(data.Documentos[x].url);
-                    }
-                    					
-                    $(".datepicker").datepicker({
-						beforeShowDay: addDates,
-						onSelect: addLinks
-    				});
-										
-                }
-            });
-    
-            function addLinks(dateText){
+						for (x = 0; x < data.Documentos.length; x++) {
+							var fechaP = data.Documentos[x].fechaPublicacion;
+							years.push(fechaP.split("/")[0]);
+							months.push(fechaP.split("/")[1]);
+							days.push(fechaP.split("/")[2]);
+							hrefs.push(data.Documentos[x].url);
+						}
 
-				var fechaS = dateText;
-				var anoS = fechaS.split("/")[0];
-				var mesS = fechaS.split("/")[1];
-				if (mesS<10){
-					mesS="0"+mesS
-				}
-				var diaS = fechaS.split("/")[2];
-				if (diaS<10){
-					diaS="0"+diaS
-				}
-
-                for (x = 0; x < days.length; x++) {
-					
-                    if (mesS == months[x] && diaS == days[x]) {
-                        //window.open(hrefs[x],'_blank');
-                        activarDescarga(hrefs[x]);
-                    }
-                }
-            }
-
-            function addDates(date){
-                for (x = 0; x < days.length; x++) {
-                    if (date.getMonth() == months[x] - 1 && date.getDate() == days[x] && date.getFullYear() == years[x]) {
-                        return [true, "dia_documento", ''];
-                    }
-                }
-                return [false, "dia_nodocumento", ''];
-            }
-
-
-
-
-
-           
-            
-            
-            function BusquedaRapida(aBuscar,Busqueda,lista,dataForm){
-            	var input = document.getElementById("Busqueda");
-            	if(Busqueda.value=="Leyes"){
-
-
-            		document.getElementById("headertable").innerHTML = '<center><div class="services-list-header">'+
-										'<div class="row row-fit">'+
-											'<div class="col-sm-5">'+
-												'<h4>Categoria</h4>'+
-											'</div>'+
-											'<div class="col-sm-9">'+
-												'<h4>Descripcion</h4>'+
-											'</div>'+
-											'<div class="col-sm-5">'+
-												'<h4>Vigencia</h4>'+
-											'</div>'+
-											'<div class="col-sm-5">'+
-												'<h4>Descargar</h4>'+
-											'</div>'+
-										'</div>'+
-									'</div></center>'
-
-					var http = new XMLHttpRequest();
-					var url = "http://periodicooficial.zacatecas.gob.mx:9000/busqueda/leyes";
-					var texto = document.getElementById('aBuscar');
-					var params = "descripcion="+texto.value;
-					http.open("POST", url, true);
-
-					//Send the proper header information along with the request
-					http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-					http.setRequestHeader("Content-length", params.length);
-					http.setRequestHeader("Connection", "close");
-
-					http.onreadystatechange = function() {//Call a function when the state changes.
-					    if(http.readyState == 4 && http.status == 200) {
-					        
-					        var response = JSON.parse(http.responseText);
-							displayList(response, lista,Busqueda);
-					    }
-					}
-					http.send(params);
-
+						$(".datepicker").datepicker({
+							beforeShowDay : addDates,
+							onSelect : addLinks
+						});
 
 					}
-				if(Busqueda.value=="Suplementos"){
+				});
 
-					document.getElementById("headertable").innerHTML = '<div class="services-list-header">'+
-                                        '<div class="row row-fit">'+
-                                            '<div class="col-sm-9">'+
-                                                '<h4>Titulo</h4>'+
-                                            '</div>'+
-                                            '<div class="col-sm-3">'+
-                                                '<h4>Tomo</h4>'+
-                                            '</div>'+
-                                            '<div class="col-sm-3">'+
-                                                '<h4>Volumen Periodico</h4>'+
-                                            '</div>'+
-                                            '<div class="col-sm-3">'+
-                                                '<h4>Numero Suplemento</h4>'+
-                                            '</div>'+
-                                            '<div class="col-sm-3">'+
-                                                '<h4>Fecha Publicacion</h4>'+
-                                            '</div>'+
-                                            '<div class="col-sm-3">'+
-                                                '<h4>Descargar</h4>'+
-                                            '</div>'+
-                                        '</div>'+
-                                    '</div>'
+		function addLinks(dateText) {
 
-					var http = new XMLHttpRequest();
-					var url = "http://periodicooficial.zacatecas.gob.mx:9000/busqueda/suplementos";
-					var texto = document.getElementById('aBuscar');
-					var params = "titulo="+texto.value;
-					http.open("POST", url, true);
-
-					//Send the proper header information along with the request
-					http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-					http.setRequestHeader("Content-length", params.length);
-					http.setRequestHeader("Connection", "close");
-
-					http.onreadystatechange = function() {//Call a function when the state changes.
-					    if(http.readyState == 4 && http.status == 200) {
-					        
-					        var response = JSON.parse(http.responseText);
-							displayList(response, lista,Busqueda);
-					    }
-					}
-					http.send(params);
-
-					
-					
-					}
-            	
-            	
-            	
-            }
-            
-            
-			
-			function displayList(arr, id,Busqueda) {
-				arr2=arr;
-				indice=1;
-				
-				if(arr.Documentos==undefined){
-		    	//document.getElementById("resultado").innerHTML = "No se encontraron resultados";
-		    	}
-		    	
-		    	selectBusqueda(Busqueda,'lista');
-		    	
-		    	
-				
+			var fechaS = dateText;
+			var anoS = fechaS.split("/")[0];
+			var mesS = fechaS.split("/")[1];
+			if (mesS < 10) {
+				mesS = "0" + mesS
 			}
-            
-            
-            
-            
-    </script>
-      
+			var diaS = fechaS.split("/")[2];
+			if (diaS < 10) {
+				diaS = "0" + diaS
+			}
+
+			for (x = 0; x < days.length; x++) {
+
+				if (mesS == months[x] && diaS == days[x]) {
+					//window.open(hrefs[x],'_blank');
+					activarDescarga(hrefs[x]);
+				}
+			}
+		}
+
+		function addDates(date) {
+			for (x = 0; x < days.length; x++) {
+				if (date.getMonth() == months[x] - 1
+						&& date.getDate() == days[x]
+						&& date.getFullYear() == years[x]) {
+					return [ true, "dia_documento", '' ];
+				}
+			}
+			return [ false, "dia_nodocumento", '' ];
+		}
+
+		function BusquedaRapida(aBuscar, Busqueda, lista, dataForm) {
+			var input = document.getElementById("Busqueda");
+			if (Busqueda.value == "Leyes") {
+
+				document.getElementById("headertable").innerHTML = '<center><div class="services-list-header">'
+						+ '<div class="row row-fit">'
+						+ '<div class="col-sm-5">'
+						+ '<h4>Categoria</h4>'
+						+ '</div>'
+						+ '<div class="col-sm-9">'
+						+ '<h4>Descripcion</h4>'
+						+ '</div>'
+						+ '<div class="col-sm-5">'
+						+ '<h4>Vigencia</h4>'
+						+ '</div>'
+						+ '<div class="col-sm-5">'
+						+ '<h4>Descargar</h4>'
+						+ '</div>'
+						+ '</div>'
+						+ '</div></center>'
+
+				var http = new XMLHttpRequest();
+				var url = "http://periodicooficial.zacatecas.gob.mx:9000/busqueda/leyes";
+				var texto = document.getElementById('aBuscar');
+				var params = "descripcion=" + texto.value;
+				http.open("POST", url, true);
+
+				//Send the proper header information along with the request
+				http.setRequestHeader("Content-type",
+						"application/x-www-form-urlencoded");
+				http.setRequestHeader("Content-length", params.length);
+				http.setRequestHeader("Connection", "close");
+
+				http.onreadystatechange = function() {//Call a function when the state changes.
+					if (http.readyState == 4 && http.status == 200) {
+
+						var response = JSON.parse(http.responseText);
+						displayList(response, lista, Busqueda);
+					}
+				}
+				http.send(params);
+
+			}
+			if (Busqueda.value == "Suplementos") {
+
+				document.getElementById("headertable").innerHTML = '<div class="services-list-header">'
+						+ '<div class="row row-fit">'
+						+ '<div class="col-sm-9">'
+						+ '<h4>Titulo</h4>'
+						+ '</div>'
+						+ '<div class="col-sm-3">'
+						+ '<h4>Tomo</h4>'
+						+ '</div>'
+						+ '<div class="col-sm-3">'
+						+ '<h4>Volumen Periodico</h4>'
+						+ '</div>'
+						+ '<div class="col-sm-3">'
+						+ '<h4>Numero Suplemento</h4>'
+						+ '</div>'
+						+ '<div class="col-sm-3">'
+						+ '<h4>Fecha Publicacion</h4>'
+						+ '</div>'
+						+ '<div class="col-sm-3">'
+						+ '<h4>Descargar</h4>'
+						+ '</div>' + '</div>' + '</div>'
+
+				var http = new XMLHttpRequest();
+				var url = "http://periodicooficial.zacatecas.gob.mx:9000/busqueda/suplementos";
+				var texto = document.getElementById('aBuscar');
+				var params = "titulo=" + texto.value;
+				http.open("POST", url, true);
+
+				//Send the proper header information along with the request
+				http.setRequestHeader("Content-type",
+						"application/x-www-form-urlencoded");
+				http.setRequestHeader("Content-length", params.length);
+				http.setRequestHeader("Connection", "close");
+
+				http.onreadystatechange = function() {//Call a function when the state changes.
+					if (http.readyState == 4 && http.status == 200) {
+
+						var response = JSON.parse(http.responseText);
+						displayList(response, lista, Busqueda);
+					}
+				}
+				http.send(params);
+
+			}
+
+		}
+
+		function displayList(arr, id, Busqueda) {
+			arr2 = arr;
+			indice = 1;
+
+			if (arr.Documentos == undefined) {
+				//document.getElementById("resultado").innerHTML = "No se encontraron resultados";
+			}
+
+			selectBusqueda(Busqueda, 'lista');
+
+		}
+	</script>
+
 </body>
 </html>

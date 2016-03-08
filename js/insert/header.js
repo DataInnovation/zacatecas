@@ -1,5 +1,4 @@
 function header(page) {
-    
     if (getCookie('usuario').length > 0) {
         var htm = '<!-- Header -->'
                 + '<header>'
@@ -60,7 +59,12 @@ function header(page) {
             htm += '<li class = "has-children"> <a href = ""> Servicios </a>'
         }
         htm += '<ul class = "children">'
-                + '<li> <a href ="../directorio/"> Directorio </a></li></ul></li>'				
+                + '<li> <a href ="../directorio/"> Directorio </a></li></ul></li>'
+         if (page == 'mapa') {
+            htm += '<li class = "has-children current-menu-item"> <a href = ""> Mapa del Sitio </a>'
+        } else {
+            htm += '<li class = "has-children"> <a href = ""> Mapa del Sitio </a>'
+        }				
                 + '<li>' + "<a href = 'javascript:void(0)' onclick='eliminarCookies()'>Cerrar sesion </a></li></ul>"
                 + '<i class = "responsive-menu-trigger icon-menu"></i>' + '</nav>'
                 + '</div>' + '</div>' + '</div>'
@@ -101,6 +105,11 @@ function header(page) {
                 }
                 htm += '<ul class = "children">'
                         + '<li> <a href ="../directorio/"> Directorio </a></li></ul></li>'
+                if (page == 'contacto') {
+                    htm += '<li class = "has-children current-menu-item"> <a href = ""> Contacto </a>'
+                } else {
+                    htm += '<li class = "has-children"> <a href = ""> Contacto </a>'
+                }
                 + '</ul>'
                 + '<i class="responsive-menu-trigger icon-menu"></i>'
                 + '</nav>'
@@ -110,5 +119,49 @@ function header(page) {
                 + '</header>';
     }
 
-    document.getElementById("menu").innerHTML = htm;
+    $("#menu").append(htm);
+    
+    var htm = '<!-- Footer -->'
+                + '<footer>'
+                + '<div class="upper-block">'
+                + '<div class="container">'
+                +'<div class="menu">'
+                +'<ul>'
+                +'<li><a href="../index.html">Inicio</a></li>'
+        		+'<li><a href="http://www.zacatecas.gob.mx/">Gobierno del Estado</a></li>'
+        		+'<li><a href="http://cgj.zacatecas.gob.mx/page/">Coordinación General Jurídica</a></li>'
+        		+'<li><a href="http://transparencia.zacatecas.gob.mx/">Portal de transparencia</a></li>'
+        		+'<li><a href="#">Ejemplares</a></li>'
+        		+'<li><a href="#">Trámites</a></li>'
+        		+'<li><a href="#">Servicios</a></li>'
+        		+'<li><a href="#">Leyes y Reglamentos</a></li>'
+        		+'<li><a href="#">Parametros</a></li>'
+        		+'</ul>'
+        		+'</div>'
+        		+'</div>'
+        		+'</div>'
+        		+'<!-- Main Block -->'
+        		+'<div class="footer-widgets">'
+        		+'<div class="container">'
+        		+'<div class="row">'
+        		+'<!-- Info Section -->'
+        		+'<div class="col-md-12">'
+        		+'<div class="footer-widget info no-border">'
+        		+'<img src="../img/brand.png" alt="worker brand" />'
+        		+'<p>Gobierno del Estado de Zacatecas Circuito Cerro del Gato, Cd. Administrativa C.P. 98160 Zacatecas, Zacatecas.<br><br>'
+        		+'Tel. (492) 4915000 Habla con tu Gobernador</p>'
+        		+'</div>'
+        		+'</div>'
+        		+'</div>'
+        		+'</div>'
+        		+'</div>'
+        		+'<!-- Copyrights -->'
+        		+'<div class="copyrights">'
+        		+'<div class="container">'
+        		+'<p><a href="#">GOBIERNO DE ZACATECAS</a></p>'
+        		+'</div>'
+        		+'</div>'
+        		+'</footer>'
+        		$("#footer").append(htm);
 }
+

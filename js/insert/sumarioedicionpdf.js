@@ -123,11 +123,11 @@ function testPDF2(documents, volumen, tomo) {
                 texto += ', municipio de ' + muni + ', Zac. '
             }
         }
-        lines = doc.setFont("Sans-Serif").setFontSize(size).splitTextToSize(texto, 6.5);
+        lines = doc.setFont("Sans-Serif").setFontSize(size).splitTextToSize(texto, 7.0);
         doc.text(0.5, verticalOffset + size / 72, lines)
 
         var cont = (doc.getStringUnitWidth(texto)*size)/450;
-        verticalOffset += 0.1 * cont;
+        verticalOffset += 0.1 * Math.ceil(cont);
 
         var pt = documents[i].folio  + '.'
         

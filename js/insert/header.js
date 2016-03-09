@@ -108,7 +108,9 @@ function header(page) {
                     htm += '<li class = "has-children"> <a href = ""> Servicios </a>'
                 }
                 htm += '<ul class = "children">'
-                        + '<li> <a href ="../directorio/"> Directorio </a></li></ul></li>'
+                        + '<li> <a href ="../directorio/"> Directorio </a></li>'
+                        +'<li><a href="../materia-publicacion/">Materia de Publicación</a></li>'
+                        +'<li><a href="../informacion-solicitud/">Información para Solicitudes de Publicación</a></li></ul></li>'
                 if (page == 'contacto') {
                     htm += '<li class = "has-children current-menu-item"> <a href = "../contacto/"> Contacto </a>'
                 } else {

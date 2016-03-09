@@ -24,15 +24,15 @@
 <body data-smooth-scroll="on">
 	<!-- Page Wrapper -->
 	<div class="page">
-	<body onload="header('busqueda')">
+	<body onload="header('contacto')">
+		
 	<div id="menu"></div>
 		<!-- Blog Section -->
 		<section class="blog-section">
 			<!-- Section Header -->
 			<div class="section-header inverted inverted-all">
 				<div class="container">
-					<h1>Busqueda de Información</h1>
-					<p>	Ingrese los datos que considere necesarios para iniciar la búsqueda avanzada.</p>
+					<h1>Contactanos</h1>
 				</div>
 			</div>
 
@@ -43,155 +43,44 @@
                         <div class="row">
 							<div class="col-xs-22 col-xs-offset-1">
 								<div class="simple-template-form">
-									<h4 class="caption">Puede realizar su búsqueda por:</h4>
-
+									<h4 class="caption">Responsable:</h4>
+									<h5>Andrés Arce Pantoja</h5>
+									<h4>Teléfono</h4>
+									<h5>925-44-87</h5>
+									<h5>4915000 Ext. 15364</h5>
+									<h4>Horario</h4>
+									<h5>Lunes a Viernes de 8:30 - 16:00 Hrs.</h5>
+								</div>
+								<div>
 									<form class="respond-form" id="dataForm" name="dataForm" onsubmit="return false">
 										<div class="row">
 											<div class="col-sm-8">
-												<input class="input-line js-input" type="text" name="folio" placeholder="Folio:" />
+												<input class="input-line js-input" type="text" name="nombre" placeholder="Nombre:"/>
 											</div>
 											<div class="col-sm-8">
-												<div class="input-append date">
-													<input class="input-line js-input" type="text" name="fechaInicial" placeholder="Fecha Inicial" value=""/><span class="add-on"><i class="icon icon-calendar"></i></span>
-												</div>
-											</div>
-											<div class="col-sm-8">
-												<div class="input-append date">
-													<input class="input-line js-input" type="text" name="fechaFinal" placeholder="Fecha Final" value=""/><span class="add-on"><i class="icon icon-calendar"></i></span>
-												</div>
-											</div>
-											
-											 
-											
-										</div>
-
-										<div class="row">
-											<div class="col-sm-8">
-												<input class="input-line js-input" type="text" name="solicitante" placeholder="Solicitante:" />
-											</div>
-											<div class="col-sm-8">
-												<input class="input-line js-input" type="text" name="actor" placeholder="Actor:" />
-											</div>
-											<div class="col-sm-8">
-												<input class="input-line js-input" type="text" name="contraparte" placeholder="Contraparte:" />
+												<input class="input-line js-input" type="text" name="correo" placeholder="Correo Electrónico:"/>
 											</div>
 										</div>
-
-										<div class="row">
-											<div class="col-sm-12">
-                                                <select class="input-line js-input" name="tipoInsercion">
-                                                    <option selected disabled>Tipo de Insercion:</option>
-                                                    <option>Edicto</option>
-                                                    <option>Aviso Notarial</option>
-                                                    <option>Ley</option>
-                                                    <option>Particular</option>
-                                                    <option>Judicial</option>
-                                                    <option>Fraccionamientos</option>
-                                                    <option>Otros</option>
-                                                </select>
-											</div>
-											<div class="col-sm-12">
-                                                <select class="input-line js-input" name="categoria">
-                                                    <option selected disabled>Categoría</option>
-                                                    <option>Sumario Civil</option>
-                                                    <option>Civil Ordinario</option>
-                                                    <option>Emplazamiento</option>
-                                                    <option>Ejecución</option>
-                                                    <option>Sanciones</option>
-                                                    <option>Causa Penal</option>
-                                                    <option>Juicio Mercantil</option>
-                                                </select>
+										<div>
+											<div class="col-sm-22">
+												<textarea class="form-control" rows="5" name="comentarios" placeholder="Comentario:"></textarea>
 											</div>
 										</div>
-
-
-										<div class="row">
-											<div class="col-sm-8">
-                                                <select class="input-line js-input" name="municipio">
-                                                </select>
-											</div>
-											<div class="col-sm-8">
-												<input class="input-line js-input" type="text" name="juzgado" placeholder="Juzgado:" />
-											</div>
-											<div class="col-sm-8">
-												<input class="input-line js-input" type="text" name="partidaPago" placeholder="Partida pago No.:" />
-											</div>
-										</div>
-
 
 										<div class="submit-button">
-											<input type="submit" value="Buscar" onclick="makeCorsRequest('http://periodicooficial.zacatecas.gob.mx:9000/busqueda/avanzada','lista','dataForm')"/>
-											<i class="icon icon-search"></i>
+											<input type="submit" value="Enviar" onclick="makeCorsRequest('http://periodicooficial.zacatecas.gob.mx:9000/contacto/envio','dataForm')"/>
+											<i class="icon icon-mail"></i>
 										</div>
 										<div class="submit-button">
-                                        	<input type="button" value="Siguiente" onclick="window.location.href='../busqueda/'"/>
-                                            <i class="icon icon-pencil"></i>
+                                        	<input type="button" value="Recargar" onclick="window.location.href='../contacto/'"/>
+                                            <i class="icon icon-refresh2"></i>
 										</div>
 
 									</form>
+
 								</div>
 							</div>
 						</div>
-                        
-
-                        <div class="row">
-                        	<div class="col-xs-22 col-xs-offset-1">
-                            
- 
-                                    <div class="row">
-                                        <div class="col-md-14 col-lg-24">
-                                            <h4 id="resultado">Resultados encontrados</h4>
-                                        </div>
-                                        
-                                        
-                                    <div class="row center" >
-									<button onclick="primeraPag('lista')"> <img src="../img/first.png" /> </button>
-									<button onclick="anteriorPag('lista')"><img src="../img/previous.png" /> </button>
-									<input type="number" style="width:40px; height:15px" size="3" min="1" maxlength="3" id="indiceP" placeholder="1"  value="" onChange="indicePag('lista',indiceP);"/>
-									
-									<button onclick="siguientePag('lista')">   <img src="../img/nextt.png" />    </button>
-									<button onclick="ultimaPag('lista')"> <img src="../img/last.png" /> </button>
-									</div>
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                    </div>
-                           
-                                    <div class="services-list-header">
-                                        <div class="row row-fit">
-                                            <div class="col-sm-2">
-                                                <h4>Folio</h4>
-                                            </div>
-                                            <div class="col-sm-8">
-                                                <h4>Descripción</h4>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h4>Volumen</h4>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <h4>Tomo</h4>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h4>Fecha</h4>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h4>Descargar Periodico</h4>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h4>Descargar Solicitud</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-									<div class="services-list">
-										<div class="service" id="lista">
-										</div>                                      
-									</div>
-                            </div>
-                        </div>
-                        
                 	</div>                            
 				</div>
 			</div>
@@ -202,14 +91,6 @@
 			</div>
 	</div>
 
-	<script language="javascript">
-    
-            function slctr(texto,valor){
-                this.texto = texto
-                this.valor = valor
-            }
-    
-    </script>
 	<!-- Scripts -->
 	<script src="../js/jquery.js"></script>
 	<script src="../js/insert/header.js"></script>
@@ -218,44 +99,15 @@
 	<script src="../js/smooth-scroll.js"></script>
 	<script src="../js/jquery-ui.js"></script>
 	<script src="../js/images.js"></script>
+	<script src="../js/lightbox.js"></script>
 	<script src="../js/isotope.js"></script>
 	<script src="../js/bootstrap.js"></script>
-	<script src="../js/bootstrap-datepicker.js"></script>
 	<script src="../js/owl-carousel.js"></script>
 	<script src="../js/visible.js"></script>
 	<script src="../js/knob.js"></script>
 	<script src="../js/options.js"></script>
-	<script src="../js/municipios/municipios.js"></script>
-	<script src="../js/descargas/descargas.js"></script>
-	<script src="../js/table/pagBusqueda.js"></script>
+
 	<script type="text/javascript">
-        
-            $(document).ready(function() {	
-    
-                    $('.date').datepicker({
-                        format: "yyyy/mm/dd",
-                        endDate: "Today",
-                        language: "es",
-                        daysOfWeekDisabled: "0",
-                        autoclose: true,
-                        orientation: "top auto"
-                    });			
-          
-            }); 
-		for (x=0;x<Municipios.length;x++){
-						
-			var nuevaOpcion = new Option(Municipios[x].texto);
-			document.dataForm.municipio.options[x]  = nuevaOpcion;
-			if (x==0){
-				document.dataForm.municipio.options[x].value = Municipios[x].valor;
-			}
-			else{
-				document.dataForm.municipio.options[x].value  = Municipios[x].texto;
-			}
-			
-		}	
-		
-		
 		function createCORSRequest(method, url) {
 		  var xhr = new XMLHttpRequest();
 		  if ("withCredentials" in xhr) {
@@ -273,7 +125,7 @@
 		  }
 		  return xhr;
 		}
-		function makeCorsRequest(url,id,form) {
+		function makeCorsRequest(url,form) {
 		  	var xhr = createCORSRequest('POST', url);
 		  	if (!xhr) {
 		    	alert('CORS not supported');
@@ -284,32 +136,13 @@
 		  	// Response handlers.
 			xhr.onload = function() {
 		  	var response = JSON.parse( xhr.responseText);
-        	displayList(response,id);
-        	
-		  	};
+        	};
 		  	xhr.onerror = function() {
 		    alert('Woops, there was an error making the request.');
 		  	};
 		  	xhr.send(formData);
-			document.getElementById("resultado").innerHTML = "Buscando...";
+			document.getElementById("dataForm").innerHTML = "Enviando...";
 		}
-		
-		function displayList(arr,id){
-			//var str = JSON.stringify(arr, null, 4);
-			//document.getElementById("resultado").innerHTML = 'JSON : ' + str;
-			arr2=arr;
-			indice=1;
-			
-			if(arr.Documentos==undefined){
-		    	document.getElementById("resultado").innerHTML = "No se encontraron resultados";
-		    	
-		    }
-		    
-		    mostrarLista(id);
-		    
-		}
-			
     </script>
-
 </body>
 </html>

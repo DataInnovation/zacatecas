@@ -61,17 +61,16 @@ function header(page) {
         htm += '<ul class = "children">'
                 + '<li> <a href ="../directorio/"> Directorio </a></li></ul></li>'
          if (page == 'mapa') {
-            htm += '<li class = "has-children current-menu-item"> <a href = ""> Mapa del Sitio </a>'
+            htm += '<li class = "current-menu-item"> <a href = "../mapa-sitio/"> Mapa del Sitio </a></li>'
         } else {
-            htm += '<li class = "has-children"> <a href = ""> Mapa del Sitio </a>'
+            htm += '<li> <a href = "../mapa-sitio/"> Mapa del Sitio </a></li>'
         }				
-                + '<li>' + "<a href = 'javascript:void(0)' onclick='eliminarCookies()'>Cerrar sesion </a></li></ul>"
+               htm += '<li>' + "<a href = 'javascript:void(0)' onclick='eliminarCookies()'>Cerrar sesion </a></li></ul>"
                 + '<i class = "responsive-menu-trigger icon-menu"></i>' + '</nav>'
                 + '</div>' + '</div>' + '</div>'
                 + '</header>';
     } else {
         var htm = '<!-- Header -->'
-                + '		<!-- Header -->'
                 + '<header>'
                 + '<div class="container">'
                 + '<div class="row">'
@@ -85,6 +84,11 @@ function header(page) {
                 + '<div class="col-xs-12 col-md-18">'
                 + '<nav><ul>'
                 + '<li><a href="../index.html">Inicio</a></li>'
+                if(page == 'historia'){
+                	htm+='<li class="has-children current-menu-item" ><a href="../historia/">Historia</a></li>'
+                }else{
+                	htm+='<li><a href="../historia/">Historia</a></li>'
+                }
                 if (page == 'busqueda') {
                     htm += '<li class="has-children current-menu-item" >'
                             + '<img src="../img/lupac.png"> <a href=""> Busqueda </a>'
@@ -106,12 +110,12 @@ function header(page) {
                 htm += '<ul class = "children">'
                         + '<li> <a href ="../directorio/"> Directorio </a></li></ul></li>'
                 if (page == 'contacto') {
-                    htm += '<li class = "has-children current-menu-item"> <a href = ""> Contacto </a>'
+                    htm += '<li class = "has-children current-menu-item"> <a href = "../contacto/"> Contacto </a>'
                 } else {
-                    htm += '<li class = "has-children"> <a href = ""> Contacto </a>'
+                    htm += '<li class = "has-children"> <a href = "../contacto/"> Contacto </a>'
                 }
                 + '</ul>'
-                + '<i class="responsive-menu-trigger icon-menu"></i>'
+                + '<i class="responsive-menu-trigger icon-menu" ></i>'
                 + '</nav>'
                 + '</div>'
                 + '</div>'
@@ -131,11 +135,6 @@ function header(page) {
         		+'<li><a href="http://www.zacatecas.gob.mx/">Gobierno del Estado</a></li>'
         		+'<li><a href="http://cgj.zacatecas.gob.mx/page/">Coordinación General Jurídica</a></li>'
         		+'<li><a href="http://transparencia.zacatecas.gob.mx/">Portal de transparencia</a></li>'
-        		+'<li><a href="#">Ejemplares</a></li>'
-        		+'<li><a href="#">Trámites</a></li>'
-        		+'<li><a href="#">Servicios</a></li>'
-        		+'<li><a href="#">Leyes y Reglamentos</a></li>'
-        		+'<li><a href="#">Parametros</a></li>'
         		+'</ul>'
         		+'</div>'
         		+'</div>'

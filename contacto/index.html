@@ -23,10 +23,24 @@
 </head>
 <body data-smooth-scroll="on">
 	<!-- Page Wrapper -->
-	<div class="page">
-	<body onload="header('contacto')">
-		
-	<div id="menu"></div>
+        <div class="page">
+            <body onload="header('contacto')">
+                <header>
+                	<div class = "container">
+                		<div class = "row">
+                <!-- Brand -->
+                			<div class = "col-xs-12 col-md-6">
+                				<div class = "brand"> <a href = "index.html"> <img src = "../img/brand.png" alt = "brand" /> </a>
+                				</div> 
+                			</div> <!-- Nav -->
+                			<div class = "col-xs-12 col-md-18">
+								<nav id="menu">
+								<i class = "responsive-menu-trigger icon-menu"></i> 
+								</nav>
+							</div> 
+						</div> 
+					</div>
+                </header>;
 		<!-- Blog Section -->
 		<section class="blog-section">
 			<!-- Section Header -->
@@ -63,12 +77,12 @@
 										</div>
 										<div>
 											<div class="col-sm-22">
-												<textarea class="form-control" rows="5" name="comentarios" placeholder="Comentario:"></textarea>
+												<textarea class="form-control" rows="5" name="comentario" placeholder="Comentario:"></textarea>
 											</div>
 										</div>
 
 										<div class="submit-button">
-											<input type="submit" value="Enviar" onclick="makeCorsRequest('http://periodicooficial.zacatecas.gob.mx:9000/contacto/envio','dataForm')"/>
+											<input type="submit" value="Enviar" onclick="makeCorsRequest('http://periodicooficial.zacatecas.gob.mx:9000/enviar/comentarios','dataForm')"/>
 											<i class="icon icon-mail"></i>
 										</div>
 										<div class="submit-button">
@@ -141,7 +155,7 @@
 		    alert('Woops, there was an error making the request.');
 		  	};
 		  	xhr.send(formData);
-			document.getElementById("dataForm").innerHTML = "Enviando...";
+			document.getElementById("dataForm").innerHTML = '<strong>Enviado.</strong>';
 		}
     </script>
 </body>

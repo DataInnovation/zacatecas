@@ -1,18 +1,8 @@
 function header(page) {
     if (getCookie('usuario').length > 0) {
         var htm = '<!-- Header -->'
-                + '<header>'
-                + '<div class = "container">'
-                + '<div class = "row">'
-                + '<!-- Brand -->'
-                + '<div class = "col-xs-12 col-md-6">'
-                + '<div class = "brand">'
-                + '<a href = "index.html"> <img src = "../img/brand.png" alt = "brand" /> </a>'
-                + '</div>' + '</div>' + '<!-- Nav -->'
-                + '<div class = "col-xs-12 col-md-18">' + '<nav>' + '<ul>'
-
-        htm += '<li> <a href = "#" id="usuarioR">' + getCookie('usuario') + '</a></li>'
-        htm += '<li> <a href="../admin/"> Inicio </a></li>'
+        htm += '<ul> <li> <a href = "#" id="usuarioR">' + getCookie('usuario') + '</a></li>'
+        		+ '<li> <a href="../admin/"> Inicio </a></li>'
         if (page == 'busqueda') {
             htm += '<li class="has-children current-menu-item" >'
                     + '<img src="../img/lupac.png"> <a href=""> Busqueda </a>'
@@ -59,31 +49,18 @@ function header(page) {
             htm += '<li class = "has-children"> <a href = ""> Servicios </a>'
         }
         htm += '<ul class = "children">'
-                + '<li> <a href ="../directorio/"> Directorio </a></li></ul></li>'
+                + '<li> <a href ="../directorio/"> Directorio </a></li>'
+                +'<li><a href="../materia-publicacion/">Materia de Publicación</a></li>'
+                +'<li><a href="../informacion-solicitud/">Información para Solicitudes de Publicación</a></li></ul></li>'
          if (page == 'mapa') {
             htm += '<li class = "current-menu-item"> <a href = "../mapa-sitio/"> Mapa del Sitio </a></li>'
         } else {
             htm += '<li> <a href = "../mapa-sitio/"> Mapa del Sitio </a></li>'
         }				
                htm += '<li>' + "<a href = 'javascript:void(0)' onclick='eliminarCookies()'>Cerrar sesion </a></li></ul>"
-                + '<i class = "responsive-menu-trigger icon-menu"></i>' + '</nav>'
-                + '</div>' + '</div>' + '</div>'
-                + '</header>';
     } else {
         var htm = '<!-- Header -->'
-                + '<header>'
-                + '<div class="container">'
-                + '<div class="row">'
-                + '<!-- Brand -->'
-                + '<div class="col-xs-12 col-md-6">'
-                + '<div class="brand">'
-                + '<a href="../index.html"><img src="../img/brand.png" alt="brand" /></a>'
-                + '</div>'
-                + '</div>'
-                + '<!-- Nav -->'
-                + '<div class="col-xs-12 col-md-18">'
-                + '<nav><ul>'
-                + '<li><a href="../index.html">Inicio</a></li>'
+                + '<ul> <li><a href="../index.html">Inicio</a></li>'
                 if(page == 'historia'){
                 	htm+='<li class="has-children current-menu-item" ><a href="../historia/">Historia</a></li>'
                 }else{
@@ -116,13 +93,7 @@ function header(page) {
                 } else {
                     htm += '<li class = "has-children"> <a href = "../contacto/"> Contacto </a>'
                 }
-                + '</ul>'
-                + '<i class="responsive-menu-trigger icon-menu" ></i>'
-                + '</nav>'
-                + '</div>'
-                + '</div>'
-                + '</div>';
-                + '</header>';
+                + '</ul>';
     }
 
     $("#menu").append(htm);

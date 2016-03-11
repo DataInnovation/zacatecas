@@ -20,9 +20,24 @@
 </head>
 <body data-smooth-scroll="on">
 	<!-- Page Wrapper -->
-	<div class="page">
-	<body onload="header('mapa')">
-	<div id="menu"></div>
+        <div class="page">
+            <body onload="header('mapa')">
+                <header>
+                	<div class = "container">
+                		<div class = "row">
+                <!-- Brand -->
+                			<div class = "col-xs-12 col-md-6">
+                				<div class = "brand"> <a href = "index.html"> <img src = "../img/brand.png" alt = "brand" /> </a>
+                				</div> 
+                			</div> <!-- Nav -->
+                			<div class = "col-xs-12 col-md-18">
+								<nav id="menu">
+								<i class = "responsive-menu-trigger icon-menu"></i> 
+								</nav>
+							</div> 
+						</div> 
+					</div>
+                </header>;
 		<!-- Blog Section -->
 		<section class="blog-section">
 			<!-- Section Header -->
@@ -108,19 +123,7 @@
 	<script src="../js/options.js"></script>
 	
     <script language="javascript">
-		
-		function slctr(texto,valor){
-			this.texto = texto
-			this.valor = valor
-		}
-	
-	</script>
-    
-	<script src="../js/municipios/municipios.js"></script>
-	<script src="../js/juzgados/juzgados.js"></script>
-
-    <script language="javascript">
-
+	vrificarLogin();
 	</script>
     
 </body>

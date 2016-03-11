@@ -75,6 +75,7 @@
 							<i class="responsive-menu-trigger icon-menu"></i>
 
 						</nav>
+						<div style="text-align: right;" id="siguientePublicacion"> </div>
 					</div>
 				</div>
 
@@ -342,10 +343,7 @@
 	<script src="js/modernizr.js"></script>
 	<script src="js/smooth-scroll.js"></script>
 	<script src="js/jquery-cal-ui.js"></script>
-
 	<script src="js/table/pagBusquedaRapida.js"></script>
-
-
 	<script src="js/lightbox.js"></script>
 	<script src="js/isotope.js"></script>
 	<script src="js/bootstrap.js"></script>
@@ -356,6 +354,17 @@
 	<script src="js/descargas/descargas.js"></script>
 
 	<script language="javascript">
+		var xmlhttpSigPub = new XMLHttpRequest();
+		var urlSigPub = "http://127.0.0.1:9000/obtener/siguientePublicacion";
+		xmlhttpSigPub.onreadystatechange = function() {
+			if (xmlhttpSigPub.readyState == 4 && xmlhttpSigPub.status == 200) {
+				var myArr = JSON.parse(xmlhttpSigPub.responseText);
+				document.getElementById("siguientePublicacion").innerHTML = '<Strong> Siguiente Publicación: ' + myArr.Fecha + '</strong>';
+			}
+		}
+		xmlhttpSigPub.open("GET", urlSigPub, true);
+		xmlhttpSigPub.send();
+
 		var xmlhttpLeyes = new XMLHttpRequest();
 		var urlLeyes = "http://periodicooficial.zacatecas.gob.mx:9000/obtener/leyes";
 
@@ -672,6 +681,8 @@
 			selectBusqueda(Busqueda, 'lista');
 
 		}
+		
+		
 	</script>
 
 </body>

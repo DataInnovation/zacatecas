@@ -299,11 +299,9 @@
 					<div class="menu">
 						<ul>
 							<li><a href="index.html">Inicio</a></li>
-							<li><a href="#">Ejemplares</a></li>
-							<li><a href="#">Trámites</a></li>
-							<li><a href="#">Servicios</a></li>
-							<li><a href="#">Leyes y Reglamentos</a></li>
-							<li><a href="#">Parametros</a></li>
+							<li><a href="http://www.zacatecas.gob.mx/">Gobierno del Estado</a></li>
+        					<li><a href="http://cgj.zacatecas.gob.mx/page/">Coordinación General Jurídica</a></li>
+        					<li><a href="http://transparencia.zacatecas.gob.mx/">Portal de transparencia</a></li>
 						</ul>
 					</div>
 				</div>
@@ -355,7 +353,7 @@
 
 	<script language="javascript">
 		var xmlhttpSigPub = new XMLHttpRequest();
-		var urlSigPub = "http://127.0.0.1:9000/obtener/siguientePublicacion";
+		var urlSigPub = "http://periodicooficial.zacatecas.gob.mx:9000/obtener/siguientePublicacion";
 		xmlhttpSigPub.onreadystatechange = function() {
 			if (xmlhttpSigPub.readyState == 4 && xmlhttpSigPub.status == 200) {
 				var myArr = JSON.parse(xmlhttpSigPub.responseText);

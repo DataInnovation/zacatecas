@@ -19,6 +19,9 @@
 <link rel="stylesheet" href="../css/animate.css" />
 <link rel="stylesheet" href="../css/icomoon.css" />
 <link rel="stylesheet" href="../css/screen.css" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
 <body data-smooth-scroll="on">
 	<!-- Page Wrapper -->
@@ -107,8 +110,7 @@
 
 
 											<div class="row">
-												<textarea class="input-line js-input" name="sTitulo"
-													value="" placeholder="Titulo:"></textarea>
+												<textarea class="input-line js-input" name="sTitulo" value="" placeholder="Titulo:"></textarea>
 											</div>
 
 
@@ -119,15 +121,6 @@
 														name="sNumero" placeholder="Numero Suplemento:" value="" />
 												</div>
 											</div>
-
-
-
-
-
-
-
-
-
 											<div class="row">
 												<div class="col-sm-12">
 													<div class="input-group">
@@ -136,10 +129,17 @@
 																class="icon icon-search"> </i> Seleccionar Archivo <input
 																type="file" name="archivo">
 														</span>
-														</span> <input type="text" class="form-control" name="labelFile"
-															disabled>
+														</span> <input type="text" class="form-control" name="labelFile" disabled>
 													</div>
+													
 												</div>
+												<div class="col-sm-12">
+													<div class="input-group">
+														<progress id="progress" value="0"></progress>
+													</div>
+													
+												</div>
+												
 											</div>
 
 											<br>
@@ -158,20 +158,12 @@
 
 										</form>
 										<ul id="resultado"></ul>
-
-									</div>
-
 								</div>
 							</div>
-
-
-
-
 						</div>
 					</div>
 				</div>
 			</section>
-
 			<div id="footer">
 				
 			</div>
@@ -194,8 +186,22 @@
 	<script src="../js/insert/jsInsert.js"></script>
 	<script src="../js/calendario/CalendarioPublicaciones.js"></script>
 	
+	<style>
+	progress[value]::-webkit-progress-bar{
+    display: block;
+    text-align: center;
+    height: 30px;
+    border-radius: 8px;
+    background: #0088CC;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    transition: width .3s;
+	}
+	#progress.hide {
+    	opacity: 0;
+    	transition: opacity 1.3s;
+	}
+	</style>
 	<script language="javascript">
-
 
 		$(document).on(
 				'change',
@@ -245,21 +251,32 @@
 		}
 
 		function makeCorsRequest(url, form) {
-
+			var progressBar = document.getElementById("progress");
 			var xhr = createCORSRequest('POST', url);
 			if (!xhr) {
 				alert('CORS not supported');
 				return;
 			}
+			xhr.upload.onprogress = function (e) {
+			    if (e.lengthComputable) {
+			        progressBar.max = e.total;
+			        progressBar.value = e.loaded;
+			    }
+			};
+			xhr.upload.onloadstart = function (e) {
+			    progressBar.value = 0;
+			};
+			xhr.upload.onloadend = function (e) {
+			    progressBar.value = e.loaded;
+			};
 			var formElement = document.getElementById(form);
 			var formData = new FormData(formElement);
-
 			xhr.onload = function() {
 				var response = JSON.parse(xhr.responseText);
 				document.getElementById("resultado").innerHTML = response.Causa;
 
 				if (response.Resultado == 1) {
-					document.formcargadoc.tFolio.value = "";
+
 					document.formcargadoc.labelFile.value = "";
 				}
 			};
@@ -269,6 +286,8 @@
 			xhr.send(formData);
 		}
 		verificarLogin();
+		
+		
 	</script>
 
 </body>

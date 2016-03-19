@@ -239,11 +239,12 @@
 
 
 	function insertarSolicitud(url) {
+		//document.getElementById("btnGuardar").disabled=true;
 		generarFolio(url);
 	}
 
 	function generarFolio(url) {
-		var resultadoWS = $.post(url + "/generar/folio", {}, function(data, status) {
+		var resultadoWS = $.post(url + "/generar/folio", {tomo:document.getElementsByName("siTomo")[0].value}, function(data, status) {
 			//El servidor provee un Folio
 			var folio = data["folio"];
 			testPDF(url , folio);
@@ -495,6 +496,7 @@
 			}
 			document.getElementById("resultado").innerHTML = "Solicitud registrada con éxito!, FOLIO : " + data.folio;
 			doc.output('dataurlnewwindow');
+			//document.getElementById("btnGuardar").disabled=false;
 		});
 		resultadoWS.fail(function(data) {
 			alert("Error: " + data.responseText);

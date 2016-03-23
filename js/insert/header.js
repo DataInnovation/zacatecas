@@ -42,7 +42,7 @@ function header(page) {
                 + '<li> <a href = "../municipios/"> Municipios </a></li>'
                 + '<li> <a href = "../juzgados/"> Juzgados </a></li>'
                 + '<li> <a href = "../calendario-publicaciones/"> Calendario Publicaciones </a></li>'
-                + '<li> <a href = "../folio/"> Contador Folio </a></li></ul></i>'
+                + '<li> <a href = "../folio/"> Asignación de Folios </a></li></ul></i>'
         if (page == 'servicio') {
             htm += '<li class = "has-children current-menu-item"> <a href = ""> Servicios </a>'
         } else {

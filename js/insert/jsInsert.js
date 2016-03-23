@@ -92,7 +92,7 @@
 			var tomos=tomo.value;
 			var input = document.getElementById("siVolumenesPublicacion1");
 
-			if(tomos=="CXX"){//104
+			if(tomos=="CXX(2010)"){//104
 			cual = eval(cual.value)
 			var nuevaOpcion = FechasPublicaciones2010[cual].fecha;
 			donde.value=nuevaOpcion;
@@ -100,7 +100,7 @@
 			input.setAttribute("max", FechasPublicaciones2010.length-1);
 			}
 
-			if(tomos=="CXXI"){//104
+			if(tomos=="CXXI(2011)"){//104
 			cual = eval(cual.value)
 			var nuevaOpcion = FechasPublicaciones2011[cual].fecha;
 			donde.value=nuevaOpcion;
@@ -108,7 +108,7 @@
 			input.setAttribute("max", FechasPublicaciones2011.length-1);
 			}
 
-			if(tomos=="CXXII"){//104
+			if(tomos=="CXXII(2012)"){//104
 			cual = eval(cual.value)
 			var nuevaOpcion = FechasPublicaciones2012[cual].fecha;
 			donde.value=nuevaOpcion;
@@ -116,7 +116,7 @@
 			input.setAttribute("max", FechasPublicaciones2012.length-1);
 			}
 
-			if(tomos=="CXXIII"){//104
+			if(tomos=="CXXIII(2013)"){//104
 			cual = eval(cual.value)
 			var nuevaOpcion = FechasPublicaciones2013[cual].fecha;
 			donde.value=nuevaOpcion;
@@ -124,7 +124,7 @@
 			input.setAttribute("max", FechasPublicaciones2013.length-1);
 			}
 
-			if(tomos=="CXXIV"){ //105
+			if(tomos=="CXXIV(2014)"){ //105
 			cual = eval(cual.value)
 			var nuevaOpcion = FechasPublicaciones2014[cual].fecha;
 			donde.value=nuevaOpcion;
@@ -132,7 +132,7 @@
 			input.setAttribute("max", FechasPublicaciones2014.length-1);
 			}
 			
-			if(tomos=="CXXV"){//104
+			if(tomos=="CXXV(2015)"){//104
 			cual = eval(cual.value)
 			var nuevaOpcion = FechasPublicaciones[cual].fecha;
 			donde.value=nuevaOpcion;
@@ -140,7 +140,7 @@
 			input.setAttribute("max", FechasPublicaciones.length-1);
 			}
 
-			if(tomos=="CXXVI"){//104
+			if(tomos=="CXXVI(2016)"){//104
 			cual = eval(cual.value)
 			var nuevaOpcion = FechasPublicaciones2016[cual].fecha;
 			donde.value=nuevaOpcion;
@@ -148,7 +148,7 @@
 			input.setAttribute("max", FechasPublicaciones2016.length-1);
 			}
 
-			if(tomos=="CXXVII"){//104
+			if(tomos=="CXXVII(2017)"){//104
 			cual = eval(cual.value)
 			var nuevaOpcion = FechasPublicaciones2017[cual].fecha;
 			donde.value=nuevaOpcion;

@@ -1,5 +1,5 @@
-//var s = "http://127.0.0.1:8020/Servidor/";
-var s = "http://periodicooficial.zacatecas.gob.mx/";
+var s = "http://127.0.0.1:8020/Servidor/";
+//var s = "http://periodicooficial.zacatecas.gob.mx/";
 function eliminarCookies(){
 
 	eliminarCookie("usuario");
@@ -90,6 +90,7 @@ function verificarLogin(){
 	if (!checkCookie()) {
 		alert('Inicia Sesion: ');
        window.location=s+"login.html";
+
 	}
 
 }

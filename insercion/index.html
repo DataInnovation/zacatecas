@@ -271,7 +271,9 @@
                         daysOfWeekDisabled: "0",
                         autoclose: true,
                         orientation: "top auto"
-                    });			
+                    });		
+                    document.getElementById("usuario").value = getCookie('usuario');
+                    document.getElementById("password").value = getCookie('password');	
            });            
 
             
@@ -286,7 +288,7 @@
 			}
 		}		
 		verificarLogin();
-	    </script>
 
+		</script>
 </body>
 </html>

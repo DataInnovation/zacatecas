@@ -72,13 +72,10 @@
 													<select class="input-line js-input" name="categoria">
 														<option disabled selected>Categoria:</option>
 														<option value="LeyesEstatales">Leyes Estatales</option>
-														<option value="ReglamentosEstatales">Reglamentos
-															Estatales</option>
+														<option value="ReglamentosEstatales">Reglamentos Estatales</option>
 														<option value="Codigos">Codigos</option>
-														<option value="BandosPoliciaybuenGobierno">Bandos
-															Policia y Buen Gobierno Municipal</option>
-														<option value="LeyesReglamentarias">Leyes
-															Reglamentarias</option>
+														<option value="BandosPoliciaybuenGobierno">Bandos Policia y Buen Gobierno Municipal</option>
+														<option value="LeyesReglamentarias">Leyes Reglamentarias</option>
 														<option value="ReglamentosMunicipales">ReglamentosMunicipales</option>
 
 													</select>
@@ -88,22 +85,19 @@
 											<div class="row">
 
 												<div class="col-sm-12">
-													<input class="input-line js-input" type="text"
-														name="descripcion" placeholder="Descripcion:" />
+													<input class="input-line js-input" type="text" name="descripcion" placeholder="Descripcion:" />
 												</div>
 
 											</div>
 
 											<div class="submit-button">
-												<input type="submit" value="Buscar"
-													onclick="makeCorsRequest('http://periodicooficial.zacatecas.gob.mx:9000/busqueda/leyes','lista','dataForm')" />
+												<input type="submit" value="Buscar" onclick="makeCorsRequest('http://periodicooficial.zacatecas.gob.mx:9000/busqueda/leyes','lista','dataForm')" />
 												<i class="icon icon-search"></i>
 											</div>
 
 											<div class="submit-button">
-												<input type="button" value="Siguiente"
-													onclick="window.location.href='../busqueda-leyes/'" /> <i
-													class="icon icon-pencil"></i>
+												<input type="button" value="Siguiente" onclick="window.location.href='../busqueda-leyes/'" /> 
+												<i class="icon icon-pencil"></i>
 											</div>
 
 										</form>
@@ -121,10 +115,7 @@
 											<button onclick="anteriorPag('lista')">
 												<img src="../img/previous.png" />
 											</button>
-											<input type="number" style="width: 40px; height: 15px"
-												size="3" min="1" maxlength="3" id="indiceP" placeholder="1"
-												value="" onChange="indicePag('lista',indiceP);" />
-
+											<input type="number" style="width: 40px; height: 15px" size="3" min="1" maxlength="3" id="indiceP" placeholder="1" value="" onChange="indicePag('lista',indiceP);" />
 											<button onclick="siguientePag('lista')">
 												<img src="../img/nextt.png" />
 											</button>

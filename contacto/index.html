@@ -82,7 +82,7 @@
 										</div>
 
 										<div class="submit-button">
-											<input type="submit" value="Enviar" onclick="makeCorsRequest('http://periodicooficial.zacatecas.gob.mx:9000/enviar/comentarios','dataForm')"/>
+											<input type="submit" value="Enviar" onclick="enviarCorreo('http://periodicooficial.zacatecas.gob.mx:9000/enviar/comentarios','dataForm')"/>
 											<i class="icon icon-mail"></i>
 										</div>
 										<div class="submit-button">
@@ -122,40 +122,18 @@
 	<script src="../js/options.js"></script>
 
 	<script type="text/javascript">
-		function createCORSRequest(method, url) {
-		  var xhr = new XMLHttpRequest();
-		  if ("withCredentials" in xhr) {
-		    // Check if the XMLHttpRequest object has a "withCredentials" property.
-		    // "withCredentials" only exists on XMLHTTPRequest2 objects.
-		    xhr.open(method, url, true);
-		  } else if (typeof XDomainRequest != "undefined") {
-		    // Otherwise, check if XDomainRequest.
-		    // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
-		    xhr = new XDomainRequest();
-		    xhr.open(method, url);
-		  } else {
-		    // Otherwise, CORS is not supported by the browser.
-		    xhr = null;
-		  }
-		  return xhr;
+	function enviarCorreo(url,form){
+		var xhr = new XMLHttpRequest();
+		var formElement = document.getElementById(form);
+	  	var formData = new FormData(formElement);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				var response = JSON.parse(xhr.responseText);
+				document.getElementById("dataForm").innerHTML = response.resultado;
+			}
 		}
-		function makeCorsRequest(url,form) {
-		  	var xhr = createCORSRequest('POST', url);
-		  	if (!xhr) {
-		    	alert('CORS not supported');
-		    	return;
-		  	}
-		  	var formElement = document.getElementById(form);
-		  	var formData = new FormData(formElement);
-		  	// Response handlers.
-			xhr.onload = function() {
-		  	var response = JSON.parse( xhr.responseText);
-        	};
-		  	xhr.onerror = function() {
-		    alert('Woops, there was an error making the request.');
-		  	};
-		  	xhr.send(formData);
-			document.getElementById("dataForm").innerHTML = '<strong>Enviado.</strong>';
+		xhr.open("POST", url, true);
+		xhr.send(formData);
 		}
     </script>
 </body>

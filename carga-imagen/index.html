@@ -85,6 +85,12 @@
 															disabled>
 													</div>
 												</div>
+												<div class="col-sm-12">
+													<div class="input-group">
+														<progress id="progress" value="0"></progress>
+													</div>
+												</div>
+
 											</div>
 
 											<br>
@@ -137,6 +143,22 @@
 	<script src="../js/knob.js"></script>
 	<script src="../js/cookies/cookies.js"></script>
 	<script src="../js/options.js"></script>
+	<style>
+	progress[value]::-webkit-progress-bar{
+    display: block;
+    text-align: center;
+    height: 30px;
+    border-radius: 8px;
+    background: #0088CC;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    transition: width .3s;
+	}
+	#progress.hide {
+    	opacity: 0;
+    	transition: opacity 1.3s;
+	}
+	</style>
+
 
 	<script language="javascript">
 		verificarLogin();
@@ -195,6 +217,19 @@
 				alert('CORS not supported');
 				return;
 			}
+			xhr.upload.onprogress = function (e) {
+			    if (e.lengthComputable) {
+			        progressBar.max = e.total;
+			        progressBar.value = e.loaded;
+			    }
+			};
+			xhr.upload.onloadstart = function (e) {
+			    progressBar.value = 0;
+			};
+			xhr.upload.onloadend = function (e) {
+			    progressBar.value = e.loaded;
+			};
+			
 			var formElement = document.getElementById(form);
 			var formData = new FormData(formElement);
 

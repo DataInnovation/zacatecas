@@ -58,8 +58,8 @@
 									<h4 class="caption">Carga Nota de Sumario:</h4>
 
 									<form id="form-carga-doc" name="formcargadoc" class="respond-form" method="post" action="">
-                                    	<input type="hidden"  name="usuario" value="admin">
-                                    	<input type="hidden"  name="password" value="pofzacatecas123">
+                                    	<input type="hidden" id="usuario"  name="usuario" value="">
+                                    	<input type="hidden" id="password" name="password" value="">
                                          
                                         
 										<div class="col-sm-12">
@@ -70,7 +70,6 @@
 											
 										 <textarea class="input-line js-input" name="sumario"  placeholder="Nota sumario:"></textarea>
 										
-					
 										<br><br><br>
                                         
 										<div class="submit-button">
@@ -122,7 +121,6 @@
 	<script src="../js/options.js"></script>
 	<script src="../js/insert/jsInsert.js"></script>
 	<script src="../js/calendario/CalendarioPublicaciones.js"></script>
-    
     <script language="javascript">
 
 verificarLogin();
@@ -216,8 +214,8 @@ verificarLogin();
 		  	xhr.send(formData);
 		}
 			
-	
-		
+		document.getElementById("usuario").value = getCookie('usuario');
+		document.getElementById("password").value = getCookie('password');
 	</script>
     
 </body>

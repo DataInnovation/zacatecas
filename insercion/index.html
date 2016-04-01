@@ -60,8 +60,8 @@
 									<h4 class="caption">Capture la información  a publicar:</h4>
 
 									<form class="respond-form" id="dataForm" name="dataForm">
-                                    	<input type="hidden"  name="usuario" value="admin">
-                                    	<input type="hidden"  name="password" value="pofzacatecas123">
+                                    	<input type="hidden" id="usuario" name="usuario" value="">
+                                    	<input type="hidden" id="password" name="password" value="">
                                     	
                                         <input type="hidden"  name="path" value="/Sitios/periodico-zacatecas/documentLibrary/Solicitudes de Insercion">
                                         
@@ -108,7 +108,7 @@
                                                 </select>
 											</div>
 											<div class="col-sm-12">
-                                                <select class="input-line js-input"  id="idJuzgados" name="siJuzgado" >
+                                                <select class="input-line js-input"  id="idJuzgados" name="siJuzgado">
                                                     <option disabled>Juzgado:</option>
                                                 </select>
                                             </div>
@@ -194,7 +194,6 @@
                                                     </i></span>
                                                 </div>
                                             </div>
-                                            
 										</div>
 										
                                             
@@ -208,7 +207,7 @@
 										<div class="submit-button">
                                         	<input type="button" value="Siguiente" onclick="window.location.href='../insercion/'"/>
                                             <i class="icon icon-pencil"></i>
-										</div>	
+										</div>
 									</form>
 									<ul id="resultado"></ul>
 									
@@ -259,7 +258,6 @@
 	<script src="../js/tipos/tipos_inserciones.js"></script>   
 	<script src="../js/juzgados/juzgados.js"></script>   
 	<script src="../js/calendario/CalendarioPublicaciones.js"></script>   
-	
 	
 	<script type="text/javascript">
 	

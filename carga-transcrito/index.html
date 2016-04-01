@@ -58,8 +58,8 @@
 									<h4 class="caption">Carga Transcrito:</h4>
 
 									<form id="form-carga-doc" name="formcargadoc" class="respond-form" method="post" action="">
-                                    	<input type="hidden"  name="usuario" value="admin">
-                                    	<input type="hidden"  name="password" value="pofzacatecas123">
+                                    	<input type="hidden" id="usuario" name="usuario" value="">
+                                    	<input type="hidden" id="password" name="password" value="">
                                          
                                         <input type="hidden"  name="path" value="/Sitios/periodico-zacatecas/documentLibrary/Transcritos">
 										<div class="row">
@@ -79,6 +79,11 @@
                                                     <input type="text" class="form-control" name="labelFile" disabled>
                                                 </div>
                                             </div>
+                                 				<div class="col-sm-12">
+													<div class="input-group">
+														<progress id="progress" value="0"></progress>
+													</div>
+												</div>
                                         </div>
 
 										<br>
@@ -130,6 +135,21 @@
 	<script src="../js/cookies/cookies.js"></script>
 	<script src="../js/options.js"></script>
     
+    <style>
+    progress[value]::-webkit-progress-bar{
+    display: block;
+    text-align: center;
+    height: 30px;
+    border-radius: 8px;
+    background: #0088CC;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    transition: width .3s;
+    }
+	#progress.hide {
+    	opacity: 0;
+    	transition: opacity 1.3s;
+	}
+    </style>
     <script language="javascript">
 
 verificarLogin();
@@ -176,6 +196,19 @@ verificarLogin();
 		    	alert('CORS not supported');
 		    	return;
 		  	}
+			xhr.upload.onprogress = function (e) {
+			    if (e.lengthComputable) {
+			        progressBar.max = e.total;
+			        progressBar.value = e.loaded;
+			    }
+			};
+			xhr.upload.onloadstart = function (e) {
+			    progressBar.value = 0;
+			};
+			xhr.upload.onloadend = function (e) {
+			    progressBar.value = e.loaded;
+			};
+
 		  	var formElement = document.getElementById(form);
 		  	var formData = new FormData(formElement);
 
@@ -194,8 +227,8 @@ verificarLogin();
 		  	xhr.send(formData);
 		}
 
-	
-		
+		document.getElementById("usuario").value = getCookie('usuario');
+		document.getElementById("password").value = getCookie('password');
 	</script>
     
 </body>

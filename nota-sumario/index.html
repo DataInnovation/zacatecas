@@ -144,6 +144,8 @@ verificarLogin();
 				}
 				
 			});
+			document.getElementById("usuario").value = getCookie('usuario');
+			document.getElementById("password").value = getCookie('password');
 		});
 		
 
@@ -214,8 +216,6 @@ verificarLogin();
 		  	xhr.send(formData);
 		}
 			
-		document.getElementById("usuario").value = getCookie('usuario');
-		document.getElementById("password").value = getCookie('password');
 	</script>
     
 </body>

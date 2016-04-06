@@ -173,7 +173,9 @@ verificarLogin();
 				}
 				
 			});
-		});
+			document.getElementById("usuario").value = getCookie('usuario');
+			document.getElementById("password").value = getCookie('password');
+			});
 		
 
 		function createCORSRequest(method, url) {
@@ -227,8 +229,6 @@ verificarLogin();
 		  	xhr.send(formData);
 		}
 
-		document.getElementById("usuario").value = getCookie('usuario');
-		document.getElementById("password").value = getCookie('password');
 	</script>
     
 </body>

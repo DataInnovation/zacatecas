@@ -61,8 +61,8 @@
 
 										<form id="form-carga-doc" name="formcargadoc"
 											class="respond-form" method="post" action="">
-											<input type="hidden" name="usuario" value="admin"> <input
-												type="hidden" name="password" value="pofzacatecas123">
+											<input type="hidden" id="usuario" name="usuario" value=""> <input
+												type="hidden" id="password" name="password" value="">
 
 											<input type="hidden" name="path"
 												value="/Sitios/periodico-zacatecas/documentLibrary/Imagenes de Insercion">
@@ -173,29 +173,23 @@
 					input.trigger('fileselect', [ numFiles, label ]);
 				});
 
-		$(document)
-				.ready(
-						function() {
-							$('.btn-file :file')
-									.on(
-											'fileselect',
-											function(event, numFiles, label) {
-
-												var input = $(this).parents(
-														'.input-group').find(
-														':text'), log = numFiles > 1 ? numFiles
-														+ ' files selected'
-														: label;
-
-												if (input.length) {
-													input.val(log);
-												} else {
-													if (log)
-														alert(log);
-												}
-
-											});
+		$(document).ready(function() {
+				$('.btn-file :file').on(
+						'fileselect',
+						function(event, numFiles, label) {
+						var input = $(this).parents(
+						'.input-group').find(
+						':text'), log = numFiles > 1 ? numFiles	+ ' files selected': label;
+						if (input.length) {
+							input.val(log);
+						} else {
+							if (log)
+								alert(log);
+							}
 						});
+		                document.getElementById("usuario").value = getCookie('usuario');
+		                document.getElementById("password").value = getCookie('password');	
+					});
 
 		function createCORSRequest(method, url) {
 			var xhr = new XMLHttpRequest();

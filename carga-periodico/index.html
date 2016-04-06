@@ -61,8 +61,8 @@
 
 										<form id="form-carga-doc" name="formcargadoc"
 											class="respond-form" method="post" action="">
-											<input type="hidden" name="usuario" value="admin"> <input
-												type="hidden" name="password" value="pofzacatecas123">
+											<input type="hidden" id="usuario" name="usuario" value=""> <input
+												type="hidden" id="password" name="password" value="">
 
 											<input type="hidden" name="path"
 												value="/Sitios/periodico-zacatecas/documentLibrary/Periodicos">
@@ -227,6 +227,8 @@
 												}
 
 											});
+	                    document.getElementById("usuario").value = getCookie('usuario');
+	                    document.getElementById("password").value = getCookie('password');	
 						});
 
 		function createCORSRequest(method, url) {

@@ -142,16 +142,20 @@
 											</div>
 
 											<br>
+											<div id="loader" class="center-block" style="width: 200px; text-align:center; display:none;">
+												<img src="../img/load.gif" width="30px">
+												<br/>
+												<label>Espere un momento por favor...</label>
+											</div>
+
 
 											<div class="submit-button">
-												<input type="button" value="Guardar"
-													onClick="makeCorsRequest('http://periodicooficial.zacatecas.gob.mx:9000/upload/suplemento', 'form-carga-doc')" />
+												<input id="btnGuardar" type="button" value="Guardar" onClick="makeCorsRequest('http://periodicooficial.zacatecas.gob.mx:9000/upload/suplemento', 'form-carga-doc')"/>
 												<i class="icon icon-pencil"></i>
 											</div>
 
 											<div class="submit-button">
-												<input type="button" value="Siguiente"
-													onclick="window.location.href='../carga-suplementos/'" />
+												<input type="button" value="Siguiente" onclick="window.location.href='../carga-suplementos/'"/>
 												<i class="icon icon-pencil"></i>
 											</div>
 
@@ -201,6 +205,11 @@
 	}
 	</style>
 	<script language="javascript">
+
+           	$("form").submit(function(event) {
+			$("#loader").show();
+			$("#btnGuardar").prop("disabled",true);
+			});
 
 		$(document).on(
 				'change',

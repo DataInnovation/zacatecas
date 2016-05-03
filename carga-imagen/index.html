@@ -96,18 +96,14 @@
 											<br>
 
 											<div class="submit-button">
-												<input type="button" value="Guardar"
-													onClick="makeCorsRequest('http://periodicooficial.zacatecas.gob.mx:9000/upload/imagenInsercion', 'form-carga-doc')" />
+												<input type="button" value="Guardar" onClick="makeCorsRequest('http://periodicooficial.zacatecas.gob.mx:9000/upload/imagenInsercion', 'form-carga-doc')"/>
 												<i class="icon icon-pencil"></i>
 											</div>
 
 											<div class="submit-button">
 												<input type="button" value="Siguiente"
-													onclick="window.location.href='../carga-imagen/'" /> <i
-													class="icon icon-pencil"></i>
+													onclick="window.location.href='../carga-imagen/'" /> <i class="icon icon-pencil"></i>
 											</div>
-
-
 										</form>
 										<ul id="resultado"></ul>
 
@@ -190,7 +186,7 @@
 		                document.getElementById("usuario").value = getCookie('usuario');
 		                document.getElementById("password").value = getCookie('password');	
 					});
-
+					
 		function createCORSRequest(method, url) {
 			var xhr = new XMLHttpRequest();
 			if ("withCredentials" in xhr) {
